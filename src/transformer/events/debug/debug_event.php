@@ -28,6 +28,16 @@ namespace src\transformer\events\debug;
 use src\transformer\utils as utils;
 
 /**
+ * Replaces all backslashes with forward slashes in a given string.
+ *
+ * @param string $string The input string containing backslashes.
+ * @return string The modified string with backslashes replaced by forward slashes.
+ */
+function reverseBackslashes($string) {
+    return str_replace('\\', '/', $string);
+}
+
+/**
  * Transformer for Any Event to emit debug xAPI statements.
  * Only used in development.
  *
@@ -43,7 +53,7 @@ function debug_event(array $config, \stdClass $event) {
 
     return [[
         'object' => [
-            'id' => 'http://www.yetanalytics.com/test_events/badge_awarded'
+            'id' => 'http://www.yetanalytics.com/test_events/debug' . reverseBackslashes($event->eventname)
         ],
         'actor' => [
             'mbox' => 'mailto:tester@example.com'
