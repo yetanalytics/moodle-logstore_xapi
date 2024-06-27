@@ -60,6 +60,7 @@ function debug_event(array $config, \stdClass $event) {
         'context' => [
             'extensions' => [
                 'http://www.yetanalytics.com/debug_objects/event' => $event,
+                'http://www.yetanalytics.com/debug_objects/event_other' => unserialize($event->other),
                 'http://www.yetanalytics.com/debug_objects/event_object' => $event_object
             ]
         ]
