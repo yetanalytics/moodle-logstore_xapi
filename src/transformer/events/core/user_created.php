@@ -45,7 +45,7 @@ function user_created(array $config, \stdClass $event) {
         'verb' => [
             'id' => 'http://adlnet.gov/expapi/verbs/registered',
             'display' => [
-                $lang => 'registered to'
+                $lang => 'registered to',
             ],
         ],
         'object' => utils\get_activity\site($config),
@@ -54,9 +54,9 @@ function user_created(array $config, \stdClass $event) {
             'extensions' => utils\extensions\base($config, $event, null),
             'contextActivities' => [
                 'category' => [
-                    utils\get_activity\source($config)
-                ]
+                    utils\get_activity\source($config),
+                ],
             ],
-        ]
+        ],
     ]];
 }

@@ -53,13 +53,11 @@ function load(array $config, array $events) {
         $auth = base64_encode($username.':'.$password);
         $postdata = json_encode($statements);
 
-
-
         if ($postdata === false) {
             throw new \Exception('JSON encode error: '.json_last_error_msg());
         }
 
-        //Old Client Code
+        // Old Client Code
         /*$request = new \curl();
         print_r($url);
         $responsetext = $request->post($url, $postdata, [

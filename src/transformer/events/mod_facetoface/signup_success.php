@@ -46,7 +46,7 @@ function signup_success(array $config, \stdClass $event) {
         'verb' => [
             'id' => 'http://adlnet.gov/expapi/verbs/registered',
             'display' => [
-                $lang => 'registered to'
+                $lang => 'registered to',
             ],
         ],
         'object' => utils\get_activity\course_module(
@@ -64,9 +64,9 @@ function signup_success(array $config, \stdClass $event) {
                     utils\get_activity\course($config, $course),
                 ],
                 'category' => [
-                    utils\get_activity\source($config)
-                ]
+                    utils\get_activity\source($config),
+                ],
             ],
-        ]
+        ],
     ]];
 }

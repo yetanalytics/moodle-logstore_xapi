@@ -51,7 +51,7 @@ function multichoice(array $config, \stdClass $event, \stdClass $feedbackvalue, 
         'verb' => [
             'id' => 'http://adlnet.gov/expapi/verbs/answered',
             'display' => [
-                $lang => 'answered'
+                $lang => 'answered',
             ],
         ],
         'object' => [
@@ -82,8 +82,8 @@ function multichoice(array $config, \stdClass $event, \stdClass $feedbackvalue, 
                 ],
                 'category' => [
                     utils\get_activity\source($config),
-                ]
+                ],
             ],
-        ]
+        ],
     ]];
 }

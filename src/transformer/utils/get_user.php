@@ -35,7 +35,7 @@ namespace src\transformer\utils;
  */
 function get_user(array $config, \stdClass $user) {
 
-    $actor = array();
+    $actor = [];
 
     // Name
     if (array_key_exists('send_name', $config) && $config['send_name'] == true) {
@@ -53,14 +53,14 @@ function get_user(array $config, \stdClass $user) {
     // account
 
     if (array_key_exists('account_homepage', $config) && !empty($config['account_homepage'])) {
-        $homePage = $config['account_homepage'];
+        $homepage = $config['account_homepage'];
     } else {
-        $homePage = $config['app_url'];
+        $homepage = $config['app_url'];
     }
 
     if (array_key_exists('send_username', $config) && $config['send_username'] == true) {
         $actor['account'] = [
-            'homePage' => $homePage,
+            'homePage' => $homepage,
             'name' => $user->username,
         ];
         return $actor;

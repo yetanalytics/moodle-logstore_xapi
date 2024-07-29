@@ -42,14 +42,14 @@ function get_multichoice_definition(array $config, \stdClass $questionattempt,
     if ($config['send_response_choices']) {
         $repo = $config['repo'];
         $answers = $repo->read_records('question_answers', [
-            'question' => $questionattempt->questionid
+            'question' => $questionattempt->questionid,
         ]);
         $choices = array_map(function ($answer) use ($lang) {
             return [
                 "id" => "$answer->id",
                 "description" => [
-                    $lang => utils\get_string_html_removed($answer->answer)
-                ]
+                    $lang => utils\get_string_html_removed($answer->answer),
+                ],
             ];
         }, $answers);
 
@@ -73,7 +73,7 @@ function get_multichoice_definition(array $config, \stdClass $questionattempt,
             'interactionType' => $interactiontype,
             'correctResponsesPattern' => [$correctresponsepattern],
             // Need to pull out id's that are appended during array_map so json parses it correctly as an array.
-            'choices' => array_values($choices)
+            'choices' => array_values($choices),
         ];
     }
 
@@ -82,6 +82,6 @@ function get_multichoice_definition(array $config, \stdClass $questionattempt,
         'name' => [
             $lang => utils\get_string_html_removed($question->questiontext),
         ],
-        'interactionType' => $interactiontype
+        'interactionType' => $interactiontype,
     ];
 }

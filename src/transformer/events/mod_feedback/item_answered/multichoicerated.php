@@ -61,7 +61,7 @@ function multichoicerated(array $config, \stdClass $event, \stdClass $feedbackva
         'verb' => [
             'id' => 'http://adlnet.gov/expapi/verbs/answered',
             'display' => [
-                $lang => 'answered'
+                $lang => 'answered',
             ],
         ],
         'object' => [
@@ -72,7 +72,7 @@ function multichoicerated(array $config, \stdClass $event, \stdClass $feedbackva
                     $lang => $feedbackitem->name,
                 ],
                 'interactionType' => 'choice',
-            ]
+            ],
         ],
         'result' => [
             'response' => $selectedchoice->name,
@@ -93,8 +93,8 @@ function multichoicerated(array $config, \stdClass $event, \stdClass $feedbackva
                 ],
                 'category' => [
                     utils\get_activity\source($config),
-                ]
+                ],
             ],
-        ]
+        ],
     ]];
 }

@@ -49,7 +49,7 @@ function course_module_completion_updated(array $config, \stdClass $event) {
         'verb' => [
             'id' => 'http://adlnet.gov/expapi/verbs/completed',
             'display' => [
-                $lang => 'completed'
+                $lang => 'completed',
             ],
         ],
         'object' => utils\get_activity\course_module(
@@ -68,8 +68,8 @@ function course_module_completion_updated(array $config, \stdClass $event) {
                 ],
                 'category' => [
                     utils\get_activity\source($config),
-                ]
+                ],
             ],
-        ]
+        ],
     ]];
 }

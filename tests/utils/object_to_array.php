@@ -30,7 +30,7 @@ namespace TestUtils;
  * @param \stdClass $data the object
  * @return array
  */
-function objectToArray($data) {
+function objecttoarray($data) {
     // If the data is an object, convert it into an array
     if ($data instanceof \stdClass) {
         $data = (array)$data;

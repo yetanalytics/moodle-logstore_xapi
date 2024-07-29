@@ -39,13 +39,13 @@ use src\transformer\utils as utils;
  */
 function get_verb(string $verb, array $config, string $lang) {
 
-    $output = array();
+    $output = [];
     switch ($verb) {
         case 'completed':
             $output = [
                 'id' => 'http://adlnet.gov/expapi/verbs/completed',
                 'display' => [
-                    $lang => 'completed'
+                    $lang => 'completed',
                 ],
             ];
             break;
@@ -54,8 +54,8 @@ function get_verb(string $verb, array $config, string $lang) {
             $output = [
                 'id' => 'https://brindlewaye.com/xAPITerms/verbs/loggedin/',
                 'display' => [
-                    $lang => 'logged into'
-                ]
+                    $lang => 'logged into',
+                ],
             ];
 
             // JISC specific verb id.
@@ -68,7 +68,7 @@ function get_verb(string $verb, array $config, string $lang) {
             $output = [
                 'id' => 'https://brindlewaye.com/xAPITerms/verbs/loggedout/',
                 'display' => [
-                    $lang => 'logged out of'
+                    $lang => 'logged out of',
                 ],
             ];
 
@@ -82,7 +82,7 @@ function get_verb(string $verb, array $config, string $lang) {
             $output = [
                 'id' => 'http://activitystrea.ms/schema/1.0/receive',
                 'display' => [
-                    $lang => 'received'
+                    $lang => 'received',
                 ],
             ];
             break;
@@ -91,7 +91,7 @@ function get_verb(string $verb, array $config, string $lang) {
             $output = [
                 'id' => 'http://adlnet.gov/expapi/verbs/scored',
                 'display' => [
-                    $lang => 'attained grade for'
+                    $lang => 'attained grade for',
                 ],
             ];
             break;
@@ -100,7 +100,7 @@ function get_verb(string $verb, array $config, string $lang) {
             $output = [
                 'id' => 'http://activitystrea.ms/schema/1.0/start',
                 'display' => [
-                    $lang => 'started'
+                    $lang => 'started',
                 ],
             ];
             break;
@@ -109,7 +109,7 @@ function get_verb(string $verb, array $config, string $lang) {
             $output = [
                 'id' => 'http://activitystrea.ms/schema/1.0/submit',
                 'display' => [
-                    $lang => 'submitted'
+                    $lang => 'submitted',
                 ],
             ];
             break;
@@ -118,7 +118,7 @@ function get_verb(string $verb, array $config, string $lang) {
             $output = [
                 'id' => 'http://id.tincanapi.com/verb/viewed',
                 'display' => [
-                    $lang => 'viewed'
+                    $lang => 'viewed',
                 ],
             ];
             break;

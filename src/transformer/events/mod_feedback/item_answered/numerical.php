@@ -49,7 +49,7 @@ function numerical(array $config, \stdClass $event, \stdClass $feedbackvalue, \s
         'verb' => [
             'id' => 'http://adlnet.gov/expapi/verbs/answered',
             'display' => [
-                $lang => 'answered'
+                $lang => 'answered',
             ],
         ],
         'object' => [
@@ -80,8 +80,8 @@ function numerical(array $config, \stdClass $event, \stdClass $feedbackvalue, \s
                 ],
                 'category' => [
                     utils\get_activity\source($config),
-                ]
+                ],
             ],
-        ]
+        ],
     ]];
 }

@@ -49,7 +49,7 @@ function textfield(array $config, \stdClass $event, \stdClass $feedbackvalue, \s
         'verb' => [
             'id' => 'http://adlnet.gov/expapi/verbs/answered',
             'display' => [
-                $lang => 'answered'
+                $lang => 'answered',
             ],
         ],
         'object' => [
@@ -60,7 +60,7 @@ function textfield(array $config, \stdClass $event, \stdClass $feedbackvalue, \s
                     $lang => $feedbackitem->name,
                 ],
                 'interactionType' => 'fill-in',
-            ]
+            ],
         ],
         'result' => [
             'response' => $feedbackvalue->value,
@@ -77,8 +77,8 @@ function textfield(array $config, \stdClass $event, \stdClass $feedbackvalue, \s
                 ],
                 'category' => [
                     utils\get_activity\source($config),
-                ]
+                ],
             ],
-        ]
+        ],
     ]];
 }

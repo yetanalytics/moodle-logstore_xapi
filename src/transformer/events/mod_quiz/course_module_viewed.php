@@ -55,8 +55,8 @@ function course_module_viewed(array $config, \stdClass $event) {
                 ],
                 'category' => [
                     utils\get_activity\source($config),
-                ]
+                ],
             ],
-        ]
+        ],
     ]];
 }

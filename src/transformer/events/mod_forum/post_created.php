@@ -51,12 +51,12 @@ function post_created(array $config, \stdClass $event) {
         'verb' => [
             'id' => 'http://id.tincanapi.com/verb/replied',
             'display' => [
-                $lang => 'replied to'
+                $lang => 'replied to',
             ],
         ],
         'object' => utils\get_activity\course_discussion($config, $course, $discussion),
         'result' => [
-            'response' => utils\get_activity\forum_discussion_post_reply($config, $post)
+            'response' => utils\get_activity\forum_discussion_post_reply($config, $post),
         ],
         'context' => [
             'language' => $lang,
@@ -65,15 +65,15 @@ function post_created(array $config, \stdClass $event) {
                 'grouping' => [
                     utils\get_activity\site($config),
                     utils\get_activity\course($config, $course),
-                    utils\get_activity\course_forum($config, $course, $event->contextinstanceid)
+                    utils\get_activity\course_forum($config, $course, $event->contextinstanceid),
                 ],
                 'other' => [
                     utils\get_activity\forum_discussion_post($config, $discussionid, $post),
                 ],
                 'category' => [
                     utils\get_activity\source($config),
-                ]
+                ],
             ],
-        ]
+        ],
     ]];
 }

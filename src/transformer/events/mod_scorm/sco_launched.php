@@ -48,7 +48,7 @@ function sco_launched(array $config, \stdClass $event) {
         'verb' => [
             'id' => 'http://adlnet.gov/expapi/verbs/launched',
             'display' => [
-                $lang => 'launched'
+                $lang => 'launched',
             ],
         ],
         'object' => utils\get_activity\course_scorm($config, $event->contextinstanceid, $scorm, $lang),
@@ -62,8 +62,8 @@ function sco_launched(array $config, \stdClass $event) {
                 ],
                 'category' => [
                     utils\get_activity\source($config),
-                ]
+                ],
             ],
-        ]
+        ],
     ]];
 }

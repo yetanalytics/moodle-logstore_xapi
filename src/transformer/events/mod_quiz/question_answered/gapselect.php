@@ -52,7 +52,7 @@ function gapselect(array $config, \stdClass $event, \stdClass $questionattempt, 
         'verb' => [
             'id' => 'http://adlnet.gov/expapi/verbs/answered',
             'display' => [
-                $lang => 'answered'
+                $lang => 'answered',
             ],
         ],
         'object' => [
@@ -79,8 +79,8 @@ function gapselect(array $config, \stdClass $event, \stdClass $questionattempt, 
                 ],
                 'category' => [
                     utils\get_activity\source($config),
-                ]
+                ],
             ],
-        ]
+        ],
     ]];
 }

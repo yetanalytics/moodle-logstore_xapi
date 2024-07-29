@@ -50,7 +50,7 @@ function truefalse(array $config, \stdClass $event, \stdClass $questionattempt, 
         'verb' => [
             'id' => 'http://adlnet.gov/expapi/verbs/answered',
             'display' => [
-                $lang => 'answered'
+                $lang => 'answered',
             ],
         ],
         'object' => [
@@ -61,7 +61,7 @@ function truefalse(array $config, \stdClass $event, \stdClass $questionattempt, 
                     $lang => utils\get_string_html_removed($question->questiontext),
                 ],
                 'interactionType' => 'true-false',
-            ]
+            ],
         ],
         'result' => [
             'response' => utils\get_string_html_removed($questionattempt->responsesummary),
@@ -84,8 +84,8 @@ function truefalse(array $config, \stdClass $event, \stdClass $questionattempt, 
                 ],
                 'category' => [
                     utils\get_activity\source($config),
-                ]
+                ],
             ],
-        ]
+        ],
     ]];
 }

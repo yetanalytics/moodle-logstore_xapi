@@ -49,7 +49,7 @@ function textarea(array $config, \stdClass $event, \stdClass $feedbackvalue, \st
         'verb' => [
             'id' => 'http://adlnet.gov/expapi/verbs/answered',
             'display' => [
-                $lang => 'answered'
+                $lang => 'answered',
             ],
         ],
         'object' => [
@@ -60,7 +60,7 @@ function textarea(array $config, \stdClass $event, \stdClass $feedbackvalue, \st
                     $lang => $feedbackitem->name,
                 ],
                 'interactionType' => 'long-fill-in',
-            ]
+            ],
         ],
         'result' => [
             'response' => $feedbackvalue->value,
@@ -77,8 +77,8 @@ function textarea(array $config, \stdClass $event, \stdClass $feedbackvalue, \st
                 ],
                 'category' => [
                     utils\get_activity\source($config),
-                ]
+                ],
             ],
-        ]
+        ],
     ]];
 }

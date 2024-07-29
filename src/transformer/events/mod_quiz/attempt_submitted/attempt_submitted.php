@@ -48,7 +48,7 @@ function attempt_submitted(array $config, \stdClass $event) {
     ]);
     $attemptgrade = $repo->read_record('grade_grades', [
         'itemid' => $gradeitem->id,
-        'userid' => $event->relateduserid
+        'userid' => $event->relateduserid,
     ]);
     $lang = utils\get_course_lang($course);
 
@@ -70,8 +70,8 @@ function attempt_submitted(array $config, \stdClass $event) {
                 ],
                 'category' => [
                     utils\get_activity\source($config),
-                ]
+                ],
             ],
-        ]
+        ],
     ]];
 }

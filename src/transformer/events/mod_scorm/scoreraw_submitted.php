@@ -48,7 +48,7 @@ function scoreraw_submitted(array $config, \stdClass $event) {
         'userid' => $user->id,
         'scormid' => $event->objectid,
         'scoid' => $event->contextinstanceid,
-        'attempt' => $unserializedcmi['attemptid']
+        'attempt' => $unserializedcmi['attemptid'],
     ]);
     $rawscore = floatval($unserializedcmi['cmivalue']);
 
@@ -67,8 +67,8 @@ function scoreraw_submitted(array $config, \stdClass $event) {
                 ],
                 'category' => [
                     utils\get_activity\source($config),
-                ]
+                ],
             ],
-        ]
+        ],
     ]];
 }

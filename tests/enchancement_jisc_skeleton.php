@@ -90,17 +90,17 @@ abstract class enchancement_jisc_skeleton extends \advanced_testcase {
         global $DB;
 
         if (isset($counts->logstore_standard_log)) {
-            $logs = $DB->get_records('logstore_standard_log', array(), 'id ASC');
+            $logs = $DB->get_records('logstore_standard_log', [], 'id ASC');
             $this->assertCount($counts->logstore_standard_log, $logs);
         }
 
         if (isset($counts->logstore_xapi_log)) {
-            $logs = $DB->get_records('logstore_xapi_log', array(), 'id ASC');
+            $logs = $DB->get_records('logstore_xapi_log', [], 'id ASC');
             $this->assertCount($counts->logstore_xapi_log, $logs);
         }
 
         if (isset($counts->logstore_xapi_failed_log)) {
-            $logs = $DB->get_records('logstore_xapi_failed_log', array(), 'id ASC');
+            $logs = $DB->get_records('logstore_xapi_failed_log', [], 'id ASC');
             $this->assertCount($counts->logstore_xapi_failed_log, $logs);
         }
     }
@@ -118,7 +118,7 @@ abstract class enchancement_jisc_skeleton extends \advanced_testcase {
         $course = $generator->create_course();
         $context = \context_course::instance($course->id);
 
-        $record = (object)array(
+        $record = (object)[
             'eventname' => '\core\event\course_viewed',
             'component' => 'core',
             'action' => 'viewed',
@@ -129,8 +129,8 @@ abstract class enchancement_jisc_skeleton extends \advanced_testcase {
             'contextlevel' => $context->contextlevel,
             'contextinstanceid' => $context->instanceid,
             'userid' => $user->id,
-            'timecreated' => time()
-        );
+            'timecreated' => time(),
+        ];
         $record->logstorestandardlogid = $DB->insert_record('logstore_standard_log', $record);
         $record->type = 0;
 

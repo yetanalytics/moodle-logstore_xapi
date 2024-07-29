@@ -50,9 +50,9 @@ function attempt_reviewed(array $config, \stdClass $event) {
         'definition' => [
             'type' => 'http://activitystrea.ms/schema/1.0/review',
             'name' => [
-                $lang => 'review'
-            ]
-        ]
+                $lang => 'review',
+            ],
+        ],
     ];
 
     // Set JISC specific activity type.
@@ -77,8 +77,8 @@ function attempt_reviewed(array $config, \stdClass $event) {
                 ],
                 'category' => [
                     utils\get_activity\source($config),
-                ]
+                ],
             ],
-        ]
+        ],
     ]];
 }

@@ -27,7 +27,7 @@ foreach (glob($CFG->dirroot . '/admin/tool/log/store/xapi/tests/utils/*.php') as
     require_once($filename);
 }
 
-use \Locker\XApi\Statement as LockerStatement;
+use Locker\XApi\Statement as LockerStatement;
 use TestUtils as utils;
 
 /**
@@ -75,11 +75,11 @@ abstract class xapi_test_case extends \advanced_testcase {
         // TODO: only pull this once
         // get common event fields
         global $CFG;
-        $commonEvent = json_decode(file_get_contents($CFG->dirroot . '/admin/tool/log/store/xapi/tests/common/event.json'));
+        $commonevent = json_decode(file_get_contents($CFG->dirroot . '/admin/tool/log/store/xapi/tests/common/event.json'));
         // get this event
         $event = json_decode(file_get_contents($this->get_test_dir().'/event.json'));
         // merge and return
-        return utils\deep_merge_objects($event, $commonEvent);
+        return utils\deep_merge_objects($event, $commonevent);
     }
 
     /**
@@ -91,10 +91,10 @@ abstract class xapi_test_case extends \advanced_testcase {
         // TODO: only pull this once
         // Get common statement fields
         global $CFG;
-        $commonStatement = json_decode(file_get_contents($CFG->dirroot . '/admin/tool/log/store/xapi/tests/common/statement.json'));
-        return array_map(function ($statement) use ($commonStatement) {
+        $commonstatement = json_decode(file_get_contents($CFG->dirroot . '/admin/tool/log/store/xapi/tests/common/statement.json'));
+        return array_map(function ($statement) use ($commonstatement) {
             // add common expectations for all statements
-            return utils\deep_merge_objects($statement, $commonStatement);
+            return utils\deep_merge_objects($statement, $commonstatement);
         }, json_decode(file_get_contents($this->get_test_dir().'/statements.json')));
     }
 

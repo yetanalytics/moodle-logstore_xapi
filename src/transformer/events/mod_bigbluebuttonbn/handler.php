@@ -45,7 +45,7 @@ function create_statement(array $config, \stdClass $event, $evtid, $evtdispname 
         'verb' => [
             'id' => $evtid,
             'display' => [
-                $lang => $evtdispname
+                $lang => $evtdispname,
             ],
         ],
         'object' => utils\get_activity\course_module(
@@ -64,8 +64,8 @@ function create_statement(array $config, \stdClass $event, $evtid, $evtdispname 
                 ],
                 'category' => [
                     utils\get_activity\source($config),
-                ]
+                ],
             ],
-        ]
+        ],
     ]];
 }

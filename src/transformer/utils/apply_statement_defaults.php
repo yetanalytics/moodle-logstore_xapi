@@ -34,7 +34,7 @@ namespace src\transformer\utils;
  */
 function apply_statement_defaults(array $config, \stdClass $event, array $statements) {
     return array_map(function ($statement) use ($config, $event) {
-        $defaultStatement = [
+        $defaultstatement = [
             'context' => [
                 'platform' => $config['source_name'] ?? 'Moodle',
                 'registration' => stringToUuidV5($config['session_id']),
@@ -42,6 +42,6 @@ function apply_statement_defaults(array $config, \stdClass $event, array $statem
             'timestamp' => get_event_timestamp($event),
         ];
         // Merge event output into defaults
-        return deep_merge_arrays($defaultStatement, $statement);
+        return deep_merge_arrays($defaultstatement, $statement);
     }, $statements);
 }

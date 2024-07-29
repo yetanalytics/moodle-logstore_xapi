@@ -47,7 +47,7 @@ function discussion_created(array $config, \stdClass $event) {
         'verb' => [
             'id' => 'http://activitystrea.ms/schema/1.0/create',
             'display' => [
-                $lang => 'created'
+                $lang => 'created',
             ],
         ],
         'object' => utils\get_activity\course_discussion($config, $course, $discussion),
@@ -62,8 +62,8 @@ function discussion_created(array $config, \stdClass $event) {
                 ],
                 'category' => [
                     utils\get_activity\source($config),
-                ]
+                ],
             ],
-        ]
+        ],
     ]];
 }

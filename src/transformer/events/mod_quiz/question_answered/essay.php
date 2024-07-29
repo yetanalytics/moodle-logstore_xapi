@@ -53,7 +53,7 @@ function essay(array $config, \stdClass $event, \stdClass $questionattempt, \std
         'verb' => [
             'id' => 'http://adlnet.gov/expapi/verbs/answered',
             'display' => [
-                $lang => 'answered'
+                $lang => 'answered',
             ],
         ],
         'object' => [
@@ -61,10 +61,10 @@ function essay(array $config, \stdClass $event, \stdClass $questionattempt, \std
             'definition' => [
                 'type' => 'http://adlnet.gov/expapi/activities/cmi.interaction',
                 'name' => [
-                    $lang => utils\get_string_html_removed($question->questiontext)
+                    $lang => utils\get_string_html_removed($question->questiontext),
                 ],
                 'interactionType' => 'long-fill-in',
-            ]
+            ],
         ],
         'result' => [
             'response' => $responsesummary,
@@ -82,8 +82,8 @@ function essay(array $config, \stdClass $event, \stdClass $questionattempt, \std
                 ],
                 'category' => [
                     utils\get_activity\source($config),
-                ]
+                ],
             ],
-        ]
+        ],
     ]];
 }

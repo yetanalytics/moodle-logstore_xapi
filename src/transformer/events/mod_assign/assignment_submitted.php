@@ -62,9 +62,9 @@ function assignment_submitted(array $config, \stdClass $event) {
                     utils\get_activity\course($config, $course),
                 ],
                 'category' => [
-                    utils\get_activity\source($config)
-                ]
+                    utils\get_activity\source($config),
+                ],
             ],
-        ]
+        ],
     ]];
 }

@@ -39,7 +39,7 @@ use src\transformer\events\mod_feedback\item_answered as item_answered;
 function handler(array $config, \stdClass $event) {
     $repo = $config['repo'];
     $feedbackvalues = $repo->read_records('feedback_value', [
-        'completed' => $event->objectid
+        'completed' => $event->objectid,
     ]);
 
     return array_merge(
