@@ -25,29 +25,29 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$capabilities = array(
-        'logstore/xapi:viewerrorlog' => array(
+$capabilities = [
+        'logstore/xapi:viewerrorlog' => [
             'riskbitmask'  => RISK_CONFIG,
             'captype'      => 'read',
             'contextlevel' => CONTEXT_SYSTEM,
-            'archetypes'   => array(
-                'manager' => CAP_ALLOW
-            )
-        ),
-        'logstore/xapi:manageerrors' => array(
+            'archetypes'   => [
+                'manager' => CAP_ALLOW,
+            ],
+        ],
+        'logstore/xapi:manageerrors' => [
             'riskbitmask'  => RISK_CONFIG,
             'captype'      => 'read',
             'contextlevel' => CONTEXT_SYSTEM,
-            'archetypes'   => array(
-                'manager' => CAP_ALLOW
-            )
-        ),
-        'logstore/xapi:managehistoric' => array(
+            'archetypes'   => [
+                'manager' => CAP_ALLOW,
+            ],
+        ],
+        'logstore/xapi:managehistoric' => [
             'riskbitmask'  => RISK_CONFIG,
             'captype'      => 'read',
             'contextlevel' => CONTEXT_SYSTEM,
-            'archetypes'   => array(
-                'manager' => CAP_ALLOW
-            )
-        )
-);
+            'archetypes'   => [
+                'manager' => CAP_ALLOW,
+            ],
+        ],
+];
