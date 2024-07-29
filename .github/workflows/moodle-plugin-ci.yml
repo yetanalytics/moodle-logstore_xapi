@@ -1,6 +1,6 @@
 name: Moodle Plugin CI
 
-on: [push] # [push, pull_request] # TODO: REENABLE BEFORE PR
+on: [push]
 
 jobs:
   test:
