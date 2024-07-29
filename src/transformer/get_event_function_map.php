@@ -94,7 +94,12 @@ function get_event_function_map() {
         '\mod_url\event\course_module_viewed' => 'mod_url\course_module_viewed',
         '\mod_wiki\event\course_module_viewed' => 'all\course_module_viewed',
         '\mod_workshop\event\course_module_viewed' => 'all\course_module_viewed',
-        '\totara_program\event\program_assigned' => 'totara_program\program_assigned'
+        '\totara_program\event\program_assigned' => 'totara_program\program_assigned',
+        '\core\event\calendar_event_created' => 'core\calendar_event_created',
+        '\core\event\calendar_event_updated' => 'core\calendar_event_updated',
+        '\core\event\calendar_event_deleted' => 'core\calendar_event_deleted',
+        '\core\event\badge_awarded' => 'core\badge_awarded',
+        '\core\event\badge_revoked' => 'core\badge_revoked'
     ];
 
     $environmentevents = class_exists("report_eventlist_list_generator") ?
