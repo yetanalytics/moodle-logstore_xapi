@@ -1,0 +1,26 @@
+{
+   "course" : [
+      {
+         "fullname" : "test_course_name",
+         "id" : 1,
+         "lang" : "en",
+         "summary" : "test_course_summary"
+      }
+   ],
+   "event_subscriptions" : [
+      {
+         "id" : 1,
+         "name" : "example calendar",
+         "url" : "http://example-cal.com/HASH"
+      }
+   ],
+   "user" : [
+      {
+         "email" : "creator@test.com",
+         "firstname" : "subscription_creator_firstname",
+         "id" : 1,
+         "lastname" : "subscription_creator_lastname",
+         "username" : "creator"
+      }
+   ]
+}
