@@ -53,8 +53,8 @@ jobs:
       - name: Cache Node.js modules
         uses: actions/cache@v3
         with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          path: plugin/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('plugin/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
 
