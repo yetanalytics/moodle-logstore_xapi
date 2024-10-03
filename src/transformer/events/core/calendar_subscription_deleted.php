@@ -46,16 +46,13 @@ function calendar_subscription_deleted(array $config, \stdClass $event) {
 
     $statement = [
         'actor' => utils\get_user($config,$user),
-        'verb' => ['id' => $CHANGEME,
-                   'display' => ['en' => $CHANGEME]],
+        'verb' => ['id' => 'https://activitystrea.ms/delete',
+                   'display' => ['en' => 'Deleted']],
         'object' => [
             'id' => $CHANGEME,
-            'objectType' => $CHANGEME,
             'definition' => [
                 'name' => [$lang =>$CHANGEME],
-                'description' => [$lang => $CHANGEME],
-                'type' =>  $CHANGEME,
-                'extensions' => [$CHANGEME]
+                'type' => 'https://xapi.edlm/profiles/edlm-lms/concepts/activity-types/calendar-subscription'
             ],
         ],
         'context' => [
