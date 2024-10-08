@@ -81,7 +81,7 @@ jobs:
         run: |
           echo "Current working directory: $(pwd)"
           echo "Listing directory structure:"
-          ls -R
+          ls -la
 
       - name: PHP Lint
         if: ${{ always() }}
