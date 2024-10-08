@@ -77,6 +77,12 @@ jobs:
           MOODLE_BRANCH: ${{ matrix.moodle-branch }}
           IGNORE_PATHS: 'vendor/'
 
+      - name: List directory structure
+        run: |
+          echo "Current working directory: $(pwd)"
+          echo "Listing directory structure:"
+          ls -R
+
       - name: PHP Lint
         if: ${{ always() }}
         run: moodle-plugin-ci phplint
