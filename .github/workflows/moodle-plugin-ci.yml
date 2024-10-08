@@ -69,6 +69,12 @@ jobs:
         run: |
           moodle-plugin-ci add-plugin --branch MOODLE_400_STABLE catalyst/moodle-mod_facetoface
 
+      - name: List directory structure
+        run: |
+          echo "Current working directory: $(pwd)"
+          echo "Listing directory structure:"
+          ls -la
+
       - name: Install the plugin.
         run: |
           moodle-plugin-ci install --plugin ./plugin --db-host=127.0.0.1
@@ -76,12 +82,6 @@ jobs:
           DB: ${{ matrix.database }}
           MOODLE_BRANCH: ${{ matrix.moodle-branch }}
           IGNORE_PATHS: 'vendor/'
-
-      - name: List directory structure
-        run: |
-          echo "Current working directory: $(pwd)"
-          echo "Listing directory structure:"
-          ls -la
 
       - name: PHP Lint
         if: ${{ always() }}
