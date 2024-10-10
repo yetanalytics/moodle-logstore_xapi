@@ -16,8 +16,7 @@
   "course_sections": [
     {
       "id": 1,
-      "course": 1,
-      "section": 1
+      "course": 1
     }
   ],
   "course_modules": [
@@ -27,6 +26,12 @@
       "module": 1,
       "instance": 1,
       "section": 1
+    }
+  ],
+  "modules": [
+    {
+      "id": 1,
+      "name": "book"
     }
   ],
   "book": [
