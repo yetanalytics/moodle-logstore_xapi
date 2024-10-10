@@ -30,7 +30,7 @@
             "objectType": "Activity",
             "definition": {
               "name": {
-                "en": "test_name Section 1"
+                "en": "test_name Section 0"
               },
               "type": "http://id.tincanapi.com/activitytype/section"
             }

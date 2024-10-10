@@ -16,7 +16,8 @@
   "course_sections": [
     {
       "id": 1,
-      "course": 1
+      "course": 1,
+      "section": 0
     }
   ],
   "course_modules": [
