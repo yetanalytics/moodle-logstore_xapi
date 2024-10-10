@@ -35,6 +35,7 @@ use src\transformer\utils as utils;
  * @return array
  */
 function course_section(array $config, \stdClass $course, int $csid) {
+    $repo = $config['repo'];
     $lang = utils\get_course_lang($course);
     $section = $repo->read_record_by_id('course_sections', $csid);
 
