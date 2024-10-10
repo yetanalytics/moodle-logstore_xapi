@@ -75,7 +75,7 @@ jobs:
           path: node_modules
           key: ${{ runner.os }}-node-${{ hashFiles('./ci/vendor/moodlehq/moodle-local_ci/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node-
+            ${{ runner.os }}-{{ matrix.php }}-{{ matrix.moodle-branch }}-{{ matrix.database }}-node-
 
       - name: Install the plugin.
         run: |
