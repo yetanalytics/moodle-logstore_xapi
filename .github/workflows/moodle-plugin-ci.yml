@@ -69,11 +69,13 @@ jobs:
         run: |
           moodle-plugin-ci add-plugin --branch MOODLE_400_STABLE catalyst/moodle-mod_facetoface
 
-      - name: List directory structure
-        run: |
-          echo "Current working directory: $(pwd)"
-          echo "Listing directory structure:"
-          ls -la
+      - name: Cache node_modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('./ci/vendor/moodlehq/moodle-local_ci/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
       - name: Install the plugin.
         run: |
