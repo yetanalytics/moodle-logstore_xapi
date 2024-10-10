@@ -48,16 +48,7 @@ function course_section_created(array $config, \stdClass $event) {
                 $lang => 'Created',
             ],
         ],
-        'object' => [
-            'id' => $config['app_url'] . '/course/section.php?id=' . $event->objectid,
-            'objectType' => 'Activity',
-            'definition' => [
-                'type' => 'http://id.tincanapi.com/activitytype/section',
-                'name' => [
-                    $lang => $course->fullname . ' Section ' . $section->section,
-                ],
-            ],
-        ],
+        'object' => utils\get_activity\course_section($config, $course, $section),
         'context' => [
             'extensions' => utils\extensions\base($config, $event, null),
             'contextActivities' => [
