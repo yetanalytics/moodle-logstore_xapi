@@ -31,11 +31,12 @@ use src\transformer\utils as utils;
  *
  * @param array $config The transformer config settings.
  * @param \stdClass $course The course object.
- * @param \stdClass $section The course section.
+ * @param int $csid The course section id.
  * @return array
  */
-function course_section(array $config, \stdClass $course, \stdClass $section) {
+function course_section(array $config, \stdClass $course, int $csid) {
     $lang = utils\get_course_lang($course);
+    $section = $repo->read_record_by_id('course_sections', $csid);
 
     return [
         'id' => $config['app_url'] . '/course/section.php?id=' . $section->id,

@@ -38,7 +38,6 @@ function course_section_created(array $config, \stdClass $event) {
     $user = $repo->read_record_by_id('user', $event->userid);
     $course = $repo->read_record_by_id('course', $event->courseid);
     $lang = utils\get_course_lang($course);
-    $section = $repo->read_record_by_id($event->objecttable, $event->objectid);
 
     return [[
         'actor' => utils\get_user($config, $user),
@@ -48,7 +47,7 @@ function course_section_created(array $config, \stdClass $event) {
                 $lang => 'Created',
             ],
         ],
-        'object' => utils\get_activity\course_section($config, $course, $section),
+        'object' => utils\get_activity\course_section($config, $course, $event->objectid),
         'context' => [
             'extensions' => utils\extensions\base($config, $event, null),
             'contextActivities' => [
