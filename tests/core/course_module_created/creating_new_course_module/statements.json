@@ -18,7 +18,7 @@
       "definition": {
         "type": "http://id.tincanapi.com/activitytype/book",
         "name": {
-          "en": "test_name"
+          "en": "test_book_name"
         }
       }
     },
