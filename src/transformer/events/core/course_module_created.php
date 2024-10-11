@@ -38,7 +38,6 @@ function course_module_created(array $config, \stdClass $event) {
     $user = $repo->read_record_by_id('user', $event->userid);
     $course = $repo->read_record_by_id('course', $event->courseid);
     $lang = utils\get_course_lang($course);
-    $coursemodule = $repo->read_record_by_id('course_modules', $event->contextinstanceid);
 
     return [[
         'actor' => utils\get_user($config, $user),
@@ -56,10 +55,10 @@ function course_module_created(array $config, \stdClass $event) {
         'context' => [
             'extensions' => utils\extensions\base($config, $event, null),
             'contextActivities' => [
-                'parent' => [
-                    utils\get_activity\course_section($config, $course, $coursemodule->section),
-                    utils\get_activity\course($config, $course),
-                ],
+                'parent' => utils\context_activities\get_parent(
+                    $config,
+                    $event->contextinstanceid
+                ),
                 'category' => [
                     utils\get_activity\site($config),
                 ],
