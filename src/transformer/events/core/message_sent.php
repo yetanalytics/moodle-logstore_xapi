@@ -45,9 +45,8 @@ function message_sent(array $config, \stdClass $event) {
         $event_object = array();
     }
 
-    //all three here may not exist
     $user=$repo->read_record_by_id('user',$event->userid); 
-    $course = (isset($event->courseid) && $event->courseid != 0) ? $repo->read_record_by_id("course", $event->courseid) : null;
+    $course = (isset($event->courseid) && $event->courseid != 0) ? $repo->read_record_by_id('course', $event->courseid) : null;
     $lang = utils\get_course_lang(($course ? $course :  $repo->read_record_by_id("course",1)));
 
     $statement = [
@@ -57,8 +56,8 @@ function message_sent(array $config, \stdClass $event) {
         'object' => [
             'id' => $config['app_url'].'/course/view.php?id='.$event->objectid,
             'definition' => [
-                'type' => "http://id.tincanapi.com/activitytype/chat-message"
-                'name' => [$lang => $event_object->subject],
+                'type' => "http://id.tincanapi.com/activitytype/chat-message",
+                'name' => [$lang => $event_object->subject ?? 'no subject'],
                 'description' => [$lang => $event_object->smallmessage],
             ],
         ],
@@ -73,6 +72,6 @@ function message_sent(array $config, \stdClass $event) {
         if ($course){
             $statement = utils\add_parent($config,$statement,$course);
         }
-    
+        
         return [$statement];
 }
