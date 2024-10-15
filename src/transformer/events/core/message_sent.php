@@ -37,6 +37,9 @@ use src\transformer\utils\get_activity as activity;
  */
 
 function message_sent(array $config, \stdClass $event) {
+
+    error_log(print_r($event,true));
+
     global $CFG;
     $repo = $config['repo'];
     if (isset($event->objecttable) && isset($event->objectid)) {
@@ -44,7 +47,7 @@ function message_sent(array $config, \stdClass $event) {
     } else {
         $event_object = array();
     }
-
+    
     $user=$repo->read_record_by_id('user',$event->userid); 
     $course = (isset($event->courseid) && $event->courseid != 0) ? $repo->read_record_by_id('course', $event->courseid) : null;
     $lang = utils\get_course_lang(($course ? $course :  $repo->read_record_by_id("course",1)));
@@ -63,7 +66,7 @@ function message_sent(array $config, \stdClass $event) {
         ],
         'context' => [
             'language' => $lang,
-            'contextActivities' =>  [
+            'contextActivities' => [
                 'category' => [activity\site($config)],
             ],
             'extensions' => utils\extensions\base($config, $event, $course)
