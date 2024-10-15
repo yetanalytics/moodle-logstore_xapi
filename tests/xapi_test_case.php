@@ -63,7 +63,13 @@ abstract class xapi_test_case extends \advanced_testcase {
      * @return object
      */
     protected function get_test_data() {
-        return json_decode(file_get_contents($this->get_test_dir().'/data.json'));
+        // TODO: only pull this once
+        // get common event fields
+        global $CFG;
+        $commonData = json_decode(file_get_contents($CFG->dirroot . '/admin/tool/log/store/xapi/tests/common/data.json'));
+        $data = json_decode(file_get_contents($this->get_test_dir().'/data.json'));
+
+        return utils\deep_merge_objects($data, $commonData);
     }
 
     /**
