@@ -104,7 +104,7 @@ function get_event_function_map() {
         '\mod_scorm\event\scoreraw_submitted' => 'mod_scorm\scoreraw_submitted',
         '\mod_scorm\event\status_submitted' => 'mod_scorm\status_submitted',
         '\mod_survey\event\course_module_viewed' => 'all\course_module_viewed',
-        '\mod_url\event\course_module_viewed' => 'mod_url\course_module_viewed',
+        '\mod_url\event\course_module_viewed' => 'all\course_module_viewed',
         '\mod_wiki\event\course_module_viewed' => 'all\course_module_viewed',
         '\mod_workshop\event\course_module_viewed' => 'all\course_module_viewed',
         '\totara_program\event\program_assigned' => 'totara_program\program_assigned'
