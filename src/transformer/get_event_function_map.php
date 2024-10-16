@@ -98,7 +98,7 @@ function get_event_function_map() {
         '\mod_quiz\event\attempt_reviewed' => 'mod_quiz\attempt_reviewed',
         '\mod_quiz\event\attempt_submitted' => 'mod_quiz\attempt_submitted\handler',
         '\mod_quiz\event\attempt_viewed' => 'mod_quiz\attempt_viewed',
-        '\mod_resource\event\course_module_viewed' => 'mod_resource\course_module_viewed',
+        '\mod_resource\event\course_module_viewed' => 'all\course_module_viewed',
         '\mod_scorm\event\course_module_viewed' => 'mod_scorm\course_module_viewed',
         '\mod_scorm\event\sco_launched' => 'mod_scorm\sco_launched',
         '\mod_scorm\event\scoreraw_submitted' => 'mod_scorm\scoreraw_submitted',
