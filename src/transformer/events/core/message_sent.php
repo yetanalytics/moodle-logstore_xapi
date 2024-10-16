@@ -48,7 +48,7 @@ function message_sent(array $config, \stdClass $event) {
 
     //error_log("error");
     //print_r("print_r");
-    echo "echo";
+    //echo "echo";
     //var_dump("var_dump");
     
     $user=$repo->read_record_by_id('user',$event->userid); 
