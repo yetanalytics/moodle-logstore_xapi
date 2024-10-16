@@ -69,7 +69,7 @@ function chapter_viewed(array $config, \stdClass $event) {
 
     if ($chapter->subchapter != '0') {
         $parentchapter = $repo->read_record_by_id('book_chapters', $chapter->subchapter);
-        $statement['context']['contextActivities']['parent'] = [
+        $statement['context']['contextActivities']['parent'] =
             array_merge(
                 [
                     utils\get_activity\book_chapter(
@@ -80,8 +80,7 @@ function chapter_viewed(array $config, \stdClass $event) {
                     ),
                 ],
                 $statement['context']['contextActivities']['parent']
-            )
-        ];
+            );
     }
 
     return [$statement];
