@@ -38,8 +38,6 @@ use src\transformer\utils\get_activity as activity;
 
 function message_sent(array $config, \stdClass $event) {
 
-    error_log(print_r($event,true));
-
     global $CFG;
     $repo = $config['repo'];
     if (isset($event->objecttable) && isset($event->objectid)) {
@@ -47,14 +45,17 @@ function message_sent(array $config, \stdClass $event) {
     } else {
         $event_object = array();
     }
+
+    //error_log("error");
+    //print_r("print_r");
+    echo "echo";
+    //var_dump("var_dump");
     
     $user=$repo->read_record_by_id('user',$event->userid); 
-    error_log("post-user");
+
     $course = (isset($event->courseid) && $event->courseid != 0) ? $repo->read_record_by_id('course', $event->courseid) : null;
-        error_log("post-course");
+
     $lang = utils\get_course_lang(($course ? $course :  $repo->read_record_by_id("course",1)));
-        error_log("post-lang");
-    error_log("pre-statement");
     
     $statement = [
         'actor' => utils\get_user($config,$user),
@@ -75,15 +76,10 @@ function message_sent(array $config, \stdClass $event) {
             ],
             'extensions' => utils\extensions\base($config, $event, $course)
         ]];
-
-    error_log("post-statement, pre-parent");
-    
     
         if ($course){
             $statement = utils\add_parent($config,$statement,$course);
         }
-
-        error_log("post-parent");
         
         return [$statement];
 }
