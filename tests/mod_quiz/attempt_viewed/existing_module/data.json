@@ -8,7 +8,7 @@
   "quiz": [
     {
       "id": 1,
-      "name": "test_name"
+      "name": "test_quiz_name"
     }
   ]
 }
