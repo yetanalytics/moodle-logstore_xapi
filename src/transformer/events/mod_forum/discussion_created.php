@@ -55,14 +55,17 @@ function discussion_created(array $config, \stdClass $event) {
             'language' => $lang,
             'extensions' => utils\extensions\base($config, $event, $course),
             'contextActivities' => [
-                'grouping' => [
-                    utils\get_activity\site($config),
-                    utils\get_activity\course($config, $course),
-                    utils\get_activity\course_forum($config, $course, $event->contextinstanceid),
+                'extensions' => utils\extensions\base($config, $event, null),
+                'contextActivities' => [
+                    'parent' => utils\context_activities\get_parent(
+                        $config,
+                        $event->contextinstanceid,
+                        true
+                    ),
+                    'category' => [
+                        utils\get_activity\site($config),
+                    ],
                 ],
-                'category' => [
-                    utils\get_activity\source($config),
-                ]
             ],
         ]
     ]];
