@@ -45,17 +45,12 @@ function message_sent(array $config, \stdClass $event) {
     } else {
         $event_object = array();
     }
-
-    //error_log("error");
-    //print_r("print_r");
-    //echo "echo";
-    //var_dump("var_dump");
     
     $user=$repo->read_record_by_id('user',$event->userid); 
 
     $course = (isset($event->courseid) && $event->courseid != 0) ? $repo->read_record_by_id('course', $event->courseid) : null;
 
-    $lang = utils\get_course_lang(($course ? $course :  $repo->read_record_by_id("course",1)));
+    $lang = utils\get_course_lang(($course ? $course :  $repo->read_record_by_id('course',1)));
     
     $statement = [
         'actor' => utils\get_user($config,$user),
