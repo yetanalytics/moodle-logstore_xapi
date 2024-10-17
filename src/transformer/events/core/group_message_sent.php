@@ -44,7 +44,6 @@ function group_message_sent(array $config, \stdClass $event) {
         $message->conversationid
     );
     $group = $repo->read_record_by_id('groups', $conversation->itemid);
-
     $course = $repo->read_record_by_id('course', $group->courseid);
     $lang = utils\get_course_lang($course);
 
@@ -56,19 +55,7 @@ function group_message_sent(array $config, \stdClass $event) {
                 $lang => 'Sent'
             ],
         ],
-        'object' => [
-            'id' => $config['app_url'] . '/message?id=' . $message->id,
-            'objectType' => 'Activity',
-            'definition' => [
-                'type' => 'http://id.tincanapi.com/activitytype/chat-message',
-                'name' => [
-                    $lang => $message->subject ?? '[Untitled Message]',
-                ],
-                'description' => [
-                    $lang => $message->fullmessage,
-                ],
-            ]
-        ],
+        'object' => utils\get_activity\message($config, $lang, $message),
         'context' => [
             'extensions' => utils\extensions\base($config, $event, null),
             'contextActivities' => [
