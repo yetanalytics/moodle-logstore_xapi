@@ -34,6 +34,7 @@ namespace src\transformer;
 function get_event_function_map() {
     $availableevents = [
         '\core\event\message_sent' => 'core\message_sent',
+        '\core\event\message_viewed' => 'core\message_viewed',
         //'\core\event\message_viewed' => 'debug\debug_event',
         '\core\event\badge_awarded' => 'core\badge_awarded',
         '\core\event\badge_revoked' => 'core\badge_revoked',

@@ -16,10 +16,10 @@
    ],
    "user" : [
       {
-         "email" : "sender@test.com",
-         "firstname" : "message_sender_firstname",
+         "email" : "viewer@test.com",
+         "firstname" : "message_viewer_firstname",
          "id" : 1,
-         "lastname" : "message_sender_lastname"
+         "lastname" : "message_viewer_lastname"
       }
    ]
 }

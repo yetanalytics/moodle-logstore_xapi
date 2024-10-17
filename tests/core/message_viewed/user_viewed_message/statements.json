@@ -5,25 +5,7 @@
             "homePage" : "http://www.example.org",
             "name" : "1"
          },
-         "name" : "message_sender_firstname message_sender_lastname"
-      },
-      "verb" : {
-         "display" : {
-            "en" : "Sent"
-         },
-         "id" : "http://activitystrea.ms/send"
-      },
-      "object" : {
-         "definition" : {
-            "description" : {
-               "en" : "hi there!(messagetext)"
-            },
-            "name" : {
-               "en" : "hi there(subject)"
-            },
-            "type" : "http://id.tincanapi.com/activitytype/chat-message"
-         },
-         "id" : "http://www.example.org/course/view.php?id=1"
+         "name" : "message_viewer_firstname message_viewer_lastname"
       },
       "context" : {
          "contextActivities" : {
@@ -52,13 +34,31 @@
          },
          "extensions" : {
             "http://lrs.learninglocker.net/define/extensions/info" : {
-               "event_function" : "\\src\\transformer\\events\\core\\message_sent",
-		"event_name" : "\\core\\event\\message_sent",
-		"http://moodle.org": "1.0.0",
-		"https://github.com/xAPI-vle/moodle-logstore_xapi": "0.0.0-development"
+               "event_function" : "\\src\\transformer\\events\\core\\message_viewed",
+               "event_name" : "\\core\\event\\message_viewed",
+               "http://moodle.org" : "1.0.0",
+               "https://github.com/xAPI-vle/moodle-logstore_xapi" : "0.0.0-development"
             }
          },
          "language" : "en"
+      },
+      "object" : {
+         "definition" : {
+            "description" : {
+               "en" : "hi there!(messagetext)"
+            },
+            "name" : {
+               "en" : "hi there(subject)"
+            },
+            "type" : "http://id.tincanapi.com/activitytype/chat-message"
+         },
+         "id" : "http://www.example.org/course/view.php?id=1"
+      },
+      "verb" : {
+         "display" : {
+            "en" : "Viewed"
+         },
+         "id" : "http://id.tincanapi.com/verb/viewed"
       }
    }
 ]

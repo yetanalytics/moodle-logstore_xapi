@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Transformer fn for message sent event
+ * Transformer fn for message viewed event
  *
  * @package   logstore_xapi
  * @copyright Daniel Bell <daniel@yetanalytics.com>
@@ -29,14 +29,14 @@ use src\transformer\utils as utils;
 use src\transformer\utils\get_activity as activity;
 
 /**
- * Transformer fn for message sent event
+ * Transformer fn for message viewed event
  *
  * @param array $config The transformer config settings.
  * @param \stdClass $event The event to be transformed.
  * @return array
  */
 
-function message_sent(array $config, \stdClass $event) {
+function message_viewed(array $config, \stdClass $event) {
     global $CFG;
     $repo = $config['repo'];
     if (isset($event->objecttable) && isset($event->objectid)) {
@@ -44,36 +44,35 @@ function message_sent(array $config, \stdClass $event) {
     } else {
         $event_object = array();
     }
-    
+
     $user=$repo->read_record_by_id('user',$event->userid); 
-
     $course = (isset($event->courseid) && $event->courseid != 0) ? $repo->read_record_by_id('course', $event->courseid) : null;
+    $lang = utils\get_course_lang(($course ? $course :  $repo->read_record_by_id("course",1)));
 
-    $lang = utils\get_course_lang(($course ? $course :  $repo->read_record_by_id('course',1)));
-    
     $statement = [
         'actor' => utils\get_user($config,$user),
-        'verb' => ['id' => 'http://activitystrea.ms/send',
-                   'display' => ['en' => 'Sent']],
+        'verb' => ['id' => 'http://id.tincanapi.com/verb/viewed',
+                   'display' =>  ['en' => 'Viewed']
+        ],
         'object' => [
-            'id' => $config['app_url'].'/course/view.php?id='.$event->objectid,
+            'id' =>  $config['app_url'].'/course/view.php?id='.$event->objectid,
             'definition' => [
-                'type' => "http://id.tincanapi.com/activitytype/chat-message",
+                'type' =>  "http://id.tincanapi.com/activitytype/chat-message",
                 'name' => [$lang => $event_object->subject ?? 'no subject'],
                 'description' => [$lang => $event_object->smallmessage],
             ],
         ],
         'context' => [
             'language' => $lang,
-            'contextActivities' => [
+            'contextActivities' =>  [
                 'category' => [activity\site($config)],
             ],
             'extensions' => utils\extensions\base($config, $event, $course)
         ]];
-    
-        if ($course){
-            $statement = utils\add_parent($config,$statement,$course);
-        }
 
-        return [$statement];
+    if ($course){
+        $statement = utils\add_parent($config,$statement,$course);
+    }
+    
+    return [$statement];
 }
