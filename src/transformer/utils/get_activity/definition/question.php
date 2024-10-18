@@ -30,7 +30,24 @@ namespace src\transformer\utils\get_activity\definition\question;
 use src\transformer\utils as utils;
 
 /**
- * Transformer for course module viewed event.
+ * Transformer util for creating essay definitions
+ *
+ * @param array $config The transformer config settings.
+ * @param \stdClass $question The question object.
+ * @param string $lang The language.
+ */
+function get_essay_definition(array $config, \stdClass $question, string $lang) {
+    return [
+        'type' => 'http://adlnet.gov/expapi/activities/cmi.interaction',
+        'name' => [
+            $lang => utils\get_string_html_removed($question->questiontext)
+        ],
+        'interactionType' => 'long-fill-in',
+    ];
+}
+
+/**
+ * Transformer util for creating multichoice definitions.
  *
  * @param array $config The transformer config settings.
  * @param \stdClass $questionattempt The questionattempt object.
@@ -93,10 +110,70 @@ function get_multichoice_definition(
     ];
 }
 
+/**
+ * Transformer util for creating match definitions
+ *
+ * @param array $config The transformer config settings.
+ * @param \stdClass $question The question object.
+ * @param string $lang The language.
+ */
+function get_match_definition(array $config, \stdClass $question, string $lang) {
+    return [
+        'type' => 'http://adlnet.gov/expapi/activities/cmi.interaction',
+        'name' => [
+            $lang => utils\get_string_html_removed($question->questiontext)
+        ],
+        'interactionType' => 'matching',
+    ];
+}
 
 /**
- * Return an xAPI Activity object definition representing a True/False question.
+ * Transformer util for creating numerical definitions
+ *
  * @param array $config The transformer config settings.
- * @param \stdClass $question The question.
- * @return array
+ * @param \stdClass $question The question object.
+ * @param string $lang The language.
  */
+function get_numerical_definition(array $config, \stdClass $question, string $lang) {
+    return [
+        'type' => 'http://adlnet.gov/expapi/activities/cmi.interaction',
+        'name' => [
+            $lang => utils\get_string_html_removed($question->questiontext)
+        ],
+        'interactionType' => 'numeric',
+    ];
+}
+
+/**
+ * Transformer util for creating shortanswer definitions
+ *
+ * @param array $config The transformer config settings.
+ * @param \stdClass $question The question object.
+ * @param string $lang The language.
+ */
+function get_shortanswer_definition(array $config, \stdClass $question, string $lang) {
+    return [
+        'type' => 'http://adlnet.gov/expapi/activities/cmi.interaction',
+        'name' => [
+            $lang => utils\get_string_html_removed($question->questiontext)
+        ],
+        'interactionType' => 'fill-in',
+    ];
+}
+
+/**
+ * Transformer util for creating true/false definitions
+ *
+ * @param array $config The transformer config settings.
+ * @param \stdClass $question The question object.
+ * @param string $lang The language.
+ */
+function get_true_false_definition(array $config, \stdClass $question, string $lang) {
+    return [
+        'type' => 'http://adlnet.gov/expapi/activities/cmi.interaction',
+        'name' => [
+            $lang => utils\get_string_html_removed($question->questiontext),
+        ],
+        'interactionType' => 'true-false',
+    ];
+}
