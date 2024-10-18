@@ -50,23 +50,23 @@ function get_essay_definition(array $config, \stdClass $question, string $lang) 
  * Transformer util for creating multichoice definitions.
  *
  * @param array $config The transformer config settings.
- * @param \stdClass $questionattempt The questionattempt object.
  * @param \stdClass $question The question object.
  * @param string $lang The language.
- * @param string $interactiontype The type of interaction.
+ * @param ?string $interactiontype The type of interaction.
+ * @param ?string $rightanswer The correct answer, not always available.
  * @return array
  */
 function get_multichoice_definition(
     array $config,
-    \stdClass $questionattempt,
     \stdClass $question,
     string $lang,
-    string $interactiontype = 'choice'
+    ?string $interactiontype = 'choice',
+    ?string $rightanswer = null
 ) {
     if ($config['send_response_choices']) {
         $repo = $config['repo'];
         $answers = $repo->read_records('question_answers', [
-            'question' => $questionattempt->questionid
+            'question' => $question->id
         ]);
         $choices = array_map(function ($answer) use ($lang) {
             return [
@@ -78,18 +78,21 @@ function get_multichoice_definition(
         }, $answers);
 
         $correctresponsepattern;
-        switch ($interactiontype) {
-        case 'sequencing':
-            $selections = explode('} {', rtrim(ltrim($questionattempt->rightanswer, '{'), '}'));
-            $correctresponsepattern = implode ('[,]', $selections);
-            break;
-        default:
-            $selections = explode('; ', utils\get_string_html_removed($questionattempt->rightanswer));
-            $correctresponsepattern = implode ('[,]', $selections);
-            break;
+
+        if (!is_null($rightanswer)) {
+            switch ($interactiontype) {
+            case 'sequencing':
+                $selections = explode('} {', rtrim(ltrim($rightanswer, '{'), '}'));
+                $correctresponsepattern = implode ('[,]', $selections);
+                break;
+            default:
+                $selections = explode('; ', utils\get_string_html_removed($rightanswer));
+                $correctresponsepattern = implode ('[,]', $selections);
+                break;
+            }
         }
 
-        return [
+        $def = [
             'type' => 'http://adlnet.gov/expapi/activities/cmi.interaction',
             'name' => [
                 $lang => utils\get_string_html_removed($question->questiontext),
@@ -99,15 +102,23 @@ function get_multichoice_definition(
             // Need to pull out id's that are appended during array_map so json parses it correctly as an array.
             'choices' => array_values($choices)
         ];
+
+        if (!is_null($correctresponsepattern)) {
+            $def['correctResponsesPattern'] = [$correctresponsepattern];
+        }
+
+        return $def;
+    } else {
+        return [
+            'type' => 'http://adlnet.gov/expapi/activities/cmi.interaction',
+            'name' => [
+                $lang => utils\get_string_html_removed($question->questiontext),
+            ],
+            'interactionType' => $interactiontype
+        ];
     }
 
-    return [
-        'type' => 'http://adlnet.gov/expapi/activities/cmi.interaction',
-        'name' => [
-            $lang => utils\get_string_html_removed($question->questiontext),
-        ],
-        'interactionType' => $interactiontype
-    ];
+
 }
 
 /**

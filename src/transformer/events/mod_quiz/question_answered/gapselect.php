@@ -59,7 +59,11 @@ function gapselect(array $config, \stdClass $event, \stdClass $questionattempt, 
         'object' => [
             'id' => utils\get_quiz_question_id($config, $coursemodule->id, $question->id),
             'definition' => question\get_multichoice_definition(
-                $config, $questionattempt, $question, $lang, 'sequencing'
+                $config,
+                $question,
+                $lang,
+                'sequencing',
+                $questionattempt->rightanswer
             ),
         ],
         'result' => [
