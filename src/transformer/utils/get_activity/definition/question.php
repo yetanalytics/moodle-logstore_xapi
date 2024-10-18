@@ -15,16 +15,18 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Transformer utility for retrieving the multichoice definition.
+ * Transformer utilities for creating Question xAPI Activity object definitions.
  *
  * @package   logstore_xapi
  * @copyright Jerret Fowler <jerrett.fowler@gmail.com>
  *            Ryan Smith <https://www.linkedin.com/in/ryan-smith-uk/>
  *            David Pesce <david.pesce@exputo.com>
+ *            Milt Reder <milt@yetanalytics.com>
  * @license   https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace src\transformer\utils;
+namespace src\transformer\utils\get_activity\definition\question;
+
 use src\transformer\utils as utils;
 
 /**
@@ -37,8 +39,13 @@ use src\transformer\utils as utils;
  * @param string $interactiontype The type of interaction.
  * @return array
  */
-function get_multichoice_definition(array $config, \stdClass $questionattempt,
-\stdClass $question, string $lang, string $interactiontype = 'choice') {
+function get_multichoice_definition(
+    array $config,
+    \stdClass $questionattempt,
+    \stdClass $question,
+    string $lang,
+    string $interactiontype = 'choice'
+) {
     if ($config['send_response_choices']) {
         $repo = $config['repo'];
         $answers = $repo->read_records('question_answers', [
@@ -55,14 +62,14 @@ function get_multichoice_definition(array $config, \stdClass $questionattempt,
 
         $correctresponsepattern;
         switch ($interactiontype) {
-            case 'sequencing':
-                $selections = explode('} {', rtrim(ltrim($questionattempt->rightanswer, '{'), '}'));
-                $correctresponsepattern = implode ('[,]', $selections);
-                break;
-            default:
-                $selections = explode('; ', utils\get_string_html_removed($questionattempt->rightanswer));
-                $correctresponsepattern = implode ('[,]', $selections);
-                break;
+        case 'sequencing':
+            $selections = explode('} {', rtrim(ltrim($questionattempt->rightanswer, '{'), '}'));
+            $correctresponsepattern = implode ('[,]', $selections);
+            break;
+        default:
+            $selections = explode('; ', utils\get_string_html_removed($questionattempt->rightanswer));
+            $correctresponsepattern = implode ('[,]', $selections);
+            break;
         }
 
         return [
@@ -85,3 +92,11 @@ function get_multichoice_definition(array $config, \stdClass $questionattempt,
         'interactionType' => $interactiontype
     ];
 }
+
+
+/**
+ * Return an xAPI Activity object definition representing a True/False question.
+ * @param array $config The transformer config settings.
+ * @param \stdClass $question The question.
+ * @return array
+ */
