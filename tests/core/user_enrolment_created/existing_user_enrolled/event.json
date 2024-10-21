@@ -4,7 +4,7 @@
   "relateduserid": 2,
   "courseid": 1,
   "timecreated": 1433946701,
-  "objecttable": "user",
+  "objecttable": "user_enrolments",
   "objectid": 1,
   "eventname": "\\core\\event\\user_enrolment_created"
 }

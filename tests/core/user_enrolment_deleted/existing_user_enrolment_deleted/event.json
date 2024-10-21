@@ -3,7 +3,7 @@
   "eventname": "\\core\\event\\user_enrolment_deleted",
   "id": 1,
   "objectid": 1,
-  "objecttable": "user",
+  "objecttable": "user_enrolments",
   "timecreated": 1433946701,
   "userid": 1,
   "relateduserid": 2
