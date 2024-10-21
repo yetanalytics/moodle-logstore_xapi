@@ -8,9 +8,9 @@
       }
     },
     "verb": {
-      "id": "http://adlnet.gov/expapi/verbs/registered",
+      "id": "https://xapi.edlm/profiles/edlm-lms/concepts/verbs/enrolled",
       "display": {
-        "en": "enrolled to"
+        "en": "Enrolled"
       }
     },
     "object": {
@@ -33,24 +33,13 @@
         }
       },
       "contextActivities": {
-        "grouping": [
+        "category": [
           {
             "id": "http://www.example.org",
             "definition": {
               "type": "http://id.tincanapi.com/activitytype/lms",
               "name": {
                 "en": "test_name"
-              }
-            }
-          }
-        ],
-        "category": [
-          {
-            "id": "http://moodle.org",
-            "definition": {
-              "type": "http://id.tincanapi.com/activitytype/source",
-              "name": {
-                "en": "Moodle"
               }
             }
           }

@@ -21,6 +21,7 @@
  * @copyright Jerret Fowler <jerrett.fowler@gmail.com>
  *            Ryan Smith <https://www.linkedin.com/in/ryan-smith-uk/>
  *            David Pesce <david.pesce@exputo.com>
+ *            Milt Reder <milt@yetanalytics.com>
  * @license   https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -44,9 +45,9 @@ function user_enrolment_created(array $config, \stdClass $event) {
     return[[
         'actor' => utils\get_user($config, $user),
         'verb' => [
-            'id' => 'http://adlnet.gov/expapi/verbs/registered',
+            'id' => 'https://xapi.edlm/profiles/edlm-lms/concepts/verbs/enrolled',
             'display' => [
-                $lang => 'enrolled to'
+                $lang => 'Enrolled',
             ],
         ],
         'object' => utils\get_activity\course($config, $course),
@@ -54,14 +55,11 @@ function user_enrolment_created(array $config, \stdClass $event) {
             'language' => $lang,
             'extensions' => utils\extensions\base($config, $event, $course),
             'contextActivities' => [
-                'grouping' => [
-                    utils\get_activity\site($config)
-                ],
                 'category' => [
-                    utils\get_activity\source($config)
-                ]
+                    utils\get_activity\site($config),
+                ],
             ],
-        ]
+        ],
     ]];
 
 }
