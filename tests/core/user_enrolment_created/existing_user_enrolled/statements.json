@@ -1,10 +1,10 @@
 [
   {
     "actor": {
-      "name": "test_fullname",
+      "name": "test_fullname2",
       "account": {
         "homePage": "http://www.example.org",
-        "name": "1"
+        "name": "2"
       }
     },
     "verb": {
@@ -23,6 +23,13 @@
       }
     },
     "context": {
+      "instructor": {
+        "name": "test_fullname1",
+        "account": {
+          "homePage": "http://www.example.org",
+          "name": "1"
+        }
+      },
       "language": "en",
       "extensions": {
         "http://lrs.learninglocker.net/define/extensions/info": {
