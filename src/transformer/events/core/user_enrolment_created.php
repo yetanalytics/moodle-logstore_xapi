@@ -42,28 +42,6 @@ function user_enrolment_created(array $config, \stdClass $event) {
     $cuser = $repo->read_record_by_id('user', $event->relateduserid);
     $course = $repo->read_record_by_id('course', $event->courseid);
     $lang = utils\get_course_lang($course);
-    $info = unserialize($event->other);
-
-    $ctx = [
-        'language' => $lang,
-        'extensions' => array_merge(
-            utils\extensions\base($config, $event, $course),
-            [
-                'https://xapi.edlm/profiles/edlm-lms/concepts/context-extensions/enrolment-type' =>
-                    $info['enrol']
-            ]
-        ),
-        'contextActivities' => [
-            'category' => [
-                utils\get_activity\site($config),
-            ],
-        ],
-    ];
-
-    // add a possible instructor different from course user
-    if ($cuser->id !== $user->id) {
-        $ctx['instructor'] = utils\get_user($config, $user);
-    }
 
     return [[
         'actor' => utils\get_user($config, $cuser),
@@ -74,7 +52,14 @@ function user_enrolment_created(array $config, \stdClass $event) {
             ],
         ],
         'object' => utils\get_activity\course($config, $course),
-        'context' => $ctx,
+        'context' => utils\get_enrolment_context(
+            $config,
+            $event,
+            $course,
+            $cuser,
+            $user,
+            $lang
+        ),
     ]];
 
 }
