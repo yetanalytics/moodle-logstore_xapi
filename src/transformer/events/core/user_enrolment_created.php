@@ -42,10 +42,17 @@ function user_enrolment_created(array $config, \stdClass $event) {
     $cuser = $repo->read_record_by_id('user', $event->relateduserid);
     $course = $repo->read_record_by_id('course', $event->courseid);
     $lang = utils\get_course_lang($course);
+    $info = unserialize($event->other);
 
     $ctx = [
         'language' => $lang,
-        'extensions' => utils\extensions\base($config, $event, $course),
+        'extensions' => array_merge(
+            utils\extensions\base($config, $event, $course),
+            [
+                'https://xapi.edlm/profiles/edlm-lms/concepts/context-extensions/enrolment-type' =>
+                    $info['enrol']
+            ]
+        ),
         'contextActivities' => [
             'category' => [
                 utils\get_activity\site($config),
