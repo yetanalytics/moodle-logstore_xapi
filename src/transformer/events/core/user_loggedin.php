@@ -56,11 +56,6 @@ function user_loggedin(array $config, \stdClass $event) {
         'context' => [
             'language' => $lang,
             'extensions' => $ctx_extensions,
-            'contextActivities' => [
-                'category' => [
-                    utils\get_activity\site($config)
-                ]
-            ],
         ]
     ]];
 }

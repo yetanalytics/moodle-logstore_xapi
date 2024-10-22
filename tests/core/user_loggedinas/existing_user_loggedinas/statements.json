@@ -38,19 +38,6 @@
           "event_name": "\\core\\event\\user_loggedinas",
           "event_function": "\\src\\transformer\\events\\core\\user_loggedin"
         }
-      },
-      "contextActivities": {
-        "category": [
-          {
-            "id": "http://www.example.org",
-            "definition": {
-              "type": "http://id.tincanapi.com/activitytype/lms",
-              "name": {
-                "en": "test_name"
-              }
-            }
-          }
-        ]
       }
     }
   }

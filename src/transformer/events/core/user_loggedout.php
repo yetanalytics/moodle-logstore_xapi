@@ -47,11 +47,6 @@ function user_loggedout(array $config, \stdClass $event) {
         'context' => [
             'language' => $lang,
             'extensions' => utils\extensions\base($config, $event, null),
-            'contextActivities' => [
-                'category' => [
-                    utils\get_activity\source($config)
-                ]
-            ],
         ]
     ]];
 }
