@@ -8,9 +8,9 @@
       }
     },
     "verb": {
-      "id": "https://brindlewaye.com/xAPITerms/verbs/loggedout/",
+      "id": "https://xapi.edlm/profiles/edlm-lms/concepts/verbs/logout",
       "display": {
-        "en": "logged out of"
+        "en": "Logged Out"
       }
     },
     "object": {

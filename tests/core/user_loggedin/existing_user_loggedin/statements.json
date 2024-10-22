@@ -8,9 +8,9 @@
       }
     },
     "verb": {
-      "id": "https://brindlewaye.com/xAPITerms/verbs/loggedin/",
+      "id": "https://xapi.edlm/profiles/edlm-lms/concepts/verbs/login",
       "display": {
-        "en": "logged into"
+        "en": "Logged In"
       }
     },
     "object": {
