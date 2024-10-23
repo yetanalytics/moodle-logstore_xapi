@@ -24,10 +24,10 @@
     },
     "result": {
       "score": {
-        "raw": 1,
-        "min": 0,
-        "max": 2,
-        "scaled": 0.5
+        "raw": 1.0,
+        "min": 0.0,
+        "max": 2.0,
+        "scaled": 0.0
       },
       "completion": true,
       "success": true,
