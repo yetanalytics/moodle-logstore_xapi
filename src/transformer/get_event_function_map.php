@@ -56,6 +56,7 @@ function get_event_function_map() {
         '\core\event\course_module_completion_updated' => 'core\course_module_completion_updated',
         '\mod_assign\event\assessable_submitted' => 'mod_assign\assignment_submitted',
         '\mod_assign\event\submission_graded' => 'mod_assign\assignment_graded',
+        '\mod_assign\event\feedback_viewed' => 'mod_assign\feedback_viewed',
         '\mod_bigbluebuttonbn\event\activity_viewed' => 'mod_bigbluebuttonbn\activity_viewed',
         '\mod_bigbluebuttonbn\event\activity_management_viewed' => 'mod_bigbluebuttonbn\activity_management_viewed',
         '\mod_bigbluebuttonbn\event\live_session_event' => 'mod_bigbluebuttonbn\live_session',
