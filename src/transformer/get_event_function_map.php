@@ -49,6 +49,8 @@ function get_event_function_map() {
         '\core\event\group_created' => 'core\group_created',
         '\core\event\group_deleted' => 'core\group_deleted',
         '\core\event\group_message_sent' => 'core\group_message_sent',
+        '\core\event\group_member_added' => 'core\group_member_added',
+        '\core\event\group_member_removed' => 'core\group_member_removed',
         '\core\event\user_created' => 'core\user_created',
         '\core\event\user_enrolment_created' => 'core\user_enrolment_created',
         '\core\event\user_loggedin' => 'core\user_loggedin',
