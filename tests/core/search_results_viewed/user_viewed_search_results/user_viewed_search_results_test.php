@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace logstore_xapi\mod_forum\discussion_created;
+namespace logstore_xapi\core\search_results_viewed\user_viewed_search_results;
 
 defined('MOODLE_INTERNAL') || die();
 
@@ -23,15 +23,13 @@ global $CFG;
 require_once($CFG->dirroot . '/admin/tool/log/store/xapi/tests/xapi_test_case.php');
 
 /**
- * Unit test for mod_forum discussion created event.
+ * Unit test for search_results_viewed event
  *
  * @package   logstore_xapi
- * @copyright Jerret Fowler <jerrett.fowler@gmail.com>
- *            Ryan Smith <https://www.linkedin.com/in/ryan-smith-uk/>
- *            David Pesce <david.pesce@exputo.com>
+ * @copyright Milt Reder <milt@yetanalytics.com>
  * @license   https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class existing_module_test extends \logstore_xapi\xapi_test_case {
+class user_viewed_search_results_test extends \logstore_xapi\xapi_test_case {
 
     /**
      * Retrieve the directory of the unit test.
@@ -48,22 +46,22 @@ class existing_module_test extends \logstore_xapi\xapi_test_case {
      * @return string
      */
     protected function get_plugin_type() {
-        return "mod";
+        return "core";
     }
-
+    
     /**
      * Retrieve the plugin name being tested.
      *
      * @return string
      */
     protected function get_plugin_name() {
-        return "forum";
+        return "core";
     }
 
     /**
      * Appease auto-detecting of test cases. xapi_test_case has default test cases.
      *
-     * @covers ::discussion_created
+     * @covers ::attempt_submitted
      * @return void
      */
     public function test_init() {
