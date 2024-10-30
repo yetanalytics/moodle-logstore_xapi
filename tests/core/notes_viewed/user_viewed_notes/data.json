@@ -1,0 +1,24 @@
+{
+  "course": [
+    {
+      "fullname": "test_course_name",
+      "id": 1,
+      "lang": "en",
+      "summary": "test_course_summary"
+    }
+  ],
+  "user": [
+    {
+      "email": "viewer@test.com",
+      "firstname": "notes_viewer_firstname",
+      "id": 1,
+      "lastname": "notes_viewer_lastname"
+    },
+    {
+      "email": "subject@test.com",
+      "firstname": "notes_subject_firstname",
+      "id": 2,
+      "lastname": "notes_subject_lastname"
+    }
+  ]
+}
