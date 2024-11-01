@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Utility to form UUID hashes of strings
+ * Utility to make human-readable but id-safe strings.
  *
  * @package   logstore_xapi
  * @copyright Milt Reder <milt@yetanalytics.com>
