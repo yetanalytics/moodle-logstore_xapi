@@ -68,7 +68,7 @@ function get_choice_definition(
             array_map(
                 function($option) use ($lang) {
                     return [
-                        'id' => strval($option->id),
+                        'id' => utils\slugify($option->text),
                         'description' => [
                             $lang => $option->text,
                         ],

@@ -29,13 +29,13 @@
         ],
         "choices": [
           {
-            "id": "1",
+            "id": "to-be",
             "description": {
               "en": "To be"
             }
           },
           {
-            "id": "2",
+            "id": "not-to-be",
             "description": {
               "en": "Not to be"
             }
