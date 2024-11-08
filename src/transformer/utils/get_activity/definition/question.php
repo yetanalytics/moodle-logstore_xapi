@@ -38,15 +38,12 @@ use src\transformer\utils\get_activity\definition\cmi as cmi;
  * @param string $lang The language.
  */
 function get_def_base(array $config, \stdClass $question, string $lang) {
-    return [
-        'type' => 'http://adlnet.gov/expapi/activities/cmi.interaction',
-        'name' => [
-            $lang => $question->name,
-        ],
-        'description' => [
-            $lang => utils\get_string_html_removed($question->questiontext),
-        ],
-    ];
+    return cmi\common(
+        $config,
+        $question->name,
+        utils\get_string_html_removed($question->questiontext),
+        $lang
+    );
 }
 
 /**
@@ -57,11 +54,11 @@ function get_def_base(array $config, \stdClass $question, string $lang) {
  * @param string $lang The language.
  */
 function get_essay_definition(array $config, \stdClass $question, string $lang) {
-    return array_merge(
-        get_def_base($config, $question, $lang),
-        [
-            'interactionType' => 'long-fill-in',
-        ]
+    return cmi\long_fill_in(
+        $config,
+        $question->name,
+        utils\get_string_html_removed($question->questiontext),
+        $lang
     );
 }
 
