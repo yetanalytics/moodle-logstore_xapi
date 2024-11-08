@@ -159,11 +159,11 @@ function get_numerical_definition(array $config, \stdClass $question, string $la
  * @param string $lang The language.
  */
 function get_shortanswer_definition(array $config, \stdClass $question, string $lang) {
-    return array_merge(
-        get_def_base($config, $question, $lang),
-        [
-            'interactionType' => 'fill-in',
-        ]
+    return cmi\fill_in(
+        $config,
+        $question->name,
+        utils\get_string_html_removed($question->questiontext),
+        $lang
     );
 }
 
@@ -175,11 +175,30 @@ function get_shortanswer_definition(array $config, \stdClass $question, string $
  * @param string $lang The language.
  */
 function get_true_false_definition(array $config, \stdClass $question, string $lang) {
-    return array_merge(
-        get_def_base($config, $question, $lang),
-        [
-            'interactionType' => 'true-false',
-        ]
+    $repo = $config['repo'];
+    $answers = $repo->read_records('question_answers', [
+        'question' => $question->id
+    ]);
+    $correctanswerobjarr = array_filter(
+        $answers,
+        function ($answer) {
+            return $answer->fraction === 1.0;
+        }
+    );
+    $correctanswerobj = reset(
+        $correctanswerobjarr
+    );
+
+    $correctanswer = ($correctanswerobj->answer === 'True')
+        ? true
+        : false;
+
+    return cmi\true_false(
+        $config,
+        $question->name,
+        utils\get_string_html_removed($question->questiontext),
+        $lang,
+        $correctanswer
     );
 }
 
