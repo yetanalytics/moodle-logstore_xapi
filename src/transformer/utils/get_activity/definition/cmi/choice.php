@@ -34,13 +34,15 @@ use src\transformer\utils as utils;
  * @param ?string $description The activity description.
  * @param array $choices The choices available.
  * @param string $lang The language.
+ * @param ?array $rightchoices The correct or sequenced options, optional.
  */
 function choice(
     array $config,
     string $name,
         ?string $description,
     array $choices,
-    string $lang
+    string $lang,
+        ?array $rightchoices = null
 ) {
     $cmichoices = ($config['send_response_choices'] && !is_null($choices))
         ? array_map(
@@ -64,12 +66,21 @@ function choice(
                 'correctResponsesPattern' => [
                     implode(
                         '[,]',
-                        array_map(
-                            function($cmichoice) {
-                                return $cmichoice['id'];
-                            },
-                            $cmichoices
-                        )
+                        // If we are given correct choices, normalize and use
+                        !empty($rightchoices)
+                            ? array_map(
+                                function($rightchoice) {
+                                    return utils\slugify($rightchoice);
+                                },
+                                $rightchoices
+                            )
+                        // Otherwise, just use the choices (no right answer)
+                            : array_map(
+                                function($cmichoice) {
+                                    return $cmichoice['id'];
+                                },
+                                $cmichoices
+                            )
                     ),
                 ],
                 'choices' => $cmichoices
