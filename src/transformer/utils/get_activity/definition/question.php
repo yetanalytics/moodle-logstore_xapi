@@ -28,6 +28,7 @@
 namespace src\transformer\utils\get_activity\definition\question;
 
 use src\transformer\utils as utils;
+use src\transformer\utils\get_activity\definition\cmi as cmi;
 
 /**
  * Helper for getting basic interaction activity def data.
@@ -81,61 +82,45 @@ function get_multichoice_definition(
         ?string $interactiontype = 'choice',
         ?string $rightanswer = null
 ) {
-    if ($config['send_response_choices']) {
-        $repo = $config['repo'];
-        $answers = $repo->read_records('question_answers', [
-            'question' => $question->id
-        ]);
-        $choices = array_map(function ($answer) use ($lang) {
-            return [
-                "id" => "$answer->id",
-                "description" => [
-                    $lang => utils\get_string_html_removed($answer->answer)
-                ]
-            ];
-        }, $answers);
+    $repo = $config['repo'];
+    $answers = $repo->read_records('question_answers', [
+        'question' => $question->id
+    ]);
 
-        $correctresponsepattern;
+    $choices = array_values(
+        array_map(
+            function($answer) {
+                return utils\get_string_html_removed($answer->answer);
+            },
+            $answers
+        )
+    );
 
-        if (!is_null($rightanswer)) {
-            switch ($interactiontype) {
-            case 'sequencing':
-                $selections = explode('} {', rtrim(ltrim($rightanswer, '{'), '}'));
-                $correctresponsepattern = implode ('[,]', $selections);
-                break;
-            default:
-                $selections = explode('; ', utils\get_string_html_removed($rightanswer));
-                $correctresponsepattern = implode ('[,]', $selections);
-                break;
-            }
-        }
-
-        $def = array_merge(
-            get_def_base($config, $question, $lang),
-            [
-                'interactionType' => $interactiontype,
-                'correctResponsesPattern' => [$correctresponsepattern],
-                // Need to pull out id's that are appended during array_map so json parses it correctly as an array.
-                'choices' => array_values($choices)
-            ]
+    if ($interactiontype === 'sequencing') {
+        return cmi\sequencing(
+            $config,
+            $question->name,
+            utils\get_string_html_removed($question->questiontext),
+            $choices,
+            $lang,
+            (!is_null($rightanswer))
+                ? explode('} {', trim($rightanswer, '{}'))
+                : null
         );
-
-        if (!is_null($correctresponsepattern)) {
-            $def['correctResponsesPattern'] = [$correctresponsepattern];
-        }
-
-        return $def;
     } else {
-        return array_merge(
-            get_def_base($config, $question, $lang),
-            [
-                'interactionType' => $interactiontype
-            ]
+        return cmi\choice(
+            $config,
+            $question->name,
+            utils\get_string_html_removed($question->questiontext),
+            $choices,
+            $lang,
+            (!is_null($rightanswer))
+                ? explode('; ', utils\get_string_html_removed($rightanswer))
+                : null
         );
     }
-
-
 }
+
 
 /**
  * Transformer util for creating match definitions
