@@ -49,7 +49,7 @@ function textfield(array $config, \stdClass $event, \stdClass $feedbackvalue, \s
         'verb' => [
             'id' => 'http://adlnet.gov/expapi/verbs/answered',
             'display' => [
-                $lang => 'answered'
+                $lang => 'Answered'
             ],
         ],
         'object' => [

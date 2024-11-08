@@ -49,7 +49,7 @@ function textarea(array $config, \stdClass $event, \stdClass $feedbackvalue, \st
         'verb' => [
             'id' => 'http://adlnet.gov/expapi/verbs/answered',
             'display' => [
-                $lang => 'answered'
+                $lang => 'Answered'
             ],
         ],
         'object' => [

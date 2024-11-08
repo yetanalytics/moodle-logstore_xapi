@@ -48,7 +48,7 @@ function response_submitted(array $config, \stdClass $event) {
         'verb' => [
             'id' => 'http://activitystrea.ms/schema/1.0/submit',
             'display' => [
-                $lang => 'submitted'
+                $lang => 'Submitted'
             ],
         ],
         'object' => utils\get_activity\course_feedback($config, $course, $event->contextinstanceid),

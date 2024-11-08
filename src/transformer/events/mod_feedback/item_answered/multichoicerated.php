@@ -61,7 +61,7 @@ function multichoicerated(array $config, \stdClass $event, \stdClass $feedbackva
         'verb' => [
             'id' => 'http://adlnet.gov/expapi/verbs/answered',
             'display' => [
-                $lang => 'answered'
+                $lang => 'Answered'
             ],
         ],
         'object' => [
