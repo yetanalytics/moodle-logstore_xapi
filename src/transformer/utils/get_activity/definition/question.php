@@ -127,11 +127,26 @@ function get_multichoice_definition(
  * @param string $lang The language.
  */
 function get_match_definition(array $config, \stdClass $question, string $lang) {
-    return array_merge(
-        get_def_base($config, $question, $lang),
-        [
-            'interactionType' => 'matching',
-        ]
+    $repo = $config['repo'];
+    $subqs = $repo->read_records('qtype_match_subquestions', [
+        'question' => $question->id
+    ]);
+
+    $source = [];
+    $target = [];
+
+    foreach ($subqs as $subq) {
+        $source[] = utils\get_string_html_removed($subq->questiontext);
+        $target[] = $subq->answertext;
+    }
+
+    return cmi\matching(
+        $config,
+        $question->name,
+        utils\get_string_html_removed($question->questiontext),
+        $source,
+        $target,
+        $lang
     );
 }
 
