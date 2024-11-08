@@ -31,22 +31,6 @@ use src\transformer\utils as utils;
 use src\transformer\utils\get_activity\definition\cmi as cmi;
 
 /**
- * Helper for getting basic interaction activity def data.
- *
- * @param array $config The transformer config settings.
- * @param \stdClass $question The question object.
- * @param string $lang The language.
- */
-function get_def_base(array $config, \stdClass $question, string $lang) {
-    return cmi\common(
-        $config,
-        $question->name,
-        utils\get_string_html_removed($question->questiontext),
-        $lang
-    );
-}
-
-/**
  * Transformer util for creating essay definitions
  *
  * @param array $config The transformer config settings.
