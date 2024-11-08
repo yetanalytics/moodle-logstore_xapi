@@ -143,11 +143,26 @@ function get_match_definition(array $config, \stdClass $question, string $lang) 
  * @param string $lang The language.
  */
 function get_numerical_definition(array $config, \stdClass $question, string $lang) {
-    return array_merge(
-        get_def_base($config, $question, $lang),
-        [
-            'interactionType' => 'numeric',
-        ]
+    $repo = $config['repo'];
+    $answers = $repo->read_records('question_answers', [
+        'question' => $question->id
+    ]);
+    // We only support the answer with the highest fraction
+    usort($answers, function ($a, $b) {
+        return $b->fraction <=> $a->fraction;
+    });
+    $answer = reset($answers);
+    $answernum = $repo->read_record_by_id('question_numerical', $answer->id);
+    $min = (int) $answer->answer - (int) $answernum->tolerance;
+    $max = (int) $answer->answer + (int) $answernum->tolerance;
+
+    return cmi\numeric(
+        $config,
+        $question->name,
+        utils\get_string_html_removed($question->questiontext),
+        $min,
+        $max,
+        $lang
     );
 }
 
