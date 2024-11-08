@@ -42,32 +42,38 @@ function choice(
     array $choices,
     string $lang
 ) {
-    $cmichoices = array_map(
-        function($choice) use ($lang) {
-            return [
-                'id' => utils\slugify($choice),
-                'description' => [
-                    $lang => $choice,
-                ],
-            ];
-        },
-        $choices
-    );
+    $cmichoices = ($config['send_response_choices'] && !is_null($choices))
+        ? array_map(
+            function($choice) use ($lang) {
+                return [
+                    'id' => utils\slugify($choice),
+                    'description' => [
+                        $lang => $choice,
+                    ],
+                ];
+            },
+            $choices
+        )
+        : null;
 
     return [
         ...common($config, $name, $description, $lang),
         'interactionType' => 'choice',
-        'correctResponsesPattern' => [
-            implode(
-                '[,]',
-                array_map(
-                    function($cmichoice) {
-                        return $cmichoice['id'];
-                    },
-                    $cmichoices
-                )
-            ),
-        ],
-        'choices' => $cmichoices
+        ...($config['send_response_choices'] && !empty($cmichoices)
+            ? [
+                'correctResponsesPattern' => [
+                    implode(
+                        '[,]',
+                        array_map(
+                            function($cmichoice) {
+                                return $cmichoice['id'];
+                            },
+                            $cmichoices
+                        )
+                    ),
+                ],
+                'choices' => $cmichoices
+            ]
+            : []),
     ];
 }
