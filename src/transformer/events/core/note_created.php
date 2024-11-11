@@ -39,21 +39,14 @@ use src\transformer\utils\get_activity as activity;
 function note_created(array $config, \stdClass $event) {
   global $CFG;
   $repo = $config['repo'];
-  if (isset($event->objecttable) && isset($event->objectid)) {
-    $event_object = $repo->read_record_by_id($event->objecttable, $event->objectid);
-  } else {
-    $event_object = array();
-  }
-
-  //all three here may not exist
+  $note = read_record_by_id('post', $event->objectid);
+  
   $actor=$repo->read_record_by_id('user',$event->userid);
   $subject=$repo->read_record_by_id('user',$event->relateduserid); 
   $course = (isset($event->courseid) && $event->courseid != 0)
     ? $repo->read_record_by_id('course', $event->courseid)
     : null;
-  $lang = utils\get_course_lang(($course
-                                 ? $course
-                                 : $repo->read_record_by_id("course",1)));
+  $lang = is_null($course) ? $config['source_lang'] : utils\get_course_lang($course);
 
   $statement = [
     'actor' => utils\get_user($config,$actor),
@@ -63,8 +56,8 @@ function note_created(array $config, \stdClass $event) {
     'object' => [
       'id' => $config['app_url'].'/notes/view.php?id='.$event->id,
       'definition' => [
-        'name' => [$lang => $event_object->subject],
-        'description' => [$lang => $event_object->content],
+        'name' => [$lang => utils\get_string_html_removed($note->subject)],
+        'description' => [$lang => utils\get_string_html_removed($note->content)],
         'type' =>  'http://activitystrea.ms/note',
         'extensions' => [
           "https://xapi.edlm/profiles/edlm-lms/concepts/activity-extensions/note-type"=> "course",
