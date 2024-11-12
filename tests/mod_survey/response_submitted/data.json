@@ -1,0 +1,15 @@
+{
+  "modules": [
+    {
+      "id": 1,
+      "name": "survey"
+    }
+  ],
+  "survey": [
+    {
+      "id": 1,
+      "name": "test_name",
+      "intro": "<p>test_intro</p>"
+    }
+  ]
+}
