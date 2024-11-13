@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Transform for certificate issued event.
+ * Transform for certificate verified event.
  *
  * @package   logstore_xapi
  * @copyright Milt Reder <milt@yetanalytics.com>
@@ -27,30 +27,29 @@ namespace src\transformer\events\tool_certificate;
 use src\transformer\utils as utils;
 
 /**
- * Transforms certificate issued event to an "Achieved" xapi event
+ * Transforms certificate verified event to an "Achieved" xapi event
  *
  * @param array $config The transformer config settings.
  * @param \stdClass $event The event to be transformed.
  * @return array
  */
-function certificate_issued(array $config, \stdClass $event) {
+function certificate_verified(array $config, \stdClass $event) {
     $repo = $config['repo'];
-    $user = $repo->read_record_by_id('user', $event->relateduserid);
-    $issuer = $repo->read_record_by_id('user', $event->userid);
+    $user = $repo->read_record_by_id('user', $event->userid);
     $issue = $repo->read_record_by_id('tool_certificate_issues', $event->objectid);
     $course = (!is_null($issue->courseid))
         ? $repo->read_record_by_id('course', $issue->courseid)
         : null;
     $lang = is_null($course)
         ? $config['source_lang']
-    : utils\get_course_lang($course);
+        : utils\get_course_lang($course);
 
     return [[
         'actor' => utils\get_user($config, $user),
         'verb' => [
-            'id' => 'https://w3id.org/xapi/tla/verbs/achieved',
+            'id' => 'https://w3id.org/xapi/tla/verbs/verified',
             'display' => [
-                'en' => 'Achieved'
+                'en' => 'Verified'
             ],
         ],
         'object' => utils\get_activity\certificate(
@@ -59,7 +58,6 @@ function certificate_issued(array $config, \stdClass $event) {
         ),
         'context' => [
             'language' => $lang,
-            'instructor' => utils\get_user($config, $issuer),
             'extensions' => utils\extensions\base($config, $event, $course),
             'contextActivities' => [
                 ...(
