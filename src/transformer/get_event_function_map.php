@@ -138,6 +138,7 @@ function get_event_function_map() {
         '\mod_url\event\course_module_viewed' => 'all\course_module_viewed',
         '\mod_wiki\event\course_module_viewed' => 'all\course_module_viewed',
         '\mod_wiki\event\comment_created' => 'mod_wiki\comment_created',
+        '\mod_wiki\event\comment_deleted' => 'mod_wiki\comment_deleted',
         '\mod_workshop\event\course_module_viewed' => 'all\course_module_viewed',
         '\totara_program\event\program_assigned' => 'totara_program\program_assigned'
 
