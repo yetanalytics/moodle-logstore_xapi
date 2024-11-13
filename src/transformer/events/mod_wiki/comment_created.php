@@ -48,7 +48,7 @@ function comment_created(array $config, \stdClass $event) {
         'verb' => [
             'id' => 'http://adlnet.gov/expapi/verbs/commented',
             'display' => [
-                $lang => 'Commented'
+                'en' => 'Commented'
             ],
         ],
         'object' => utils\get_activity\wiki_discussion(

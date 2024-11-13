@@ -50,7 +50,7 @@ function comment_deleted(array $config, \stdClass $event) {
         'verb' => [
             'id' => 'http://activitystrea.ms/delete',
             'display' => [
-                $lang => 'Deleted'
+                'en' => 'Deleted'
             ],
         ],
         'object' => [
