@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Transformer fn for wiki discussion comments viewed event.
+ * Transformer fn for wiki page viewed event.
  *
  * @package   logstore_xapi
  * @copyright Milt Reder <milt@yetanalytics.com>
@@ -28,14 +28,14 @@ namespace src\transformer\events\mod_wiki;
 use src\transformer\utils as utils;
 
 /**
- * Transformer fn for wiki discussion comments viewed event.
+ * Transformer fn for wiki page viewed event.
  *
  * @param array $config The transformer config settings.
  * @param \stdClass $event The event to be transformed.
  * @return array
  */
 
-function comments_viewed(array $config, \stdClass $event) {
+function page_viewed(array $config, \stdClass $event) {
     $repo = $config['repo'];
     $user = $repo->read_record_by_id('user', $event->userid);
     $course = $repo->read_record_by_id('course', $event->courseid);
@@ -50,25 +50,20 @@ function comments_viewed(array $config, \stdClass $event) {
                 'en' => 'Viewed'
             ],
         ],
-        'object' => utils\get_activity\wiki_discussion(
-            $config, $course, $wikipage
+        'object' => utils\get_activity\wiki_page(
+            $config,
+            $course,
+            $wikipage
         ),
         'context' => [
             'language' => $lang,
             'extensions' => utils\extensions\base($config, $event, $course),
             'contextActivities' => [
-                'parent' => [
-                    utils\get_activity\wiki_page(
-                        $config,
-                        $course,
-                        $wikipage
-                    ),
-                    ...utils\context_activities\get_parent(
-                        $config,
-                        $event->contextinstanceid,
-                        true
-                    ),
-                ],
+                'parent' => utils\context_activities\get_parent(
+                    $config,
+                    $event->contextinstanceid,
+                    true
+                ),
                 'category' => [
                     utils\get_activity\site($config),
                 ],
