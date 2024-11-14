@@ -14,7 +14,7 @@
       }
     },
     "object": {
-      "id": "http://www.example.org/course/view.php?id=1",
+      "id": "http://www.example.org/notes/view.php?id=1",
       "definition": {
         "name": {
           "en": "a note title"
@@ -41,7 +41,7 @@
           {
             "definition": {
               "name": {
-                "en": "test_course_name"
+                "en": "test_name"
               },
               "type": "http://id.tincanapi.com/activitytype/lms"
             },
@@ -52,7 +52,7 @@
           {
             "definition": {
               "name": {
-                "en": "test_course_name"
+                "en": "test_name"
               },
               "type": "https://w3id.org/xapi/cmi5/activitytype/course"
             },

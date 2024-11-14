@@ -39,7 +39,7 @@ use src\transformer\utils\get_activity as activity;
 function note_created(array $config, \stdClass $event) {
   global $CFG;
   $repo = $config['repo'];
-  $note = read_record_by_id('post', $event->objectid);
+  $note = $repo->read_record_by_id('post', $event->objectid);
   
   $actor=$repo->read_record_by_id('user',$event->userid);
   $subject=$repo->read_record_by_id('user',$event->relateduserid); 
@@ -53,19 +53,7 @@ function note_created(array $config, \stdClass $event) {
     'verb' => ['id' => 'http://activitystrea.ms/create',
                'display' => ['en' => 'Created']
     ],
-    'object' => [
-      'id' => $config['app_url'].'/notes/view.php?id='.$event->id,
-      'definition' => [
-        'name' => [$lang => utils\get_string_html_removed($note->subject)],
-        'description' => [$lang => utils\get_string_html_removed($note->content)],
-        'type' =>  'http://activitystrea.ms/note',
-        'extensions' => [
-          "https://xapi.edlm/profiles/edlm-lms/concepts/activity-extensions/note-type"=> "course",
-          "https://xapi.edlm/profiles/edlm-lms/concepts/activity-extensions/note-subject" =>
-            utils\get_user($config,$subject)
-        ]
-      ],
-    ],
+    'object' => utils\note_object($config, $lang, $subject, $note),
     'context' => [
       'language' => $lang,
       'contextActivities' =>  [

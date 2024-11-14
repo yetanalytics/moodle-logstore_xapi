@@ -37,7 +37,7 @@
           {
             "definition": {
               "name": {
-                "en": "test_course_name"
+                "en": "test_name"
               },
               "type": "http://id.tincanapi.com/activitytype/lms"
             },
@@ -48,7 +48,7 @@
           {
             "definition": {
               "name": {
-                "en": "test_course_name"
+                "en": "test_name"
               },
               "type": "https://w3id.org/xapi/cmi5/activitytype/course"
             },

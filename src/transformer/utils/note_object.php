@@ -27,10 +27,24 @@ namespace src\transformer\utils;
 /**
  * Transformer utility for generating note object for note_created and note_updated events
  *
- * @param null|string $string The string to clean.
- * @return string
+ * @param array $config
+ * @param array $subject
+ * @param string $lang
+ * @param array $note
+ * @return object
  */
-function note_object(?string $string) {
-
-  
+function note_object($config, $lang, $subject, $note) {
+  return [
+    'id' => $config['app_url'].'/notes/view.php?id='.$note->id,
+    'definition' => [
+      'name' => [$lang => get_string_html_removed($note->subject)],
+      'type' =>  'http://activitystrea.ms/note',
+      'description' => [$lang => get_string_html_removed($note->content)],
+      'extensions' => [
+        "https://xapi.edlm/profiles/edlm-lms/concepts/activity-extensions/note-type" => "course",
+        "https://xapi.edlm/profiles/edlm-lms/concepts/activity-extensions/note-subject" =>
+          get_user($config,$subject)
+      ]
+    ]
+  ];
 }
