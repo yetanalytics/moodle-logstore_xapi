@@ -196,8 +196,9 @@ function get_true_false_definition(array $config, \stdClass $question, string $l
     $correctanswerobjarr = array_filter(
         $answers,
         function ($answer) {
-            return $answer->fraction === 1.0;
+            return $answer->fraction == 1.0;
         }
+
     );
     $correctanswerobj = reset(
         $correctanswerobjarr
