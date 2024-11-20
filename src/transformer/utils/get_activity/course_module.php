@@ -69,8 +69,8 @@ function course_module(array $config, \stdClass $course, int $cmid) {
         );
     }
 
-    // Wiki
-    if ($module->name === 'wiki') {
+    // Survey & Wiki use "intro"
+    if ($module->name === 'survey' || $module->name === 'wiki') {
         $def = [
             'type' => $activitytype,
             'name' => [
@@ -78,7 +78,7 @@ function course_module(array $config, \stdClass $course, int $cmid) {
             ],
             'description' => [
                 $courselang => utils\get_string_html_removed($instance->intro),
-            ]
+            ],
         ];
     }
 

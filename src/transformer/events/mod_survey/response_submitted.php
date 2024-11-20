@@ -15,50 +15,48 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Transform for the forum discussion viewed event.
+ * Transformer for survey response submitted event.
  *
  * @package   logstore_xapi
- * @copyright Jerret Fowler <jerrett.fowler@gmail.com>
- *            Ryan Smith <https://www.linkedin.com/in/ryan-smith-uk/>
- *            David Pesce <david.pesce@exputo.com>
+ * @copyright Milt Reder <milt@yetanalytics.com>
  * @license   https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace src\transformer\events\mod_forum;
+namespace src\transformer\events\mod_survey;
 
 use src\transformer\utils as utils;
 
 /**
- * Transformer for forum discussion viewed event.
+ * Transformer for survey response submitted event.
  *
  * @param array $config The transformer config settings.
  * @param \stdClass $event The event to be transformed.
  * @return array
  */
-function discussion_viewed(array $config, \stdClass $event) {
+function response_submitted(array $config, \stdClass $event) {
     $repo = $config['repo'];
     $user = $repo->read_record_by_id('user', $event->userid);
     $course = $repo->read_record_by_id('course', $event->courseid);
-    $discussion = $repo->read_record_by_id('forum_discussions', $event->objectid);
     $lang = utils\get_course_lang($course);
 
     return[[
         'actor' => utils\get_user($config, $user),
         'verb' => [
-            'id' => 'http://id.tincanapi.com/verb/viewed',
+            'id' => 'http://adlnet.gov/expapi/verbs/completed',
             'display' => [
-                'en' => 'Viewed'
+                'en' => 'Completed'
             ],
         ],
-        'object' => utils\get_activity\course_discussion($config, $course, $discussion),
+        'object' => utils\get_activity\course_module(
+            $config, $course, $event->contextinstanceid
+        ),
         'context' => [
             'language' => $lang,
             'extensions' => utils\extensions\base($config, $event, $course),
             'contextActivities' => [
                 'parent' => utils\context_activities\get_parent(
                     $config,
-                    $event->contextinstanceid,
-                    true
+                    $event->contextinstanceid
                 ),
                 'category' => [
                     utils\get_activity\site($config),
