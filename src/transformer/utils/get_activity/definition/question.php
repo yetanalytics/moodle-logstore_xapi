@@ -151,7 +151,11 @@ function get_numerical_definition(array $config, \stdClass $question, string $la
         return $b->fraction <=> $a->fraction;
     });
     $answer = reset($answers);
-    $answernum = $repo->read_record_by_id('question_numerical', $answer->id);
+    $answernums = $repo->read_records(
+        'question_numerical', [
+            'answer' => $answer->id
+        ]);
+    $answernum = reset($answernums);
     $min = (int) $answer->answer - (int) $answernum->tolerance;
     $max = (int) $answer->answer + (int) $answernum->tolerance;
 
@@ -161,7 +165,11 @@ function get_numerical_definition(array $config, \stdClass $question, string $la
         utils\get_string_html_removed($question->questiontext),
         $min,
         $max,
-        $lang
+        $lang,
+        // if we have an exact match, send that
+        ($min == $answer->answer && $max == $answer->answer)
+            ? $answer->answer
+            : null
     );
 }
 
