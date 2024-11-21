@@ -45,15 +45,7 @@ function attempt_reviewed(array $config, \stdClass $event) {
     $quiz = $repo->read_record_by_id('quiz', $attempt->quiz);
     $lang = utils\get_course_lang($course);
 
-    $object = [
-        'id' => $config['app_url'] . '/review.php?attempt=' . $attempt->id,
-        'definition' => [
-            'type' => 'http://activitystrea.ms/schema/1.0/review',
-            'name' => [
-                $lang => 'review'
-            ]
-        ]
-    ];
+    $object = utils\get_activity\quiz_review($config, $attempt->id);
 
     // Set JISC specific activity type.
     if (utils\is_enabled_config($config, 'send_jisc_data')) {
