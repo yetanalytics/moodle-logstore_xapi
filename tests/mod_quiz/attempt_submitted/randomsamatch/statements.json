@@ -149,7 +149,7 @@
       }
     },
     "result": {
-      "response": "Example short answer question\n -> orange; Testing testing\n -> Purple",
+      "response": "example-short-answer-question[.]orange[,]testing-testing[.]purple",
       "completion": true,
       "success": true,
       "extensions": {

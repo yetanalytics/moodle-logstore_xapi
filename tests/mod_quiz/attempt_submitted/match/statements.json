@@ -161,7 +161,7 @@
       }
     },
     "result": {
-      "response": "Red\n -> Green; Blue\n -> Orange; Black\n -> White",
+      "response": "red[.]green[,]blue[.]orange[,]black[.]white",
       "completion": true,
       "success": true,
       "extensions": {
