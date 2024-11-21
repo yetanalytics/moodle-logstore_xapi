@@ -121,11 +121,11 @@
       }
     },
     "result": {
-      "response": "1",
+      "response": "11",
       "completion": true,
       "success": true,
       "extensions": {
-        "http://learninglocker.net/xapi/cmi/numeric/response": 1
+        "http://learninglocker.net/xapi/cmi/numeric/response": 11
       }
     },
     "context": {

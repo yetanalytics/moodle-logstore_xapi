@@ -142,22 +142,11 @@ function get_match_definition(array $config, \stdClass $question, string $lang) 
  * @param string $lang The language.
  */
 function get_numerical_definition(array $config, \stdClass $question, string $lang) {
-    $repo = $config['repo'];
-    $answers = $repo->read_records('question_answers', [
-        'question' => $question->id
-    ]);
-    // We only support the answer with the highest fraction
-    usort($answers, function ($a, $b) {
-        return $b->fraction <=> $a->fraction;
-    });
-    $answer = reset($answers);
-    $answernums = $repo->read_records(
-        'question_numerical', [
-            'answer' => $answer->id
-        ]);
-    $answernum = reset($answernums);
-    $min = (int) $answer->answer - (int) $answernum->tolerance;
-    $max = (int) $answer->answer + (int) $answernum->tolerance;
+    [
+        'min' => $min,
+        'max' => $max,
+        'target' => $target
+    ] = utils\quiz_question\get_numerical_answer($config, $question->id);
 
     return cmi\numeric(
         $config,
@@ -167,8 +156,8 @@ function get_numerical_definition(array $config, \stdClass $question, string $la
         $max,
         $lang,
         // if we have an exact match, send that
-        ($min == $answer->answer && $max == $answer->answer)
-            ? $answer->answer
+        ($min === $target && $max === $target)
+            ? $target
             : null
     );
 }
