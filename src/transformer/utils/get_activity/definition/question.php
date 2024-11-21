@@ -113,7 +113,7 @@ function get_multichoice_definition(
 function get_match_definition(array $config, \stdClass $question, string $lang) {
     $repo = $config['repo'];
     $subqs = $repo->read_records('qtype_match_subquestions', [
-        'question' => $question->id
+        'questionid' => $question->id
     ]);
 
     $source = [];
