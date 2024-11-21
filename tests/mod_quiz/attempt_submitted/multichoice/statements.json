@@ -118,7 +118,7 @@
       }
     },
     "result": {
-      "response": "answer 1",
+      "response": "answer-1",
       "success": true,
       "completion": true,
       "extensions": {
