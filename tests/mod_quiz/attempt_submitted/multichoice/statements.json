@@ -71,7 +71,7 @@
             "definition": {
               "type": "http://adlnet.gov/expapi/activities/attempt",
               "name": {
-                "en": "Attempt"
+                "en": "test_quiz_name Attempt 1"
               }
             }
           }
@@ -142,7 +142,7 @@
             "definition": {
               "type": "http://adlnet.gov/expapi/activities/attempt",
               "name": {
-                "en": "Attempt"
+                "en": "test_quiz_name Attempt 1"
               }
             }
           },
