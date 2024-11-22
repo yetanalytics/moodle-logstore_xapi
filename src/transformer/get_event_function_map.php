@@ -72,6 +72,7 @@ function get_event_function_map() {
         '\mod_assign\event\feedback_viewed' => 'mod_assign\feedback_viewed',
         '\mod_assign\event\submission_locked' => 'mod_assign\submission_locked',
         '\mod_assign\event\submission_unlocked' => 'mod_assign\submission_locked',
+        '\mod_assign\event\submission_viewed' => 'mod_assign\submission_viewed',
         '\mod_assign\event\course_module_viewed' => 'all\course_module_viewed',
         '\mod_bigbluebuttonbn\event\activity_viewed' => 'mod_bigbluebuttonbn\activity_viewed',
         '\mod_bigbluebuttonbn\event\activity_management_viewed' => 'mod_bigbluebuttonbn\activity_management_viewed',
