@@ -90,7 +90,7 @@ function question_manually_graded(array $config, \stdClass $event) {
             'contextActivities' => [
                 'parent' => [
                     utils\get_activity\quiz_review($config, $attemptid),
-                    utils\get_activity\quiz_attempt($config, (int) $attemptid, $event->contextinstanceid),
+                    utils\get_activity\quiz_attempt($config, $attemptid, $event->contextinstanceid),
                     ...utils\context_activities\get_parent(
                         $config,
                         $event->contextinstanceid,
