@@ -40,7 +40,7 @@ function calendar_subscription_created(array $config, \stdClass $event) {
     $course = $event->courseid == 0 ? null : $repo->read_record_by_id('course', $event->courseid);
     $lang = is_null($course) ? $config['source_lang'] : utils\get_course_lang($course);
     $subscription = $repo->read_record_by_id('event_subscriptions', $event->objectid);
-    $object_id = $config['app_url'].'/calendar/subscription?id='.$subscription->id;
+
     $statement = [
         'actor'=> utils\get_user($config, $user),
         'verb'=> [
@@ -49,15 +49,9 @@ function calendar_subscription_created(array $config, \stdClass $event) {
                 'en' => 'Created'
             ]
         ],
-        'object'=> [
-            'id' => $object_id,
-            'definition' => [
-                'type' => 'https://xapi.edlm/profiles/edlm-lms/concepts/activity-types/calendar-subscription',
-                'name' => [
-                    $lang=> $subscription->name
-                ]
-            ]
-        ],
+        'object'=> utils\get_activity\calendar_subscription(
+            $config, $event->objectid, $lang, $subscription->name
+        ),
         'context'=> [
             'language' => $lang,
             'extensions' => utils\extensions\base($config, $event, $course),
