@@ -38,12 +38,11 @@ use src\transformer\utils as utils;
 function debug_event(array $config, \stdClass $event) {
     //debug
     $repo = $config['repo'];
-
     if (isset($event->objecttable) && isset($event->objectid) && ($event->action !== 'deleted' || $event->crud !== 'd')) {
         $event_object = $repo->read_record_by_id($event->objecttable, $event->objectid);
-        } else {*/
+    } else {
         $event_object = array();
-        //        }
+    }
 
     return [[
         'object' => [
