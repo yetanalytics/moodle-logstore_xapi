@@ -23,7 +23,7 @@ global $CFG;
 require_once($CFG->dirroot . '/admin/tool/log/store/xapi/tests/xapi_test_case.php');
 
 /**
- * Unit test for transformation of calendar_subscription_created event
+ * Unit test for transformation of calendar subscription created event
  *
  * @package   logstore_xapi
  * @copyright Daniel Bell <daniel@yetanalytics.com>
