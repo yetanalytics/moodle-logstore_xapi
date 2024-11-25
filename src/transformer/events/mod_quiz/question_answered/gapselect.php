@@ -53,7 +53,7 @@ function gapselect(array $config, \stdClass $event, \stdClass $questionattempt, 
         'verb' => [
             'id' => 'http://adlnet.gov/expapi/verbs/answered',
             'display' => [
-                $lang => 'answered'
+                'en' => 'Answered'
             ],
         ],
         'object' => [
@@ -67,7 +67,10 @@ function gapselect(array $config, \stdClass $event, \stdClass $questionattempt, 
             ),
         ],
         'result' => [
-            'response' => implode ('[,]', $selections),
+            'response' => implode ('[,]', array_map(
+                function($selection) {
+                    return utils\slugify($selection);
+                }, $selections)),
             'completion' => $questionattempt->responsesummary !== null,
             'success' => $questionattempt->rightanswer === $questionattempt->responsesummary,
             'extensions' => [

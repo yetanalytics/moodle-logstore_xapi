@@ -10,13 +10,13 @@
     "verb": {
       "id": "http://id.tincanapi.com/verb/viewed",
       "display": {
-        "en": "viewed"
+        "en": "Viewed"
       }
     },
     "object": {
       "id": "http://www.example.org/mod/scorm/view.php?id=1",
       "definition": {
-        "type": "http://id.tincanapi.com/activitytype/legacy-learning-standard",
+        "type": "http://adlnet.gov/expapi/activities/module",
         "name": {
           "en": "test_name"
         }

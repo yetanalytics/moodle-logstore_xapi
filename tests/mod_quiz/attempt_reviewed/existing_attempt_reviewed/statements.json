@@ -10,7 +10,7 @@
     "verb": {
       "id": "http://activitystrea.ms/schema/1.0/receive",
       "display": {
-        "en": "received"
+        "en": "Received"
       }
     },
     "object": {
@@ -18,7 +18,7 @@
       "definition": {
         "type": "http://activitystrea.ms/schema/1.0/review",
         "name": {
-          "en": "review"
+          "en": "Review"
         }
       }
     },
@@ -46,7 +46,7 @@
             "definition": {
               "type": "http://adlnet.gov/expapi/activities/attempt",
               "name": {
-                "en": "Attempt"
+                "en": "test_quiz_name Attempt 1"
               }
             }
           },

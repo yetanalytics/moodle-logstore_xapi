@@ -10,7 +10,7 @@
     "verb": {
       "id": "http://id.tincanapi.com/verb/viewed",
       "display": {
-        "en": "viewed"
+        "en": "Viewed"
       }
     },
     "object": {
@@ -25,7 +25,7 @@
         },
         "interactionType": "choice",
         "correctResponsesPattern": [
-          "To be[,]Not to be"
+          "to-be[,]not-to-be"
         ],
         "choices": [
           {
