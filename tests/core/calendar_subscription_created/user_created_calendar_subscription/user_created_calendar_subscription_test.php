@@ -27,6 +27,7 @@ require_once($CFG->dirroot . '/admin/tool/log/store/xapi/tests/xapi_test_case.ph
  *
  * @package   logstore_xapi
  * @copyright Daniel Bell <daniel@yetanalytics.com>
+ *            Milt Reder <milt@yetanalytics.com>
  * @license   https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class user_created_calendar_subscription_test extends \logstore_xapi\xapi_test_case {
@@ -48,7 +49,7 @@ class user_created_calendar_subscription_test extends \logstore_xapi\xapi_test_c
     protected function get_plugin_type() {
         return "core";
     }
-    
+
     /**
      * Retrieve the plugin name being tested.
      *
@@ -61,7 +62,7 @@ class user_created_calendar_subscription_test extends \logstore_xapi\xapi_test_c
     /**
      * Appease auto-detecting of test cases. xapi_test_case has default test cases.
      *
-     * @covers ::attempt_submitted
+     * @covers ::calendar_subscription_created
      * @return void
      */
     public function test_init() {

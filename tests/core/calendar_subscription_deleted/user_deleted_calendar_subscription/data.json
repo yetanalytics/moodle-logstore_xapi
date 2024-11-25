@@ -1,18 +1,3 @@
 {
-    "course" : [{
-	"id": 1,
-	"fullname": "test_course_name",
-	"lang": "en",
-	"summary": "test_course_summary"
-    }
-	       ],
-    "event_subscriptions" : [],
-    "user" : [
-	{
-            "email" : "deleter@test.com",
-            "firstname" : "subscription_deleter_firstname",
-            "id" : 1,
-            "lastname" : "subscription_deleter_lastname"
-	}
-    ]
+  "event_subscriptions": []
 }

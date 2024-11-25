@@ -1,25 +1,9 @@
 {
-   "course" : [
-      {
-         "fullname" : "test_course_name",
-         "id" : 1,
-         "lang" : "en",
-         "summary" : "test_course_summary"
-      }
-   ],
-   "event_subscriptions" : [
-      {
-         "id" : 1,
-         "name" : "example calendar",
-         "url" : "http://example-cal.com/HASH"
-      }
-   ],
-   "user" : [
-      {
-         "email" : "updater@test.com",
-         "firstname" : "subscription_updater_firstname",
-         "id" : 1,
-         "lastname" : "subscription_updater_lastname"
-      }
-   ]
+  "event_subscriptions": [
+    {
+      "id": 1,
+      "name": "example calendar subscription",
+      "url": "http://example-cal.com/HASH"
+    }
+  ]
 }

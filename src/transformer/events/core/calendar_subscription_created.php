@@ -19,6 +19,7 @@
  *
  * @package   logstore_xapi
  * @copyright Daniel Bell <daniel@yetanalytics.com>
+ *            Milt Reder <milt@yetanalytics.com>
  * @license   https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -35,43 +36,48 @@ use src\transformer\utils as utils;
  */
 function calendar_subscription_created(array $config, \stdClass $event) {
     $repo = $config['repo'];
-    $event_object = $repo->read_record_by_id('event_subscriptions', $event->objectid);
-    $course = $event->courseid == 0 ? null : $repo->read_record_by_id('course', $event->courseid);
-    $lang = is_null($course) ? 'en' : utils\get_course_lang($course);
     $user = $repo->read_record_by_id('user', $event->userid);
-    $object_id = is_null($event_object->url) ? $config['app_url'].'/calendar/subscription?id='.$event_object->id : $event_object->url;
+    $course = $event->courseid == 0 ? null : $repo->read_record_by_id('course', $event->courseid);
+    $lang = is_null($course) ? $config['source_lang'] : utils\get_course_lang($course);
+    $subscription = $repo->read_record_by_id('event_subscriptions', $event->objectid);
+    $object_id = $config['app_url'].'/calendar/subscription?id='.$subscription->id;
     $statement = [
         'actor'=> utils\get_user($config, $user),
         'verb'=> [
             'id'=> "http://activitystrea.ms/create",
-            'display'=> ['en-US' => 'Created']
+            'display'=> [
+                'en' => 'Created'
+            ]
         ],
         'object'=> [
             'id' => $object_id,
             'definition' => [
                 'type' => 'https://xapi.edlm/profiles/edlm-lms/concepts/activity-types/calendar-subscription',
-                'name' => [$lang=> $event_object->name]
+                'name' => [
+                    $lang=> $subscription->name
+                ]
             ]
         ],
         'context'=> [
+            'language' => $lang,
             'extensions' => utils\extensions\base($config, $event, $course),
             'contextActivities' => [
-                'category' =>  [[
-                    'id' => $config['app_url'],
-                    'objectType' => 'Activity',
-                    'definition' => [
-                        'name' => [
-                            'en' => 'EDLM Moodle LMS'
-                        ],
-                        'type' => 'http://id.tincanapi.com/activitytype/lms'
-                    ]
-                ]]
+                'category' =>  [
+                    utils\get_activity\site($config),
+                ]
             ]
         ]
     ];
 
     if ($course){
-        $statement = utils\add_parent($config,$statement,$course);
+        $statement = utils\add_parent($config, $statement, $course);
     }
+
+    if (isset($subscription->url) && !is_null($subscription->url)) {
+        $statement['context']['contextActivities']['other'] = [
+            utils\get_activity\web_calendar($subscription->url),
+        ];
+    }
+
     return [$statement];
 }

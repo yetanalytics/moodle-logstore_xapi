@@ -19,7 +19,7 @@
  *
  * @package   logstore_xapi
  * @copyright Daniel Bell <daniel@yetanalytics.com>
- *            
+ *            Milt Reder <milt@yetanalytics.com>
  * @license   https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -37,21 +37,21 @@ use src\transformer\utils\get_activity as activity;
  */
 
 function calendar_subscription_deleted(array $config, \stdClass $event) {
-    global $CFG;
     $repo = $config['repo'];
-
-    $user=$repo->read_record_by_id('user',$event->userid); 
-    $course = (isset($event->courseid) && $event->courseid != 0) ? $repo->read_record_by_id("course", $event->courseid) : null;
-    $lang = utils\get_course_lang(($course ? $course :  $repo->read_record_by_id("course",1)));
+    $user = $repo->read_record_by_id('user', $event->userid);
+    $course = $event->courseid == 0 ? null : $repo->read_record_by_id('course', $event->courseid);
+    $lang = is_null($course) ? $config['source_lang'] : utils\get_course_lang($course);
+    $object_id = $config['app_url'].'/calendar/subscription?id='.$event->objectid;
 
     $statement = [
         'actor' => utils\get_user($config,$user),
-        'verb' => ['id' => 'https://activitystrea.ms/delete',
-                   'display' => ['en' => 'Deleted']],
+        'verb' => ['id' => 'http://activitystrea.ms/delete',
+                   'display' => [
+                       'en' => 'Deleted'
+                   ]],
         'object' => [
-            'id' => $CHANGEME,
+            'id' => $object_id,
             'definition' => [
-                'name' => [$lang =>$CHANGEME],
                 'type' => 'https://xapi.edlm/profiles/edlm-lms/concepts/activity-types/calendar-subscription'
             ],
         ],
@@ -64,8 +64,8 @@ function calendar_subscription_deleted(array $config, \stdClass $event) {
         ]];
 
         if ($course){
-            $statement = utils\add_parent($config,$statement,$course);
+            $statement = utils\add_parent($config, $statement, $course);
         }
-    
+
         return [$statement];
 }

@@ -19,7 +19,7 @@
  *
  * @package   logstore_xapi
  * @copyright Daniel Bell <daniel@yetanalytics.com>
- *            
+ *            Milt Reder <milt@yetanalytics.com>
  * @license   https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -37,29 +37,25 @@ use src\transformer\utils\get_activity as activity;
  */
 
 function calendar_subscription_updated(array $config, \stdClass $event) {
-    
-    global $CFG;
     $repo = $config['repo'];
-    if (isset($event->objecttable) && isset($event->objectid)) {
-        $event_object = $repo->read_record_by_id($event->objecttable, $event->objectid);
-    } else {
-        $event_object = array();
-    }
+    $user = $repo->read_record_by_id('user', $event->userid);
+    $course = $event->courseid == 0 ? null : $repo->read_record_by_id('course', $event->courseid);
+    $lang = is_null($course) ? $config['source_lang'] : utils\get_course_lang($course);
+    $subscription = $repo->read_record_by_id('event_subscriptions', $event->objectid);
+    $object_id = $config['app_url'].'/calendar/subscription?id='.$subscription->id;
 
-    $course = (isset($event->courseid) && $event->courseid != 0) ? $repo->read_record_by_id('course', $event->courseid) : null;
-    $lang = $course ? utils\get_course_lang($course): 'en';
-    $user=$repo->read_record_by_id('user',$event->userid);
-
-    $object_id = is_null($event_object->url) ? $config['app_url'].'/calendar/subscription?id='.$event_object->id : $event_object->url;
-    
     $statement = [
         'actor' => utils\get_user($config,$user),
-        'verb' => ['id' => 'https://w3id.org/xapi/acrossx/verbs/edited',
-                   'display' => ['en' => 'Edited']],
+        'verb' => [
+            'id' => 'https://w3id.org/xapi/acrossx/verbs/edited',
+            'display' => [
+                'en' => 'Edited'
+            ]
+        ],
         'object' => [
             'id' =>  $object_id,
             'definition' => [
-                'name' => [$lang => $event_object->name],
+                'name' => [$lang => $subscription->name],
                 'type' => 'https://xapi.edlm/profiles/edlm-lms/concepts/activity-types/calendar-subscription'
             ],
         ],
@@ -74,6 +70,12 @@ function calendar_subscription_updated(array $config, \stdClass $event) {
     if ($course){
         $statement = utils\add_parent($config,$statement,$course);
     }
-    
+
+    if (isset($subscription->url) && !is_null($subscription->url)) {
+        $statement['context']['contextActivities']['other'] = [
+            utils\get_activity\web_calendar($subscription->url),
+        ];
+    }
+
     return [$statement];
 }

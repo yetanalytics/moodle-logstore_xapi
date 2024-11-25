@@ -48,7 +48,7 @@ class user_deleted_calendar_subscription_test extends \logstore_xapi\xapi_test_c
     protected function get_plugin_type() {
         return "core";
     }
-    
+
     /**
      * Retrieve the plugin name being tested.
      *
@@ -61,7 +61,7 @@ class user_deleted_calendar_subscription_test extends \logstore_xapi\xapi_test_c
     /**
      * Appease auto-detecting of test cases. xapi_test_case has default test cases.
      *
-     * @covers ::attempt_submitted
+     * @covers ::calendar_subscription_deleted
      * @return void
      */
     public function test_init() {

@@ -34,9 +34,6 @@ namespace src\transformer;
 function get_event_function_map() {
     $availableevents = [
         '\core\event\course_category_created' => 'core\course_category_created',
-        '\core\event\calendar_subscription_created' => 'core\calendar_subscription_created',
-        '\core\event\calendar_subscription_updated' => 'core\calendar_subscription_updated',
-        '\core\event\calendar_subscription_deleted' => 'debug\debug_event',
         '\core\event\badge_awarded' => 'core\badge_awarded',
         '\core\event\badge_revoked' => 'core\badge_revoked',
         '\core\event\badge_viewed' => 'core\badge_viewed',
@@ -47,6 +44,9 @@ function get_event_function_map() {
         '\core\event\calendar_event_created' => 'core\calendar_event_created',
         '\core\event\calendar_event_updated' => 'core\calendar_event_updated',
         '\core\event\calendar_event_deleted' => 'core\calendar_event_deleted',
+        '\core\event\calendar_subscription_created' => 'core\calendar_subscription_created',
+        '\core\event\calendar_subscription_updated' => 'core\calendar_subscription_updated',
+        '\core\event\calendar_subscription_deleted' => 'core\calendar_subscription_deleted',
         '\core\event\course_completed' => 'core\course_completed',
         '\core\event\course_completion_updated' => 'core\course_completion_updated',
         '\core\event\course_viewed' => 'core\course_viewed',
