@@ -37,34 +37,39 @@ use src\transformer\utils\get_activity as activity;
  */
 
 function note_created(array $config, \stdClass $event) {
-  global $CFG;
-  $repo = $config['repo'];
-  $note = $repo->read_record_by_id('post', $event->objectid);
+    $repo = $config['repo'];
+    $note = $repo->read_record_by_id('post', $event->objectid);
+    $actor = $repo->read_record_by_id('user', $event->userid);
+    $subject = $repo->read_record_by_id('user', $event->relateduserid);
+    $course = (isset($event->courseid) && $event->courseid != 0)
+        ? $repo->read_record_by_id('course', $event->courseid)
+        : null;
+    $lang = is_null($course)
+        ? $config['source_lang']
+    : utils\get_course_lang($course);
 
-  $actor=$repo->read_record_by_id('user',$event->userid);
-  $subject=$repo->read_record_by_id('user',$event->relateduserid);
-  $course = (isset($event->courseid) && $event->courseid != 0)
-    ? $repo->read_record_by_id('course', $event->courseid)
-    : null;
-  $lang = is_null($course) ? $config['source_lang'] : utils\get_course_lang($course);
+    $statement = [
+        'actor' => utils\get_user($config,$actor),
+        'verb' => [
+            'id' => 'http://activitystrea.ms/create',
+            'display' => [
+                'en' => 'Created'
+            ]
+        ],
+        'object' => activity\course_note($config, $lang, $subject, $note),
+        'context' => [
+            'language' => $lang,
+            'contextActivities' =>  [
+                'category' => [
+                    activity\site($config)
+                ],
+            ],
+            'extensions' => utils\extensions\base($config, $event, $course)
+        ]];
 
-  $statement = [
-    'actor' => utils\get_user($config,$actor),
-    'verb' => ['id' => 'http://activitystrea.ms/create',
-               'display' => ['en' => 'Created']
-    ],
-    'object' => activity\course_note($config, $lang, $subject, $note),
-    'context' => [
-      'language' => $lang,
-      'contextActivities' =>  [
-        'category' => [activity\site($config)],
-      ],
-      'extensions' => utils\extensions\base($config, $event, $course)
-    ]];
+    if ($course){
+        $statement = utils\add_parent($config,$statement,$course);
+    }
 
-  if ($course){
-    $statement = utils\add_parent($config,$statement,$course);
-  }
-
-  return [$statement];
+    return [$statement];
 }

@@ -19,7 +19,7 @@
  *
  * @package   logstore_xapi
  * @copyright Daniel Bell <daniel@yetanalytics.com>
- *            
+ *
  * @license   https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -37,44 +37,58 @@ use src\transformer\utils\get_activity as activity;
  */
 
 function notes_viewed(array $config, \stdClass $event) {
-    global $CFG;
     $repo = $config['repo'];
 
     //all three here may not exist
-    $user=$repo->read_record_by_id('user',$event->userid); 
-    $subject=$repo->read_record_by_id('user',$event->relateduserid);
+    $user=$repo->read_record_by_id('user', $event->userid);
+    $subject=$repo->read_record_by_id('user', $event->relateduserid);
     $course = (isset($event->courseid) && $event->courseid != 0)
         ? $repo->read_record_by_id('course', $event->courseid)
         : null;
-    $lang = is_null($course) ? $config['source_lang'] : utils\get_course_lang($course);
+    $lang = is_null($course)
+        ? $config['source_lang']
+    : utils\get_course_lang($course);
 
     $statement = [
         'actor' => utils\get_user($config,$user),
         'verb' => ['id' => 'http://id.tincanapi.com/verb/viewed',
-                   'display' => ['en' => 'Viewed']
+                   'display' => [
+                       'en' => 'Viewed'
+                   ]
         ],
         'object' => [
-          'id' => $config['app_url'].'/notes/index.php',
+            'id' => $config['app_url'].'/notes/index.php',
             'definition' => [
-                'name' => [$lang => 'Notes'],
+                'name' => [
+                    $lang => 'Notes'
+                ],
                 'type' =>  'https://w3id.org/xapi/acrossx/activities/webpage',
-                'extensions' => ["https://xapi.edlm/profiles/edlm-lms/concepts/activity-extensions/note-subject" => utils\get_user($config,$subject)]
+                'extensions' => [
+                    "https://xapi.edlm/profiles/edlm-lms/concepts/activity-extensions/note-subject"
+                        => utils\get_user($config,$subject)
+                ]
             ],
         ],
         'context' => [
             'language' => $lang,
             'contextActivities' =>  [
-                'category' => [activity\site($config)],
+                'category' => [
+                    activity\site($config)
+                ],
             ],
             'extensions' =>
-              array_merge(utils\extensions\base($config, $event, $course),
-                          ["https://xapi.edlm/profiles/edlm-lms/concepts/context-extensions/note-subject-scope" => utils\get_user($config,$subject)])
+                array_merge(
+                    utils\extensions\base($config, $event, $course),
+                    [
+                        'https://xapi.edlm/profiles/edlm-lms/concepts/context-extensions/note-subject-scope'
+                            => utils\get_user($config,$subject)])
 
-        ]];
+        ]
+    ];
 
-        if ($course){
-            $statement = utils\add_parent($config,$statement,$course);
-        }
-    
-        return [$statement];
+    if ($course){
+        $statement = utils\add_parent($config,$statement,$course);
+    }
+
+    return [$statement];
 }
