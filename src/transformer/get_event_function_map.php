@@ -58,7 +58,6 @@ function get_event_function_map() {
         '\core\event\note_updated' => 'core\note_updated',
         '\core\event\notes_viewed' => 'core\notes_viewed',
         '\core\event\user_created' => 'core\user_created',
-        '\core\event\user_created' => 'core\user_created',
         '\core\event\user_enrolment_created' => 'core\user_enrolment_created',
         '\core\event\user_enrolment_deleted' => 'core\user_enrolment_deleted',
         '\core\event\user_enrolment_updated' => 'core\user_enrolment_updated',
