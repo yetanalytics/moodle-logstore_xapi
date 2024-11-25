@@ -55,7 +55,9 @@ function attempt_submitted(array $config, \stdClass $event) {
     return [[
         'actor' => utils\get_user($config, $user),
         'verb' => utils\get_verb('completed', $config, $lang),
-        'object' => utils\get_activity\course_quiz($config, $course, $event->contextinstanceid),
+        'object' => utils\get_activity\quiz_attempt(
+            $config, $event->objectid, $event->contextinstanceid
+        ),
         'result' => utils\get_attempt_result($config, $attempt, $gradeitem, $attemptgrade),
         'context' => [
             'language' => $lang,
@@ -63,11 +65,9 @@ function attempt_submitted(array $config, \stdClass $event) {
             'contextActivities' => [
                 'parent' => utils\context_activities\get_parent(
                     $config,
-                    $event->contextinstanceid
+                    $event->contextinstanceid,
+                    true
                 ),
-                'other' => [
-                    utils\get_activity\quiz_attempt($config, $attempt->id, $coursemodule->id),
-                ],
                 'category' => [
                     utils\get_activity\site($config),
                 ],

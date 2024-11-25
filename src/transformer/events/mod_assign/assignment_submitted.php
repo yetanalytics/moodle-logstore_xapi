@@ -21,6 +21,7 @@
  * @copyright Jerret Fowler <jerrett.fowler@gmail.com>
  *            Ryan Smith <https://www.linkedin.com/in/ryan-smith-uk/>
  *            David Pesce <david.pesce@exputo.com>
+ *            Milt Reder <milt@yetanalytics.com>
  * @license   https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -52,19 +53,9 @@ function assignment_submitted(array $config, \stdClass $event) {
     return [[
         'actor' => utils\get_user($config, $user),
         'verb' => $verb,
-        'object' => [
-            'id' => $config['app_url']
-                . '/mod/assign/view.php?id='
-                . $event->contextinstanceid
-                . '#submission',
-            'objectType' => 'Activity',
-            'definition' => [
-                'type' => 'https://xapi.edlm/profiles/edlm-lms/concepts/activity-types/submission',
-                'name' => [
-                    $lang => $assignment->name . ' Submission',
-                ]
-            ]
-        ],
+        'object' => utils\get_activity\assign_submission(
+            $config, $event->contextinstanceid, $lang
+        ),
         'context' => [
             'language' => $lang,
             'extensions' => utils\extensions\base($config, $event, $course),
