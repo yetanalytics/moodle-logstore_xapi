@@ -28,8 +28,8 @@ namespace src\transformer\utils;
  * Transformer utility for generating note object for note_created and note_updated events
  *
  * @param array $config
- * @param array $subject
  * @param string $lang
+ * @param array $subject
  * @param array $note
  * @return object
  */
