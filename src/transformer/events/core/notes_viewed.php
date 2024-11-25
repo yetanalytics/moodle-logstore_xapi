@@ -81,7 +81,7 @@ function notes_viewed(array $config, \stdClass $event) {
                     utils\extensions\base($config, $event, $course),
                     [
                         'https://xapi.edlm/profiles/edlm-lms/concepts/context-extensions/note-subject-scope'
-                            => utils\get_user($config,$subject)])
+                            => utils\get_user($config, $subject)])
 
         ]
     ];

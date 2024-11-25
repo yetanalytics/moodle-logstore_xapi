@@ -67,7 +67,7 @@ function note_updated(array $config, \stdClass $event) {
         ]];
 
     if ($course){
-        $statement = utils\add_parent($config,$statement,$course);
+        $statement = utils\add_parent($config, $statement, $course);
     }
 
     return [$statement];
