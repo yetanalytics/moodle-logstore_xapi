@@ -19,7 +19,7 @@
  *
  * @package   logstore_xapi
  * @copyright Daniel Bell <daniel@yetanalytics.com>
- *            
+ *
  * @license   https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -53,7 +53,7 @@ function note_updated(array $config, \stdClass $event) {
     'verb' => ['id' => 'http://activitystrea.ms/update',
                'display' => ['en' => 'Updated']
     ],
-    'object' => utils\note_object($config, $lang, $subject, $note),
+    'object' => activity\course_note($config, $lang, $subject, $note),
     'context' => [
       'language' => $lang,
       'contextActivities' =>  [
@@ -65,6 +65,6 @@ function note_updated(array $config, \stdClass $event) {
   if ($course){
     $statement = utils\add_parent($config,$statement,$course);
   }
-    
+
   return [$statement];
 }

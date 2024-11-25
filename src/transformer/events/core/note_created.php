@@ -19,7 +19,7 @@
  *
  * @package   logstore_xapi
  * @copyright Daniel Bell <daniel@yetanalytics.com>
- *            
+ *
  * @license   https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -40,9 +40,9 @@ function note_created(array $config, \stdClass $event) {
   global $CFG;
   $repo = $config['repo'];
   $note = $repo->read_record_by_id('post', $event->objectid);
-  
+
   $actor=$repo->read_record_by_id('user',$event->userid);
-  $subject=$repo->read_record_by_id('user',$event->relateduserid); 
+  $subject=$repo->read_record_by_id('user',$event->relateduserid);
   $course = (isset($event->courseid) && $event->courseid != 0)
     ? $repo->read_record_by_id('course', $event->courseid)
     : null;
@@ -53,7 +53,7 @@ function note_created(array $config, \stdClass $event) {
     'verb' => ['id' => 'http://activitystrea.ms/create',
                'display' => ['en' => 'Created']
     ],
-    'object' => utils\note_object($config, $lang, $subject, $note),
+    'object' => activity\course_note($config, $lang, $subject, $note),
     'context' => [
       'language' => $lang,
       'contextActivities' =>  [
@@ -65,6 +65,6 @@ function note_created(array $config, \stdClass $event) {
   if ($course){
     $statement = utils\add_parent($config,$statement,$course);
   }
-    
+
   return [$statement];
 }
