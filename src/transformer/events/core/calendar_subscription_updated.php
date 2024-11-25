@@ -29,7 +29,7 @@ use src\transformer\utils as utils;
 use src\transformer\utils\get_activity as activity;
 
 /**
- * Transformer fn for calendar_subscription_updated event
+ * Transformer fn for calendar subscription updated event
  *
  * @param array $config The transformer config settings.
  * @param \stdClass $event The event to be transformed.

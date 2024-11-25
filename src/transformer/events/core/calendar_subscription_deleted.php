@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Transform for course viewed event.
+ * Transform for calendar subscription deleted event.
  *
  * @package   logstore_xapi
  * @copyright Daniel Bell <daniel@yetanalytics.com>
@@ -29,7 +29,7 @@ use src\transformer\utils as utils;
 use src\transformer\utils\get_activity as activity;
 
 /**
- * undefined
+ * Transform for calendar subscription deleted event.
  *
  * @param array $config The transformer config settings.
  * @param \stdClass $event The event to be transformed.
