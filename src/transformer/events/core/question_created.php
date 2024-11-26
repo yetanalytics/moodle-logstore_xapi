@@ -60,6 +60,7 @@ function question_created(array $config, \stdClass $event) {
             'definition' => $definition,
         ],
         'context' => [
+            'language' => $lang,
             'extensions' => utils\extensions\base($config, $event, null),
             'contextActivities' => [
                 'parent' => [

@@ -58,6 +58,7 @@ function course_completion_updated(array $config, \stdClass $event) {
             ],
         ],
         'context' => [
+            'language' => $lang,
             'extensions' => utils\extensions\base($config, $event, $course),
             'contextActivities' => [
                 'parent' => [

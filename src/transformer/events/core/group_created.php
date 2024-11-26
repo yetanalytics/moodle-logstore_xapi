@@ -50,6 +50,7 @@ function group_created(array $config, \stdClass $event) {
         ],
         'object' => utils\get_activity\course_group($config, $course, $group),
         'context' => [
+            'language' => $lang,
             'extensions' => utils\extensions\base($config, $event, null),
             'contextActivities' => [
                 'parent' => [

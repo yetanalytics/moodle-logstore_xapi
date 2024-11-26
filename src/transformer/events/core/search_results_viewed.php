@@ -63,6 +63,7 @@ function search_results_viewed(array $config, \stdClass $event) {
             'response' => $info['q'],
         ],
         'context' => [
+            'language' => $lang,
             'extensions' => utils\extensions\base($config, $event, null),
             'contextActivities' => [
                 'category' => [

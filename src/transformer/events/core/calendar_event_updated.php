@@ -57,6 +57,7 @@ function calendar_event_updated(array $config, \stdClass $event) {
             ]
         ],
         'context' => [
+            'language' => $lang,
             'extensions' => utils\extensions\base($config, $event, $course),
             'contextActivities' => [
                 'category' => [activity\site($config)]
@@ -66,7 +67,7 @@ function calendar_event_updated(array $config, \stdClass $event) {
 
 
     if ($course){
-        $statement = utils\add_parent($config,$statement,$course);        
+        $statement = utils\add_parent($config,$statement,$course);
     }
 
     return [$statement];

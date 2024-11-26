@@ -51,6 +51,7 @@ function group_member_removed(array $config, \stdClass $event) {
         ],
         'object' => utils\get_activity\course_group($config, $course, $group),
         'context' => [
+            'language' => $lang,
             'instructor' => utils\get_user($config, $user),
             'extensions' => utils\extensions\base($config, $event, null),
             'contextActivities' => [

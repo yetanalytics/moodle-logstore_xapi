@@ -49,6 +49,7 @@ function course_created(array $config, \stdClass $event) {
         ],
         'object' => utils\get_activity\course($config, $course),
         'context' => [
+            'language' => $lang,
             'extensions' => utils\extensions\base($config, $event, null),
             'contextActivities' => [
                 'category' => [

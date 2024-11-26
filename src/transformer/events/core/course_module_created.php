@@ -53,6 +53,7 @@ function course_module_created(array $config, \stdClass $event) {
             $event->contextinstanceid
         ),
         'context' => [
+            'language' => $lang,
             'extensions' => utils\extensions\base($config, $event, null),
             'contextActivities' => [
                 'parent' => utils\context_activities\get_parent(

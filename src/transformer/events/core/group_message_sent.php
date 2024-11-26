@@ -57,6 +57,7 @@ function group_message_sent(array $config, \stdClass $event) {
         ],
         'object' => utils\get_activity\message($config, $lang, $message),
         'context' => [
+            'language' => $lang,
             'extensions' => utils\extensions\base($config, $event, null),
             'contextActivities' => [
                 'grouping' => [
