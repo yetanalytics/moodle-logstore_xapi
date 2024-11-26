@@ -41,7 +41,7 @@ function badge_viewed(array $config, \stdClass $event) {
     $badge = $repo->read_record_by_id('badge', $event->objectid);
 
     //all three here may not exist
-    $user=$repo->read_record_by_id('user',$event->userid); 
+    $user=$repo->read_record_by_id('user',$event->userid);
     $course = (isset($event->courseid) && $event->courseid != 0)
         ? $repo->read_record_by_id('course', $event->courseid)
         : null;
@@ -58,16 +58,15 @@ function badge_viewed(array $config, \stdClass $event) {
         ],
         'object' => utils\badge_object($config, $lang, $badge),
         'context' => [
-            'language' => $lang,
+            ...utils\get_context_base($config, $event, $lang, $course),
             'contextActivities' =>  [
                 'category' => [activity\site($config)],
             ],
-            'extensions' => utils\extensions\base($config, $event, $course)
         ]];
 
         if ($course){
             $statement = utils\add_parent($config,$statement,$course);
         }
-    
+
         return [$statement];
 }

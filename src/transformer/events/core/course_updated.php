@@ -49,8 +49,7 @@ function course_updated(array $config, \stdClass $event) {
         ],
         'object' => utils\get_activity\course($config, $course),
         'context' => [
-            'language' => $lang,
-            'extensions' => utils\extensions\base($config, $event, null),
+            ...utils\get_context_base($config, $event, $lang, $course),
             'contextActivities' => [
                 'category' => [
                     utils\get_activity\site($config),

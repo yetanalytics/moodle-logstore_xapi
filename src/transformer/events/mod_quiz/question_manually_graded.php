@@ -84,9 +84,8 @@ function question_manually_graded(array $config, \stdClass $event) {
             ]
         ],
         'context' => [
-            'language' => $lang,
+            ...utils\get_context_base($config, $event, $lang, $course),
             'instructor' => utils\get_user($config, $instructor),
-            'extensions' => utils\extensions\base($config, $event, $course),
             'contextActivities' => [
                 'parent' => [
                     utils\get_activity\quiz_review($config, $attemptid),

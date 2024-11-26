@@ -62,8 +62,7 @@ function questions_imported(array $config, \stdClass $event) {
             ],
         ],
         'context' => [
-            'language' => $lang,
-            'extensions' => utils\extensions\base($config, $event, null),
+            ...utils\get_context_base($config, $event, $lang),
             'contextActivities' => [
                 'parent' => [
                     utils\get_activity\course($config, $course),

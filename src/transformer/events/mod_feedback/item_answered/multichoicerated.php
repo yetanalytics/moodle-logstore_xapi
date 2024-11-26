@@ -95,8 +95,7 @@ function multichoicerated(
             ],
         ],
         'context' => [
-            'language' => $lang,
-            'extensions' => utils\extensions\base($config, $event, $course),
+            ...utils\get_context_base($config, $event, $lang, $course),
             'contextActivities' => [
                 'parent' => utils\context_activities\get_parent(
                     $config,

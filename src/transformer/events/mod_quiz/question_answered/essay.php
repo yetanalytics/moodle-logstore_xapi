@@ -68,8 +68,7 @@ function essay(array $config, \stdClass $event, \stdClass $questionattempt, \std
             'completion' => $responsesummary !== '',
         ],
         'context' => [
-            'language' => $lang,
-            'extensions' => utils\extensions\base($config, $event, $course),
+            ...utils\get_context_base($config, $event, $lang, $course),
             'contextActivities' => [
                 'parent' => array_merge(
                     [

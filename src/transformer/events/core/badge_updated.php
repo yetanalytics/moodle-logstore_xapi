@@ -59,13 +59,12 @@ function badge_updated(array $config, \stdClass $event) {
         ],
         'object' => utils\badge_object($config, $lang, $badge),
         'context' => [
-            'language' => $lang,
+            ...utils\get_context_base($config, $event, $lang, $course),
             'contextActivities' =>  [
                 'category' => [
                     activity\site($config)
                 ],
             ],
-            'extensions' => utils\extensions\base($config, $event, $course)
         ]];
 
         if ($course){

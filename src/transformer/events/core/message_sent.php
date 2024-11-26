@@ -19,7 +19,7 @@
  *
  * @package   logstore_xapi
  * @copyright Daniel Bell <daniel@yetanalytics.com>
- *            
+ *
  * @license   https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -44,16 +44,16 @@ function message_sent(array $config, \stdClass $event) {
     } else {
         $event_object = array();
     }
-    
-    $user = $repo->read_record_by_id('user',$event->userid); 
+
+    $user = $repo->read_record_by_id('user',$event->userid);
     $sender = $user;
-    $recipient = $repo->read_record_by_id('user',$event->relateduserid); 
-    
+    $recipient = $repo->read_record_by_id('user',$event->relateduserid);
+
     $course = (isset($event->courseid) && $event->courseid !== 0)
         ? $repo->read_record_by_id('course', $event->courseid)
         : null;
     $lang = is_null ($course) ? $config['source_lang'] : utils\get_course_lang($course);
-    
+
     $statement = [
       'actor' => utils\get_user($config,$user),
       'verb' => ['id' => 'http://activitystrea.ms/send',
@@ -67,7 +67,7 @@ function message_sent(array $config, \stdClass $event) {
         ],
       ],
       'context' => [
-        'language' => $lang,
+          ...utils\get_context_base($config, $event, $lang, $course),
         'contextActivities' => [
           'category' => [activity\site($config)],
         ],
@@ -78,7 +78,7 @@ function message_sent(array $config, \stdClass $event) {
               "https://yetanalytics.com/profiles/prepositions/concepts/context-extensions/to" => utils\get_user($config,$recipient)
             ])
       ]];
-    
+
         if ($course){
             $statement = utils\add_parent($config,$statement,$course);
         }

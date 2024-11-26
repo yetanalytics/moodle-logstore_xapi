@@ -19,7 +19,7 @@
  *
  * @package   logstore_xapi
  * @copyright Daniel Bell <daniel@yetanalytics.com>
- *            
+ *
  * @license   https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -41,7 +41,7 @@ function calendar_event_deleted(array $config, \stdClass $event) {
     $repo = $config['repo'];
 
     //all three here may not exist
-    $user=$repo->read_record_by_id('user',$event->userid); 
+    $user=$repo->read_record_by_id('user',$event->userid);
     $course = (isset($event->courseid) && $event->courseid != 0) ? $repo->read_record_by_id("course", $event->courseid) : null;
     $lang = utils\get_course_lang(($course ? $course :  $repo->read_record_by_id("course",1)));
 
@@ -56,16 +56,15 @@ function calendar_event_deleted(array $config, \stdClass $event) {
                 'type' =>  'https://xapi.edlm/profiles/edlm-lms/concepts/activity-types/calendar-event'],
         ],
         'context' => [
-            'language' => $lang,
+            ...utils\get_context_base($config, $event, $lang, $course),
             'contextActivities' =>  [
                 'category' => [activity\site($config)]
             ],
-            'extensions' => utils\extensions\base($config, $event, $course)
         ]];
 
         if ($course){
             $statement = utils\add_parent($config,$statement,$course);
         }
-    
+
         return [$statement];
 }

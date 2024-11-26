@@ -19,7 +19,7 @@
  *
  * @package   logstore_xapi
  * @copyright Daniel Bell <daniel@yetanalytics.com>
- *            
+ *
  * @license   https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -67,7 +67,7 @@ function message_viewed(array $config, \stdClass $event) {
             ],
         ],
         'context' => [
-            'language' => $lang,
+            ...utils\get_context_base($config, $event, $lang, $course),
             'contextActivities' =>  [
                 'category' => [activity\site($config)],
             ],
@@ -81,6 +81,6 @@ function message_viewed(array $config, \stdClass $event) {
     if ($course){
         $statement = utils\add_parent($config,$statement,$course);
     }
-    
+
     return [$statement];
 }
