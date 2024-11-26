@@ -61,6 +61,7 @@ function numerical(array $config, \stdClass $event, \stdClass $questionattempt, 
             ],
         ],
         'object' => [
+            ...utils\get_activity\base(),
             'id' => utils\get_quiz_question_id($config, $coursemodule->id, $question->id),
             'definition' => question\get_numerical_definition($config, $question, $lang)
         ],

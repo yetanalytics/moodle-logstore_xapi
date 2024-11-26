@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Transformer utility for retrieving course sections.
+ * Transformer utility for creating course resources list.
  *
  * @package   logstore_xapi
  * @copyright Milt Reder <milt@yetanalytics.com>
@@ -23,29 +23,27 @@
  */
 
 namespace src\transformer\utils\get_activity;
-
 use src\transformer\utils as utils;
 
 /**
- * Transformer utility for retrieving course sections.
+ * Transformer utility for creating course resources list.
  *
- * @param array $config The transformer config settings.
+ * @param array $config The transformer config.
  * @param \stdClass $course The course object.
- * @param int $csid The course section id.
  * @return array
  */
-function course_section(array $config, \stdClass $course, int $csid) {
-    $repo = $config['repo'];
+function course_resources_list(
+    array $config,
+    \stdClass $course
+) {
     $lang = utils\get_course_lang($course);
-    $section = $repo->read_record_by_id('course_sections', $csid);
-
-    return [
+    return  [
         ...base(),
-        'id' => $config['app_url'] . '/course/section.php?id=' . $section->id,
+        'id' => $config['app_url'] . '/course/resources.php?id=' . $course->id,
         'definition' => [
-            'type' => 'http://id.tincanapi.com/activitytype/section',
+            'type' => 'https://w3id.org/xapi/acrossx/activities/webpage',
             'name' => [
-                $lang => $course->fullname . ' Section ' . $section->section,
+                $lang => $course->fullname . ' Resources'
             ],
         ],
     ];

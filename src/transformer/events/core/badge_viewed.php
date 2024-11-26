@@ -56,7 +56,7 @@ function badge_viewed(array $config, \stdClass $event) {
         'verb' => ['id' => 'http://id.tincanapi.com/verb/viewed',
                    'display' => ['en' => 'Viewed']
         ],
-        'object' => utils\badge_object($config, $lang, $badge),
+        'object' => utils\get_activity\badge($config, $lang, $badge),
         'context' => [
             ...utils\get_context_base($config, $event, $lang, $course),
             'contextActivities' =>  [

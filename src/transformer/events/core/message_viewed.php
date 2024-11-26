@@ -58,14 +58,7 @@ function message_viewed(array $config, \stdClass $event) {
         'verb' => ['id' => 'http://id.tincanapi.com/verb/viewed',
                    'display' =>  ['en' => 'Viewed']
         ],
-        'object' => [
-            'id' =>  $config['app_url'].'/course/view.php?id='.$event->objectid,
-            'definition' => [
-                'type' =>  "http://id.tincanapi.com/activitytype/chat-message",
-                'name' => [$lang => utils\get_string_html_removed($event_object->subject)],
-                'description' => [$lang => utils\get_string_html_removed($event_object->smallmessage)],
-            ],
-        ],
+        'object' => activity\message($config, $lang, $event_object),
         'context' => [
             ...utils\get_context_base($config, $event, $lang, $course),
             'contextActivities' =>  [

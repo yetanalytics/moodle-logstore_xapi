@@ -37,14 +37,8 @@ use src\transformer\utils\get_activity as activity;
  */
 
 function message_sent(array $config, \stdClass $event) {
-    global $CFG;
     $repo = $config['repo'];
-    if (isset($event->objecttable) && isset($event->objectid)) {
-        $event_object = $repo->read_record_by_id($event->objecttable, $event->objectid);
-    } else {
-        $event_object = array();
-    }
-
+    $message = $repo->read_record_by_id('messages', $event->objectid);
     $user = $repo->read_record_by_id('user',$event->userid);
     $sender = $user;
     $recipient = $repo->read_record_by_id('user',$event->relateduserid);
@@ -58,14 +52,7 @@ function message_sent(array $config, \stdClass $event) {
       'actor' => utils\get_user($config,$user),
       'verb' => ['id' => 'http://activitystrea.ms/send',
                  'display' => ['en' => 'Sent']],
-      'object' => [
-        'id' => $config['app_url'].'/course/view.php?id='.$event->objectid,
-        'definition' => [
-          'type' => "http://id.tincanapi.com/activitytype/chat-message",
-          'name' => [$lang =>  utils\get_string_html_removed($event_object->subject)],
-          'description' => [$lang => utils\get_string_html_removed($event_object->smallmessage)],
-        ],
-      ],
+      'object' => activity\message($config, $lang, $message),
       'context' => [
           ...utils\get_context_base($config, $event, $lang, $course),
         'contextActivities' => [

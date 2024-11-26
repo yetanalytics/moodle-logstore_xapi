@@ -49,13 +49,12 @@ function calendar_event_created(array $config, \stdClass $event) {
                 'en' => 'Created'
             ],
         ],
-        'object' => [
-            'id' => $config['app_url'].'/calendar/view?id='.$event->objectid,
-            'definition' => [
-                'type' => 'https://xapi.edlm/profiles/edlm-lms/concepts/activity-types/calendar-event',
-                'name' => [$lang => $event_object->name]
-            ]
-        ],
+        'object' => activity\calendar_event(
+            $config,
+            $lang,
+            $event->objectid,
+            $event_object->name
+        ),
         'context' => [
             ...utils\get_context_base($config, $event, $lang, $course),
             'contextActivities' => [

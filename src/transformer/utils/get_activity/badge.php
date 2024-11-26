@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Transformer utility for cleaning HTML from strings.
+ * Utility for creating badge objects for badge events,
  *
  * @package   logstore_xapi
  * @copyright Daniel Bell <daniel@yetanalytics.com>
@@ -24,29 +24,29 @@
  */
 
 namespace src\transformer\utils\get_activity;
-use src\transformer\utils as utils;
 
 /**
- * Transformer utility for generating note object for note_created and note_updated events
+ * Utility for creating badge objects for badge events.
  *
- * @param array $config
- * @param string $lang
- * @param array $subject
- * @param array $note
- * @return object
+ * @param array $config The site config.
+ * @param string $lang The language
+ * @param array $badge The badge associative array.
+ * @return array
  */
-function course_note($config, $lang, $subject, $note) {
-    return [
+
+function badge($config, $lang, $badge) {
+    $badgetype = [1 => "Global", 2 => "Course"][$badge->type];
+
+    return  [
         ...base(),
-        'id' => $config['app_url'].'/notes/view.php?id='.$note->id,
+        'id' => $config['app_url'].'/badges/overview.php?id='.$badge->id,
         'definition' => [
-            'name' => [$lang => utils\get_string_html_removed($note->subject)],
-            'type' =>  'http://activitystrea.ms/note',
-            'description' => [$lang => utils\get_string_html_removed($note->content)],
+            'name' => [$lang =>$badge->name],
+            'description' => [$lang => $badge->description],
+            'type' =>   'https://xapi.edlm/profiles/edlm-lms/concepts/activity-types/badge',
             'extensions' => [
-                "https://xapi.edlm/profiles/edlm-lms/concepts/activity-extensions/note-type" => "course",
-                "https://xapi.edlm/profiles/edlm-lms/concepts/activity-extensions/note-subject" =>
-                    utils\get_user($config,$subject)
+                'https://xapi.edlm/profiles/edlm-lms/v1/concepts/activity-extensions/badge-type' =>  $badgetype,
+                'https://xapi.edlm/profiles/edlm-lms/v1/concepts/activity-extensions/badge-version' => $badge->version
             ]
         ]
     ];

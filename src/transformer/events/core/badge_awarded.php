@@ -66,7 +66,7 @@ function badge_awarded(array $config, \stdClass $event) {
             'display' => [
                 'en' => 'Achieved'
             ]],
-        'object' => utils\badge_object($config, $lang, $badge),
+        'object' => utils\get_activity\badge($config, $lang, $badge),
         'result' => [
             'response' => $badge->message
         ],

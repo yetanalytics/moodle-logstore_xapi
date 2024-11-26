@@ -57,7 +57,7 @@ function badge_updated(array $config, \stdClass $event) {
                 'en' => 'Edited'
             ]
         ],
-        'object' => utils\badge_object($config, $lang, $badge),
+        'object' => utils\get_activity\badge($config, $lang, $badge),
         'context' => [
             ...utils\get_context_base($config, $event, $lang, $course),
             'contextActivities' =>  [

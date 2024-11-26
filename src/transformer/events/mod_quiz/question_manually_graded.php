@@ -65,6 +65,7 @@ function question_manually_graded(array $config, \stdClass $event) {
         'actor' => utils\get_user($config, $user),
         'verb' => utils\get_verb('scored', $config, $lang),
         'object' => [
+            ...utils\get_activity\base(),
             'id' => $config['app_url']
                 . '/review.php?attempt=' . $attempt->id
                 . '&slot=' . $slot,

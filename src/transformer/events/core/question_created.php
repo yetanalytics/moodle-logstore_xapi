@@ -56,6 +56,7 @@ function question_created(array $config, \stdClass $event) {
             ],
         ],
         'object' => [
+            ...utils\get_activity\base(),
             'id' => $config['app_url'] . '/question?id=' . $question->id,
             'definition' => $definition,
         ],

@@ -72,6 +72,7 @@ function multichoicerated(
             ],
         ],
         'object' => [
+            ...utils\get_activity\base(),
             'id' => $config['app_url'].'/mod/feedback/edit_item.php?id='.$feedbackitem->id,
             'definition' => utils\get_activity\definition\cmi\choice(
                 $config,

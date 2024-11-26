@@ -57,6 +57,7 @@ function notes_viewed(array $config, \stdClass $event) {
                    ]
         ],
         'object' => [
+            ...activity\base(),
             'id' => $config['app_url'].'/notes/index.php',
             'definition' => [
                 'name' => [
