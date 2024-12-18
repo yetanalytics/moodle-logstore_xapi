@@ -1,8 +1,14 @@
 {
   "name": "xapi-vle/moodle-logstore-xapi",
   "license": "GPL v3",
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/yetanalytics/StatementFactory.git"
+    }
+  ],
   "require-dev": {
-    "learninglocker/statementfactory": "~0.0"
+    "yetanalytics/statementfactory": "dev-master"
   },
   "require": {
     "ext-json": "*"
