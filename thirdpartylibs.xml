@@ -8,9 +8,9 @@
         <licenseversion></licenseversion>
     </library>
     <library>
-        <location>vendor/yetanalytics/statementfactory/</location>
+        <location>vendor/learninglocker/statementfactory/</location>
         <name>StatementFactory</name>
-        <version>v0.0.0</version>
+        <version>v0.0.11</version>
         <license>GPL3</license>
         <licenseversion></licenseversion>
     </library>
