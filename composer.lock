@@ -4,24 +4,23 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3e30cb27837875cd586b9737ced605f4",
+    "content-hash": "1a04b8c4c836385d83bfd79d70972a24",
     "packages": [],
     "packages-dev": [
         {
-            "name": "yetanalytics/statementfactory",
-            "version": "dev-master",
+            "name": "learninglocker/statementfactory",
+            "version": "v0.0.11",
             "source": {
                 "type": "git",
-                "url": "https://github.com/yetanalytics/StatementFactory.git",
-                "reference": "748d2ab5a51075436cf94a905cdb68facf08f782"
+                "url": "https://github.com/LearningLocker/StatementFactory.git",
+                "reference": "92c8d9a94f1edc29ba899ed30409f045315c7273"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yetanalytics/StatementFactory/zipball/748d2ab5a51075436cf94a905cdb68facf08f782",
-                "reference": "748d2ab5a51075436cf94a905cdb68facf08f782",
+                "url": "https://api.github.com/repos/LearningLocker/StatementFactory/zipball/92c8d9a94f1edc29ba899ed30409f045315c7273",
+                "reference": "92c8d9a94f1edc29ba899ed30409f045315c7273",
                 "shasum": ""
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -30,30 +29,25 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-3.0-only"
+                "GPL v3"
             ],
             "authors": [
                 {
                     "name": "Ryan Smith",
                     "email": "0ryansmith1994@gmail.com"
-                },
-                {
-                    "name": "Milt Reder",
-                    "email": "milt@yetanalytics.com"
                 }
             ],
             "description": "Learning Locker's classes for xAPI.",
             "support": {
-                "source": "https://github.com/yetanalytics/StatementFactory/tree/master"
+                "issues": "https://github.com/LearningLocker/StatementFactory/issues",
+                "source": "https://github.com/LearningLocker/StatementFactory/tree/v0.0.11"
             },
-            "time": "2024-12-18T14:32:51+00:00"
+            "time": "2020-02-11T10:15:03+00:00"
         }
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "yetanalytics/statementfactory": 20
-    },
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
