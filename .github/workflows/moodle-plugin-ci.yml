@@ -65,7 +65,7 @@ jobs:
           composer install
 
       - name: Install additional supported plugins (Moodle 4.0)
-        if: ${{ matrix.moodle-branch == 'MOODLE_401_STABLE' || matrix.moodle-branch == 'MOODLE_402_STABLE' }}
+        if: ${{ matrix.moodle-branch == 'MOODLE_401_STABLE' || matrix.moodle-branch == 'MOODLE_402_STABLE' || matrix.moodle-branch == 'MOODLE_405_STABLE' }}
         run: |
           moodle-plugin-ci add-plugin --branch MOODLE_400_STABLE catalyst/moodle-mod_facetoface
           moodle-plugin-ci add-plugin --branch MOODLE_400_STABLE moodleworkplace/moodle-tool_certificate
