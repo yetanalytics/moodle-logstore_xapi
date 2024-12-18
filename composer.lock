@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f3d8cea84ae8ba8419e37aea716efffc",
+    "content-hash": "3e30cb27837875cd586b9737ced605f4",
     "packages": [],
     "packages-dev": [
         {
@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yetanalytics/StatementFactory.git",
-                "reference": "9aea053a43393d84a775738430b050b0cb4af4bb"
+                "reference": "748d2ab5a51075436cf94a905cdb68facf08f782"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yetanalytics/StatementFactory/zipball/9aea053a43393d84a775738430b050b0cb4af4bb",
-                "reference": "9aea053a43393d84a775738430b050b0cb4af4bb",
+                "url": "https://api.github.com/repos/yetanalytics/StatementFactory/zipball/748d2ab5a51075436cf94a905cdb68facf08f782",
+                "reference": "748d2ab5a51075436cf94a905cdb68facf08f782",
                 "shasum": ""
             },
             "default-branch": true,
@@ -28,8 +28,9 @@
                     "Locker\\XApi\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL v3"
+                "GPL-3.0-only"
             ],
             "authors": [
                 {
@@ -45,7 +46,7 @@
             "support": {
                 "source": "https://github.com/yetanalytics/StatementFactory/tree/master"
             },
-            "time": "2024-12-18T14:07:44+00:00"
+            "time": "2024-12-18T14:32:51+00:00"
         }
     ],
     "aliases": [],
