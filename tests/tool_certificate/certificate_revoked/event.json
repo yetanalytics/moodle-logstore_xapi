@@ -1,11 +1,11 @@
 {
   "courseid": 0,
-  "eventname": "\\tool_certificate\\event\\certificate_revoked",
   "id": 1,
   "objectid": 1,
+  "relateduserid": 2,
+  "userid": 1,
+  "eventname": "\\tool_certificate\\event\\certificate_revoked",
   "objecttable": "tool_certificate_issues",
   "other": "a:1:{s:4:\"code\";s:12:\"4303209428AU\";}",
-  "relateduserid": 2,
-  "timecreated": 1433946701,
-  "userid": 1
+  "timecreated": 1433946701
 }

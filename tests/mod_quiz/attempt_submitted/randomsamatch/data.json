@@ -2,16 +2,16 @@
   "grade_grades": [
     {
       "itemid": 1,
-      "rawgrade": 50,
-      "userid": 1
+      "userid": 1,
+      "rawgrade": 50
     }
   ],
   "grade_items": [
     {
+      "id": 1,
       "grademax": 100,
       "grademin": 0,
       "gradepass": 50,
-      "id": 1,
       "iteminstance": 1,
       "itemmodule": "quiz"
     }
@@ -24,15 +24,15 @@
   ],
   "qtype_match_subquestions": [
     {
-      "answertext": "orange",
       "id": 1,
       "questionid": 1,
+      "answertext": "orange",
       "questiontext": "<p>Example short answer question</bar>"
     },
     {
-      "answertext": "Purple",
       "id": 2,
       "questionid": 1,
+      "answertext": "Purple",
       "questiontext": "<p>Testing testing</bar>"
     }
   ],
@@ -67,12 +67,12 @@
   "quiz_attempts": [
     {
       "id": 1,
+      "uniqueid": 1,
       "quiz": 1,
       "state": "finished",
       "sumgrades": 50,
       "timefinish": 1,
-      "timestart": 0,
-      "uniqueid": 1
+      "timestart": 0
     }
   ]
 }

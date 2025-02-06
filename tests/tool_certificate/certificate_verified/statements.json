@@ -7,18 +7,34 @@
       },
       "name": "test_fullname1"
     },
+    "verb": {
+      "id": "https://w3id.org/xapi/tla/verbs/verified",
+      "display": {
+        "en": "Verified"
+      }
+    },
+    "object": {
+      "id": "http://www.example.org/admin/tool/certificate/index.php?code=4303209428AU",
+      "definition": {
+        "name": {
+          "en": "Certificate 4303209428AU"
+        },
+        "type": "https://xapi.edlm/profiles/edlm-lms/concepts/activity-types/certificate"
+      },
+      "objectType": "Activity"
+    },
     "context": {
       "contextActivities": {
         "category": [
           {
             "id": "http://www.example.org",
-            "objectType": "Activity",
             "definition": {
               "name": {
                 "en": "test_site_fullname"
               },
               "type": "http://id.tincanapi.com/activitytype/lms"
-            }
+            },
+            "objectType": "Activity"
           }
         ]
       },
@@ -31,22 +47,6 @@
         }
       },
       "language": "en"
-    },
-    "object": {
-      "definition": {
-        "name": {
-          "en": "Certificate 4303209428AU"
-        },
-        "type": "https://xapi.edlm/profiles/edlm-lms/concepts/activity-types/certificate"
-      },
-      "id": "http://www.example.org/admin/tool/certificate/index.php?code=4303209428AU",
-      "objectType": "Activity"
-    },
-    "verb": {
-      "display": {
-        "en": "Verified"
-      },
-      "id": "https://w3id.org/xapi/tla/verbs/verified"
     }
   }
 ]

@@ -1,14 +1,14 @@
 {
   "user": [
     {
-      "email": "test@test.com",
+      "id": 1,
       "firstname": "test_fullname1",
-      "id": 1
+      "email": "test@test.com"
     },
     {
-      "email": "test@test.com",
+      "id": 2,
       "firstname": "test_fullname2",
-      "id": 2
+      "email": "test@test.com"
     }
   ],
   "user_enrolments": [

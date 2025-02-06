@@ -7,32 +7,49 @@
       },
       "name": "test_fullname"
     },
+    "verb": {
+      "id": "http://activitystrea.ms/delete",
+      "display": {
+        "en": "Deleted"
+      }
+    },
+    "object": {
+      "id": "http://www.example.org/mod/wiki/instancecomments.php?commentid=1&pageid=1",
+      "definition": {
+        "name": {
+          "en": "Comment"
+        },
+        "type": "http://activitystrea.ms/comment"
+      },
+      "objectType": "Activity"
+    },
     "context": {
       "contextActivities": {
         "category": [
           {
             "id": "http://www.example.org",
-            "objectType": "Activity",
             "definition": {
               "name": {
                 "en": "test_site_fullname"
               },
               "type": "http://id.tincanapi.com/activitytype/lms"
-            }
+            },
+            "objectType": "Activity"
           }
         ],
         "parent": [
           {
+            "id": "http://www.example.org/mod/wiki/comments.php?pageid=1",
             "definition": {
               "name": {
                 "en": "test_page_title Discussion"
               },
               "type": "http://id.tincanapi.com/activitytype/discussion"
             },
-            "id": "http://www.example.org/mod/wiki/comments.php?pageid=1",
             "objectType": "Activity"
           },
           {
+            "id": "http://www.example.org/mod/wiki/view.php?pageid=1",
             "definition": {
               "description": {
                 "en": "test_content"
@@ -42,10 +59,10 @@
               },
               "type": "https://xapi.edlm/profiles/edlm-lms/concepts/activity-types/wiki-page"
             },
-            "id": "http://www.example.org/mod/wiki/view.php?pageid=1",
             "objectType": "Activity"
           },
           {
+            "id": "http://www.example.org/mod/wiki/view.php?id=1",
             "definition": {
               "description": {
                 "en": "test_intro"
@@ -55,27 +72,26 @@
               },
               "type": "https://xapi.edlm/profiles/edlm-lms/concepts/activity-types/wiki"
             },
-            "id": "http://www.example.org/mod/wiki/view.php?id=1",
             "objectType": "Activity"
           },
           {
+            "id": "http://www.example.org/course/section.php?id=1",
             "definition": {
               "name": {
                 "en": "test_name Section 0"
               },
               "type": "http://id.tincanapi.com/activitytype/section"
             },
-            "id": "http://www.example.org/course/section.php?id=1",
             "objectType": "Activity"
           },
           {
+            "id": "http://www.example.org/course/view.php?id=2",
             "definition": {
               "name": {
                 "en": "test_name"
               },
               "type": "https://w3id.org/xapi/cmi5/activitytype/course"
             },
-            "id": "http://www.example.org/course/view.php?id=2",
             "objectType": "Activity"
           }
         ]
@@ -89,22 +105,6 @@
         }
       },
       "language": "en"
-    },
-    "object": {
-      "definition": {
-        "name": {
-          "en": "Comment"
-        },
-        "type": "http://activitystrea.ms/comment"
-      },
-      "id": "http://www.example.org/mod/wiki/instancecomments.php?commentid=1&pageid=1",
-      "objectType": "Activity"
-    },
-    "verb": {
-      "display": {
-        "en": "Deleted"
-      },
-      "id": "http://activitystrea.ms/delete"
     }
   }
 ]

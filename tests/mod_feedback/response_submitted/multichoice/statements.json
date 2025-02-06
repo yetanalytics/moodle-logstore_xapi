@@ -7,39 +7,55 @@
       },
       "name": "test_fullname"
     },
+    "verb": {
+      "id": "http://activitystrea.ms/schema/1.0/submit",
+      "display": {
+        "en": "Submitted"
+      }
+    },
+    "object": {
+      "id": "http://www.example.org/mod/feedback/view.php?id=1",
+      "definition": {
+        "name": {
+          "en": "test_feedback_name"
+        },
+        "type": "https://xapi.edlm/profiles/edlm-lms/concepts/activity-types/feedback"
+      },
+      "objectType": "Activity"
+    },
     "context": {
       "contextActivities": {
         "category": [
           {
             "id": "http://www.example.org",
-            "objectType": "Activity",
             "definition": {
               "name": {
                 "en": "test_site_fullname"
               },
               "type": "http://id.tincanapi.com/activitytype/lms"
-            }
+            },
+            "objectType": "Activity"
           }
         ],
         "parent": [
           {
+            "id": "http://www.example.org/course/section.php?id=1",
             "definition": {
               "name": {
                 "en": "test_name Section 0"
               },
               "type": "http://id.tincanapi.com/activitytype/section"
             },
-            "id": "http://www.example.org/course/section.php?id=1",
             "objectType": "Activity"
           },
           {
+            "id": "http://www.example.org/course/view.php?id=2",
             "definition": {
               "name": {
                 "en": "test_name"
               },
               "type": "https://w3id.org/xapi/cmi5/activitytype/course"
             },
-            "id": "http://www.example.org/course/view.php?id=2",
             "objectType": "Activity"
           }
         ]
@@ -53,22 +69,6 @@
         }
       },
       "language": "en"
-    },
-    "object": {
-      "definition": {
-        "name": {
-          "en": "test_feedback_name"
-        },
-        "type": "https://xapi.edlm/profiles/edlm-lms/concepts/activity-types/feedback"
-      },
-      "id": "http://www.example.org/mod/feedback/view.php?id=1",
-      "objectType": "Activity"
-    },
-    "verb": {
-      "display": {
-        "en": "Submitted"
-      },
-      "id": "http://activitystrea.ms/schema/1.0/submit"
     }
   },
   {
@@ -79,83 +79,33 @@
       },
       "name": "test_fullname"
     },
-    "context": {
-      "contextActivities": {
-        "category": [
-          {
-            "id": "http://www.example.org",
-            "objectType": "Activity",
-            "definition": {
-              "name": {
-                "en": "test_site_fullname"
-              },
-              "type": "http://id.tincanapi.com/activitytype/lms"
-            }
-          }
-        ],
-        "parent": [
-          {
-            "definition": {
-              "name": {
-                "en": "test_feedback_name"
-              },
-              "type": "https://xapi.edlm/profiles/edlm-lms/concepts/activity-types/feedback"
-            },
-            "id": "http://www.example.org/mod/feedback/view.php?id=1",
-            "objectType": "Activity"
-          },
-          {
-            "definition": {
-              "name": {
-                "en": "test_name Section 0"
-              },
-              "type": "http://id.tincanapi.com/activitytype/section"
-            },
-            "id": "http://www.example.org/course/section.php?id=1",
-            "objectType": "Activity"
-          },
-          {
-            "definition": {
-              "name": {
-                "en": "test_name"
-              },
-              "type": "https://w3id.org/xapi/cmi5/activitytype/course"
-            },
-            "id": "http://www.example.org/course/view.php?id=2",
-            "objectType": "Activity"
-          }
-        ]
-      },
-      "extensions": {
-        "http://lrs.learninglocker.net/define/extensions/info": {
-          "event_function": "\\src\\transformer\\events\\mod_feedback\\response_submitted\\handler",
-          "event_name": "\\mod_feedback\\event\\response_submitted",
-          "http://moodle.org": "1.0.0",
-          "https://github.com/xAPI-vle/moodle-logstore_xapi": "0.0.0-development"
-        }
-      },
-      "language": "en"
+    "verb": {
+      "id": "http://adlnet.gov/expapi/verbs/answered",
+      "display": {
+        "en": "Answered"
+      }
     },
     "object": {
+      "id": "http://www.example.org/mod/feedback/edit_item.php?id=1",
       "definition": {
         "choices": [
           {
+            "id": "test-choice-1",
             "description": {
               "en": "test_choice_1"
-            },
-            "id": "test-choice-1"
+            }
           },
           {
+            "id": "test-choice-2",
             "description": {
               "en": "test_choice_2"
-            },
-            "id": "test-choice-2"
+            }
           },
           {
+            "id": "test-choice-3",
             "description": {
               "en": "test_choice_3"
-            },
-            "id": "test-choice-3"
+            }
           }
         ],
         "correctResponsesPattern": [
@@ -167,8 +117,64 @@
         },
         "type": "http://adlnet.gov/expapi/activities/cmi.interaction"
       },
-      "id": "http://www.example.org/mod/feedback/edit_item.php?id=1",
       "objectType": "Activity"
+    },
+    "context": {
+      "contextActivities": {
+        "category": [
+          {
+            "id": "http://www.example.org",
+            "definition": {
+              "name": {
+                "en": "test_site_fullname"
+              },
+              "type": "http://id.tincanapi.com/activitytype/lms"
+            },
+            "objectType": "Activity"
+          }
+        ],
+        "parent": [
+          {
+            "id": "http://www.example.org/mod/feedback/view.php?id=1",
+            "definition": {
+              "name": {
+                "en": "test_feedback_name"
+              },
+              "type": "https://xapi.edlm/profiles/edlm-lms/concepts/activity-types/feedback"
+            },
+            "objectType": "Activity"
+          },
+          {
+            "id": "http://www.example.org/course/section.php?id=1",
+            "definition": {
+              "name": {
+                "en": "test_name Section 0"
+              },
+              "type": "http://id.tincanapi.com/activitytype/section"
+            },
+            "objectType": "Activity"
+          },
+          {
+            "id": "http://www.example.org/course/view.php?id=2",
+            "definition": {
+              "name": {
+                "en": "test_name"
+              },
+              "type": "https://w3id.org/xapi/cmi5/activitytype/course"
+            },
+            "objectType": "Activity"
+          }
+        ]
+      },
+      "extensions": {
+        "http://lrs.learninglocker.net/define/extensions/info": {
+          "event_function": "\\src\\transformer\\events\\mod_feedback\\response_submitted\\handler",
+          "event_name": "\\mod_feedback\\event\\response_submitted",
+          "http://moodle.org": "1.0.0",
+          "https://github.com/xAPI-vle/moodle-logstore_xapi": "0.0.0-development"
+        }
+      },
+      "language": "en"
     },
     "result": {
       "completion": true,
@@ -176,12 +182,6 @@
         "http://learninglocker.net/xapi/cmi/choice/response": "test_choice_2"
       },
       "response": "test_choice_2"
-    },
-    "verb": {
-      "display": {
-        "en": "Answered"
-      },
-      "id": "http://adlnet.gov/expapi/verbs/answered"
     }
   }
 ]

@@ -7,18 +7,34 @@
       },
       "name": "test_fullname"
     },
+    "verb": {
+      "id": "https://w3id.org/xapi/acrossx/verbs/searched",
+      "display": {
+        "en": "Searched"
+      }
+    },
+    "object": {
+      "id": "http://www.example.org/search/index.php",
+      "definition": {
+        "name": {
+          "en": "Global Search"
+        },
+        "type": "https://w3id.org/xapi/acrossx/activities/webpage"
+      },
+      "objectType": "Activity"
+    },
     "context": {
       "contextActivities": {
         "category": [
           {
             "id": "http://www.example.org",
-            "objectType": "Activity",
             "definition": {
               "name": {
                 "en": "test_site_fullname"
               },
               "type": "http://id.tincanapi.com/activitytype/lms"
-            }
+            },
+            "objectType": "Activity"
           }
         ]
       },
@@ -31,24 +47,8 @@
         }
       }
     },
-    "object": {
-      "definition": {
-        "name": {
-          "en": "Global Search"
-        },
-        "type": "https://w3id.org/xapi/acrossx/activities/webpage"
-      },
-      "id": "http://www.example.org/search/index.php",
-      "objectType": "Activity"
-    },
     "result": {
       "response": "query"
-    },
-    "verb": {
-      "display": {
-        "en": "Searched"
-      },
-      "id": "https://w3id.org/xapi/acrossx/verbs/searched"
     }
   }
 ]

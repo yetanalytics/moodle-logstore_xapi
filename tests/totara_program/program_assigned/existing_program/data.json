@@ -1,8 +1,8 @@
 {
   "prog": [
     {
-      "fullname": "test_name",
-      "id": 1
+      "id": 1,
+      "fullname": "test_name"
     }
   ]
 }

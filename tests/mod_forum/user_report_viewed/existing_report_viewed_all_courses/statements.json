@@ -7,18 +7,37 @@
       },
       "name": "loggedin_user_firstname"
     },
+    "verb": {
+      "id": "http://id.tincanapi.com/verb/viewed",
+      "display": {
+        "en": "Viewed"
+      }
+    },
+    "object": {
+      "id": "http://www.example.org/mod/forum/user.php?id=2",
+      "definition": {
+        "extensions": {
+          "https://moodle.org/xapi/extensions/user_id": 2
+        },
+        "name": {
+          "en": "forum posts of viewed_user_firstname"
+        },
+        "type": "http://id.tincanapi.com/activitytype/user-profile"
+      },
+      "objectType": "Activity"
+    },
     "context": {
       "contextActivities": {
         "category": [
           {
             "id": "http://www.example.org",
-            "objectType": "Activity",
             "definition": {
               "name": {
                 "en": "test_site_fullname"
               },
               "type": "http://id.tincanapi.com/activitytype/lms"
-            }
+            },
+            "objectType": "Activity"
           }
         ]
       },
@@ -31,25 +50,6 @@
         }
       },
       "language": "en"
-    },
-    "object": {
-      "definition": {
-        "extensions": {
-          "https://moodle.org/xapi/extensions/user_id": 2
-        },
-        "name": {
-          "en": "forum posts of viewed_user_firstname"
-        },
-        "type": "http://id.tincanapi.com/activitytype/user-profile"
-      },
-      "id": "http://www.example.org/mod/forum/user.php?id=2",
-      "objectType": "Activity"
-    },
-    "verb": {
-      "display": {
-        "en": "Viewed"
-      },
-      "id": "http://id.tincanapi.com/verb/viewed"
     }
   }
 ]

@@ -7,29 +7,45 @@
       },
       "name": "test_fullname2"
     },
+    "verb": {
+      "id": "http://activitystrea.ms/join",
+      "display": {
+        "en": "Joined"
+      }
+    },
+    "object": {
+      "id": "http://www.example.org/group/index.php?id=1",
+      "definition": {
+        "name": {
+          "en": "test_name"
+        },
+        "type": "https://xapi.edlm/profiles/edlm-lms/concepts/activity-types/group"
+      },
+      "objectType": "Activity"
+    },
     "context": {
       "contextActivities": {
         "category": [
           {
             "id": "http://www.example.org",
-            "objectType": "Activity",
             "definition": {
               "name": {
                 "en": "test_site_fullname"
               },
               "type": "http://id.tincanapi.com/activitytype/lms"
-            }
+            },
+            "objectType": "Activity"
           }
         ],
         "parent": [
           {
+            "id": "http://www.example.org/course/view.php?id=2",
             "definition": {
               "name": {
                 "en": "test_name"
               },
               "type": "https://w3id.org/xapi/cmi5/activitytype/course"
             },
-            "id": "http://www.example.org/course/view.php?id=2",
             "objectType": "Activity"
           }
         ]
@@ -49,22 +65,6 @@
         },
         "name": "test_fullname1"
       }
-    },
-    "object": {
-      "definition": {
-        "name": {
-          "en": "test_name"
-        },
-        "type": "https://xapi.edlm/profiles/edlm-lms/concepts/activity-types/group"
-      },
-      "id": "http://www.example.org/group/index.php?id=1",
-      "objectType": "Activity"
-    },
-    "verb": {
-      "display": {
-        "en": "Joined"
-      },
-      "id": "http://activitystrea.ms/join"
     }
   }
 ]

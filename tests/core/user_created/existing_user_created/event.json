@@ -1,9 +1,9 @@
 {
   "courseid": 2,
-  "eventname": "\\core\\event\\user_created",
   "id": 1,
   "objectid": 1,
-  "objecttable": "user",
   "relateduserid": 1,
+  "eventname": "\\core\\event\\user_created",
+  "objecttable": "user",
   "timecreated": 1433946701
 }

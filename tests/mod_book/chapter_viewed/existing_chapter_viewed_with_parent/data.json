@@ -8,16 +8,16 @@
   "book_chapters": [
     {
       "bookid": 1,
-      "content": "<p>test_parent_content</p>",
       "id": 1,
+      "content": "<p>test_parent_content</p>",
       "pagenum": 1,
       "subchapter": 0,
       "title": "test_parent_name"
     },
     {
       "bookid": 1,
-      "content": "<p>test_book_chapter_content</p>",
       "id": 2,
+      "content": "<p>test_book_chapter_content</p>",
       "pagenum": 2,
       "subchapter": 1,
       "title": "test_book_chapter_title"

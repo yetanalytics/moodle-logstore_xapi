@@ -1,22 +1,22 @@
 {
   "course_categories": [
     {
-      "description": "Default Moodle Course Category",
       "id": 2,
-      "name": "Base Category"
+      "name": "Base Category",
+      "description": "Default Moodle Course Category"
     },
     {
-      "description": "Moodle Course Sub-Category",
       "id": 3,
       "name": "Sub Category",
+      "description": "Moodle Course Sub-Category",
       "parent": 2
     }
   ],
   "user": [
     {
-      "email": "test@test.com",
+      "id": 1,
       "firstname": "test_fullname",
-      "id": 1
+      "email": "test@test.com"
     }
   ]
 }

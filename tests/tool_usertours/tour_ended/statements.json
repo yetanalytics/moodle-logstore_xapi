@@ -7,17 +7,27 @@
       },
       "name": "test_fullname"
     },
+    "verb": {
+      "id": "https://xapi.edlm/profiles/edlm-lms/concepts/verbs/toured",
+      "display": {
+        "en": "Toured"
+      }
+    },
+    "object": {
+      "id": "http://www.example.org/course/view.php?id=2",
+      "objectType": "Activity"
+    },
     "context": {
       "contextActivities": {
         "category": [
           {
+            "id": "http://www.example.org",
             "definition": {
               "name": {
                 "en": "test_name"
               },
               "type": "http://id.tincanapi.com/activitytype/lms"
-            },
-            "id": "http://www.example.org"
+            }
           }
         ]
       },
@@ -30,16 +40,6 @@
         }
       },
       "language": "en"
-    },
-    "object": {
-      "id": "http://www.example.org/course/view.php?id=2",
-      "objectType": "Activity"
-    },
-    "verb": {
-      "display": {
-        "en": "Toured"
-      },
-      "id": "https://xapi.edlm/profiles/edlm-lms/concepts/verbs/toured"
     }
   }
 ]

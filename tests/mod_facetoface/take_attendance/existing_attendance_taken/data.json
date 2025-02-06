@@ -7,8 +7,8 @@
   ],
   "facetoface_sessions": [
     {
-      "facetoface": 1,
-      "id": 1
+      "id": 1,
+      "facetoface": 1
     }
   ],
   "facetoface_sessions_dates": [
@@ -42,14 +42,14 @@
   ],
   "user": [
     {
-      "email": "instructor@test.com",
+      "id": 1,
       "firstname": "test_instructor_name",
-      "id": 1
+      "email": "instructor@test.com"
     },
     {
-      "email": "attendee@test.com",
+      "id": 2,
       "firstname": "test_attendee_name",
-      "id": 2
+      "email": "attendee@test.com"
     }
   ]
 }

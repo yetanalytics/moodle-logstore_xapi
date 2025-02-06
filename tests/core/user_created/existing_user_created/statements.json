@@ -7,18 +7,34 @@
       },
       "name": "test_fullname"
     },
+    "verb": {
+      "id": "http://adlnet.gov/expapi/verbs/registered",
+      "display": {
+        "en": "Registered"
+      }
+    },
+    "object": {
+      "id": "http://www.example.org",
+      "definition": {
+        "name": {
+          "en": "test_site_fullname"
+        },
+        "type": "http://id.tincanapi.com/activitytype/lms"
+      },
+      "objectType": "Activity"
+    },
     "context": {
       "contextActivities": {
         "category": [
           {
             "id": "http://www.example.org",
-            "objectType": "Activity",
             "definition": {
               "name": {
                 "en": "test_site_fullname"
               },
               "type": "http://id.tincanapi.com/activitytype/lms"
-            }
+            },
+            "objectType": "Activity"
           }
         ]
       },
@@ -31,22 +47,6 @@
         }
       },
       "language": "en"
-    },
-    "object": {
-      "id": "http://www.example.org",
-      "objectType": "Activity",
-      "definition": {
-        "name": {
-          "en": "test_site_fullname"
-        },
-        "type": "http://id.tincanapi.com/activitytype/lms"
-      }
-    },
-    "verb": {
-      "display": {
-        "en": "Registered"
-      },
-      "id": "http://adlnet.gov/expapi/verbs/registered"
     }
   }
 ]

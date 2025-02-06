@@ -1,10 +1,10 @@
 {
   "contextinstanceid": 1,
   "courseid": 2,
-  "eventname": "\\mod_quiz\\event\\attempt_becameoverdue",
   "id": 1,
   "objectid": 1,
-  "objecttable": "quiz_attempts",
   "relateduserid": 1,
+  "eventname": "\\mod_quiz\\event\\attempt_becameoverdue",
+  "objecttable": "quiz_attempts",
   "timecreated": 1433946701
 }

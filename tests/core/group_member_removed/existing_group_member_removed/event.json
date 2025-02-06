@@ -1,10 +1,10 @@
 {
   "courseid": 2,
-  "eventname": "\\core\\event\\group_member_removed",
   "id": 1,
   "objectid": 1,
-  "objecttable": "groups",
   "relateduserid": 2,
-  "timecreated": 1433946701,
-  "userid": 1
+  "userid": 1,
+  "eventname": "\\core\\event\\group_member_removed",
+  "objecttable": "groups",
+  "timecreated": 1433946701
 }

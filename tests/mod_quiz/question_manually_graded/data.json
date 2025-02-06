@@ -7,18 +7,18 @@
   ],
   "question_attempt_steps": [
     {
-      "fraction": 0.5,
       "id": 1,
       "questionattemptid": 1,
+      "fraction": 0.5,
       "sequencenumber": 1
     }
   ],
   "question_attempts": [
     {
       "id": 1,
+      "questionusageid": 1,
       "maxfraction": 1.0,
-      "minfraction": 0.0,
-      "questionusageid": 1
+      "minfraction": 0.0
     }
   ],
   "quiz": [
@@ -30,24 +30,24 @@
   "quiz_attempts": [
     {
       "id": 1,
+      "userid": 2,
       "quiz": 1,
       "state": "finished",
       "sumgrades": 50,
       "timefinish": 1,
-      "timestart": 0,
-      "userid": 2
+      "timestart": 0
     }
   ],
   "user": [
     {
-      "email": "instructor@test.com",
+      "id": 1,
       "firstname": "test_instructor_fullname",
-      "id": 1
+      "email": "instructor@test.com"
     },
     {
-      "email": "learner@test.com",
+      "id": 2,
       "firstname": "test_learner_fullname",
-      "id": 2
+      "email": "learner@test.com"
     }
   ]
 }

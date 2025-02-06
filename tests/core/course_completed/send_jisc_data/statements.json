@@ -7,18 +7,34 @@
       },
       "name": "test_fullname"
     },
+    "verb": {
+      "id": "http://adlnet.gov/expapi/verbs/completed",
+      "display": {
+        "en": "Completed"
+      }
+    },
+    "object": {
+      "id": "http://www.example.org/course/view.php?id=2",
+      "definition": {
+        "name": {
+          "en": "test_name"
+        },
+        "type": "https://w3id.org/xapi/cmi5/activitytype/course"
+      },
+      "objectType": "Activity"
+    },
     "context": {
       "contextActivities": {
         "category": [
           {
             "id": "http://www.example.org",
-            "objectType": "Activity",
             "definition": {
               "name": {
                 "en": "test_site_fullname"
               },
               "type": "http://id.tincanapi.com/activitytype/lms"
-            }
+            },
+            "objectType": "Activity"
           }
         ]
       },
@@ -37,22 +53,6 @@
         "http://xapi.jisc.ac.uk/statementCat": "VLE"
       },
       "language": "en"
-    },
-    "object": {
-      "definition": {
-        "name": {
-          "en": "test_name"
-        },
-        "type": "https://w3id.org/xapi/cmi5/activitytype/course"
-      },
-      "id": "http://www.example.org/course/view.php?id=2",
-      "objectType": "Activity"
-    },
-    "verb": {
-      "display": {
-        "en": "Completed"
-      },
-      "id": "http://adlnet.gov/expapi/verbs/completed"
     }
   }
 ]

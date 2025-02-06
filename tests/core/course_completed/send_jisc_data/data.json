@@ -1,22 +1,22 @@
 {
   "course": [
     {
-      "fullname": "test_site_fullname",
       "id": 1,
+      "fullname": "test_site_fullname",
       "lang": "en"
     },
     {
-      "fullname": "test_name",
       "id": 2,
-      "lang": "en",
-      "shortname": "test_course_short_name"
+      "fullname": "test_name",
+      "shortname": "test_course_short_name",
+      "lang": "en"
     }
   ],
   "user": [
     {
-      "email": "test@test.com",
+      "id": 1,
       "firstname": "test_fullname",
-      "id": 1
+      "email": "test@test.com"
     }
   ]
 }

@@ -7,39 +7,55 @@
       },
       "name": "test_fullname"
     },
+    "verb": {
+      "id": "https://xapi.edlm/profiles/edlm-lms/concepts/verbs/subscribed",
+      "display": {
+        "en": "Subscribed"
+      }
+    },
+    "object": {
+      "id": "http://www.example.org/mod/forum/view.php?id=1",
+      "definition": {
+        "name": {
+          "en": "test_forum_name"
+        },
+        "type": "https://xapi.edlm/profiles/edlm-lms/concepts/activity-types/forum"
+      },
+      "objectType": "Activity"
+    },
     "context": {
       "contextActivities": {
         "category": [
           {
             "id": "http://www.example.org",
-            "objectType": "Activity",
             "definition": {
               "name": {
                 "en": "test_site_fullname"
               },
               "type": "http://id.tincanapi.com/activitytype/lms"
-            }
+            },
+            "objectType": "Activity"
           }
         ],
         "parent": [
           {
+            "id": "http://www.example.org/course/section.php?id=1",
             "definition": {
               "name": {
                 "en": "test_name Section 0"
               },
               "type": "http://id.tincanapi.com/activitytype/section"
             },
-            "id": "http://www.example.org/course/section.php?id=1",
             "objectType": "Activity"
           },
           {
+            "id": "http://www.example.org/course/view.php?id=2",
             "definition": {
               "name": {
                 "en": "test_name"
               },
               "type": "https://w3id.org/xapi/cmi5/activitytype/course"
             },
-            "id": "http://www.example.org/course/view.php?id=2",
             "objectType": "Activity"
           }
         ]
@@ -53,22 +69,6 @@
         }
       },
       "language": "en"
-    },
-    "object": {
-      "definition": {
-        "name": {
-          "en": "test_forum_name"
-        },
-        "type": "https://xapi.edlm/profiles/edlm-lms/concepts/activity-types/forum"
-      },
-      "id": "http://www.example.org/mod/forum/view.php?id=1",
-      "objectType": "Activity"
-    },
-    "verb": {
-      "display": {
-        "en": "Subscribed"
-      },
-      "id": "https://xapi.edlm/profiles/edlm-lms/concepts/verbs/subscribed"
     }
   }
 ]

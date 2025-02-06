@@ -1,10 +1,10 @@
 {
   "contextinstanceid": 1,
   "courseid": 2,
-  "eventname": "\\mod_bigbluebuttonbn\\event\\meeting_joined",
   "id": 1,
   "objectid": 1,
+  "userid": 1,
+  "eventname": "\\mod_bigbluebuttonbn\\event\\meeting_joined",
   "objecttable": "bigbluebuttonbn",
-  "timecreated": 1433946701,
-  "userid": 1
+  "timecreated": 1433946701
 }

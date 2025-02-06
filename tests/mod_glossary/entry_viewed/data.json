@@ -7,10 +7,10 @@
   ],
   "glossary_entries": [
     {
-      "concept": "test_glossary_entry_name",
-      "definition": "test_glossary_entry_description",
       "glossaryid": 1,
-      "id": 1
+      "id": 1,
+      "concept": "test_glossary_entry_name",
+      "definition": "test_glossary_entry_description"
     }
   ],
   "modules": [

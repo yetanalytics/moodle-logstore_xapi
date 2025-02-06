@@ -7,17 +7,40 @@
       },
       "name": "test_recipient_firstname test_recipient_lastname"
     },
+    "verb": {
+      "id": "https://w3id.org/xapi/tla/verbs/forfeited",
+      "display": {
+        "en": "Forfeited"
+      }
+    },
+    "object": {
+      "id": "http://www.example.org/badges/overview.php?id=1",
+      "definition": {
+        "description": {
+          "en": "test badge description"
+        },
+        "extensions": {
+          "https://xapi.edlm/profiles/edlm-lms/v1/concepts/activity-extensions/badge-type": "Global",
+          "https://xapi.edlm/profiles/edlm-lms/v1/concepts/activity-extensions/badge-version": "1.0"
+        },
+        "name": {
+          "en": "test_badgename"
+        },
+        "type": "https://xapi.edlm/profiles/edlm-lms/concepts/activity-types/badge"
+      },
+      "objectType": "Activity"
+    },
     "context": {
       "contextActivities": {
         "category": [
           {
+            "id": "http://www.example.org",
             "definition": {
               "name": {
                 "en": "test_site_fullname"
               },
               "type": "http://id.tincanapi.com/activitytype/lms"
             },
-            "id": "http://www.example.org",
             "objectType": "Activity"
           }
         ]
@@ -39,29 +62,6 @@
         "name": "test_revoker_firstname test_revoker_lastname"
       },
       "language": "en"
-    },
-    "object": {
-      "definition": {
-        "description": {
-          "en": "test badge description"
-        },
-        "extensions": {
-          "https://xapi.edlm/profiles/edlm-lms/v1/concepts/activity-extensions/badge-type": "Global",
-          "https://xapi.edlm/profiles/edlm-lms/v1/concepts/activity-extensions/badge-version": "1.0"
-        },
-        "name": {
-          "en": "test_badgename"
-        },
-        "type": "https://xapi.edlm/profiles/edlm-lms/concepts/activity-types/badge"
-      },
-      "id": "http://www.example.org/badges/overview.php?id=1",
-      "objectType": "Activity"
-    },
-    "verb": {
-      "display": {
-        "en": "Forfeited"
-      },
-      "id": "https://w3id.org/xapi/tla/verbs/forfeited"
     }
   }
 ]

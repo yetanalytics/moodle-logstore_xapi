@@ -1,23 +1,23 @@
 {
   "post": [
     {
-      "content": "here is a note",
       "id": 1,
+      "content": "here is a note",
       "subject": "no subject"
     }
   ],
   "user": [
     {
-      "email": "author@test.com",
-      "firstname": "note_author_firstname",
       "id": 1,
-      "lastname": "note_author_lastname"
+      "firstname": "note_author_firstname",
+      "lastname": "note_author_lastname",
+      "email": "author@test.com"
     },
     {
-      "email": "subject@test.com",
-      "firstname": "note_subject_firstname",
       "id": 2,
-      "lastname": "note_subject_lastname"
+      "firstname": "note_subject_firstname",
+      "lastname": "note_subject_lastname",
+      "email": "subject@test.com"
     }
   ]
 }

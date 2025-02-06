@@ -1,13 +1,13 @@
 {
   "course": [
     {
-      "fullname": "test_site_fullname",
       "id": 1,
+      "fullname": "test_site_fullname",
       "lang": "en"
     },
     {
-      "fullname": "test_name",
       "id": 2,
+      "fullname": "test_name",
       "lang": "en",
       "summary": "test_summary"
     }
@@ -20,11 +20,11 @@
   ],
   "user": [
     {
-      "email": "creator@test.com",
-      "firstname": "event_creator_firstname",
       "id": 1,
+      "firstname": "event_creator_firstname",
       "lastname": "event_creator_lastname",
-      "username": "creator"
+      "username": "creator",
+      "email": "creator@test.com"
     }
   ]
 }

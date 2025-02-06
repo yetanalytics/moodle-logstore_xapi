@@ -1,9 +1,9 @@
 {
   "contextinstanceid": 1,
   "courseid": 2,
-  "eventname": "\\mod_feedback\\event\\response_submitted",
   "id": 1,
   "objectid": 1,
-  "timecreated": 1433946701,
-  "userid": 1
+  "userid": 1,
+  "eventname": "\\mod_feedback\\event\\response_submitted",
+  "timecreated": 1433946701
 }

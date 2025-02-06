@@ -1,24 +1,24 @@
 {
   "course": [
     {
-      "fullname": "test_name",
       "id": 1,
+      "fullname": "test_name",
       "lang": "en"
     }
   ],
   "course_sections": [
     {
-      "course": 2,
       "id": 1,
       "name": null,
+      "course": 2,
       "section": 5
     }
   ],
   "user": [
     {
-      "email": "test@test.com",
+      "id": 1,
       "firstname": "test_fullname",
-      "id": 1
+      "email": "test@test.com"
     }
   ]
 }

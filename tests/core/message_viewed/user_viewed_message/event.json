@@ -1,10 +1,10 @@
 {
   "courseid": 2,
-  "eventname": "\\core\\event\\message_viewed",
   "id": 1,
   "objectid": 1,
-  "objecttable": "messages",
   "relateduserid": 1,
-  "timecreated": 1433946701,
-  "userid": 2
+  "userid": 2,
+  "eventname": "\\core\\event\\message_viewed",
+  "objecttable": "messages",
+  "timecreated": 1433946701
 }

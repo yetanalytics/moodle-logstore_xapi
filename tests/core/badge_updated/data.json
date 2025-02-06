@@ -2,10 +2,10 @@
   "badge": [
     {
       "courseid": 2,
-      "description": "test badge description",
       "id": 1,
-      "message": "you got the test badge!",
       "name": "test_badgename",
+      "description": "test badge description",
+      "message": "you got the test badge!",
       "type": 2,
       "version": "1.0"
     }

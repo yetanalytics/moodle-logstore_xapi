@@ -7,24 +7,24 @@
   ],
   "feedback_completed": [
     {
+      "id": 1,
       "anonymous_response": 0,
-      "feedback": 1,
-      "id": 1
+      "feedback": 1
     }
   ],
   "feedback_item": [
     {
-      "feedback": 1,
       "id": 1,
       "name": "test_feedback_item",
+      "feedback": 1,
       "presentation": "r>>>>>3####test_choice_1|2####test_choice_2|1####test_choice_3",
       "typ": "multichoicerated"
     }
   ],
   "feedback_value": [
     {
-      "completed": 1,
       "id": 1,
+      "completed": 1,
       "item": 1,
       "value": "3"
     }

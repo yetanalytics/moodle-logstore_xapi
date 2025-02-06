@@ -8,18 +8,18 @@
   "assignfeedback_comments": [],
   "grade": [
     {
-      "assignment": 1,
-      "grade": 1,
       "id": 1,
-      "userid": 2
+      "userid": 2,
+      "assignment": 1,
+      "grade": 1
     }
   ],
   "grade_items": [
     {
+      "id": 1,
       "grademax": 2,
       "grademin": 0,
       "gradepass": 1,
-      "id": 1,
       "iteminstance": 1,
       "itemmodule": "assign"
     }
@@ -32,14 +32,14 @@
   ],
   "user": [
     {
-      "email": "test@test.com",
+      "id": 1,
       "firstname": "test_fullname",
-      "id": 1
+      "email": "test@test.com"
     },
     {
-      "email": "test2@test.com",
+      "id": 2,
       "firstname": "test2_fullname",
-      "id": 2
+      "email": "test2@test.com"
     }
   ]
 }

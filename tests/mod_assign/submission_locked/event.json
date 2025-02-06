@@ -1,12 +1,12 @@
 {
-  "action": "locked",
   "contextinstanceid": 1,
   "courseid": 2,
-  "eventname": "\\mod_assign\\event\\submission_locked",
   "id": 1,
   "objectid": 1,
-  "objecttable": "assign",
   "relateduserid": 2,
-  "timecreated": 1433946701,
-  "userid": 1
+  "userid": 1,
+  "eventname": "\\mod_assign\\event\\submission_locked",
+  "action": "locked",
+  "objecttable": "assign",
+  "timecreated": 1433946701
 }

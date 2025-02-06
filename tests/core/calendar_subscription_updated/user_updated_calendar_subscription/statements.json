@@ -7,41 +7,57 @@
       },
       "name": "test_fullname"
     },
+    "verb": {
+      "id": "https://w3id.org/xapi/acrossx/verbs/edited",
+      "display": {
+        "en": "Edited"
+      }
+    },
+    "object": {
+      "id": "http://www.example.org/calendar/subscription?id=1",
+      "definition": {
+        "name": {
+          "en": "example calendar subscription"
+        },
+        "type": "https://xapi.edlm/profiles/edlm-lms/concepts/activity-types/calendar-subscription"
+      },
+      "objectType": "Activity"
+    },
     "context": {
       "contextActivities": {
         "category": [
           {
             "id": "http://www.example.org",
-            "objectType": "Activity",
             "definition": {
               "name": {
                 "en": "test_site_fullname"
               },
               "type": "http://id.tincanapi.com/activitytype/lms"
-            }
+            },
+            "objectType": "Activity"
           }
         ],
         "other": [
           {
+            "id": "http://example-cal.com/HASH",
             "definition": {
               "name": {
                 "en": "Web Calendar"
               },
               "type": "https://xapi.edlm/profiles/edlm-lms/concepts/activity-types/calendar"
             },
-            "id": "http://example-cal.com/HASH",
             "objectType": "Activity"
           }
         ],
         "parent": [
           {
+            "id": "http://www.example.org/course/view.php?id=2",
             "definition": {
               "name": {
                 "en": "test_name"
               },
               "type": "https://w3id.org/xapi/cmi5/activitytype/course"
             },
-            "id": "http://www.example.org/course/view.php?id=2",
             "objectType": "Activity"
           }
         ]
@@ -55,22 +71,6 @@
         }
       },
       "language": "en"
-    },
-    "object": {
-      "definition": {
-        "name": {
-          "en": "example calendar subscription"
-        },
-        "type": "https://xapi.edlm/profiles/edlm-lms/concepts/activity-types/calendar-subscription"
-      },
-      "id": "http://www.example.org/calendar/subscription?id=1",
-      "objectType": "Activity"
-    },
-    "verb": {
-      "display": {
-        "en": "Edited"
-      },
-      "id": "https://w3id.org/xapi/acrossx/verbs/edited"
     }
   }
 ]

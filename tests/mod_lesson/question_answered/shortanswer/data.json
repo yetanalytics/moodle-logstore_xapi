@@ -2,8 +2,8 @@
   "lesson": [
     {
       "id": 1,
-      "intro": "test_lesson_intro",
-      "name": "test_lesson"
+      "name": "test_lesson",
+      "intro": "test_lesson_intro"
     }
   ],
   "lesson_answers": [
@@ -15,19 +15,19 @@
   ],
   "lesson_attempts": [
     {
-      "correct": 1,
       "lessonid": 1,
       "pageid": 1,
+      "userid": 1,
+      "correct": 1,
       "timeseen": "1731972680",
-      "useranswer": "Thing",
-      "userid": 1
+      "useranswer": "Thing"
     }
   ],
   "lesson_pages": [
     {
-      "contents": "lesson_question_page_contents",
       "id": 1,
       "lessonid": 1,
+      "contents": "lesson_question_page_contents",
       "qtype": 1,
       "title": "lesson_question_page_title"
     }

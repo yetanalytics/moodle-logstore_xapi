@@ -13,12 +13,12 @@
   ],
   "scorm_scoes_track": [
     {
-      "attempt": 1,
-      "element": "cmi.core.lesson_status",
       "id": 1,
       "scoid": 1,
       "scormid": 1,
       "userid": 1,
+      "attempt": 1,
+      "element": "cmi.core.lesson_status",
       "value": "completed"
     }
   ]

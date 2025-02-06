@@ -7,6 +7,22 @@
       },
       "name": "test_fullname1"
     },
+    "verb": {
+      "id": "https://xapi.edlm/profiles/edlm-lms/concepts/verbs/login",
+      "display": {
+        "en": "Logged In"
+      }
+    },
+    "object": {
+      "id": "http://www.example.org",
+      "definition": {
+        "name": {
+          "en": "test_site_fullname"
+        },
+        "type": "http://id.tincanapi.com/activitytype/lms"
+      },
+      "objectType": "Activity"
+    },
     "context": {
       "extensions": {
         "http://lrs.learninglocker.net/define/extensions/info": {
@@ -24,22 +40,6 @@
         }
       },
       "language": "en"
-    },
-    "object": {
-      "id": "http://www.example.org",
-      "objectType": "Activity",
-      "definition": {
-        "name": {
-          "en": "test_site_fullname"
-        },
-        "type": "http://id.tincanapi.com/activitytype/lms"
-      }
-    },
-    "verb": {
-      "display": {
-        "en": "Logged In"
-      },
-      "id": "https://xapi.edlm/profiles/edlm-lms/concepts/verbs/login"
     }
   }
 ]

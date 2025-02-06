@@ -2,8 +2,8 @@
   "lesson": [
     {
       "id": 1,
-      "intro": "test_lesson_intro",
-      "name": "test_lesson"
+      "name": "test_lesson",
+      "intro": "test_lesson_intro"
     }
   ],
   "lesson_answers": [
@@ -14,19 +14,19 @@
   ],
   "lesson_attempts": [
     {
-      "correct": 0,
       "lessonid": 1,
       "pageid": 1,
+      "userid": 1,
+      "correct": 0,
       "timeseen": "1731972680",
-      "useranswer": "O:8:\"stdClass\":7:{s:4:\"sent\";i:0;s:6:\"graded\";i:0;s:5:\"score\";i:0;s:6:\"answer\";s:30:\"lesson_question_essay_response\";s:12:\"answerformat\";s:1:\"1\";s:8:\"response\";s:0:\"\";s:14:\"responseformat\";s:1:\"1\";}",
-      "userid": 1
+      "useranswer": "O:8:\"stdClass\":7:{s:4:\"sent\";i:0;s:6:\"graded\";i:0;s:5:\"score\";i:0;s:6:\"answer\";s:30:\"lesson_question_essay_response\";s:12:\"answerformat\";s:1:\"1\";s:8:\"response\";s:0:\"\";s:14:\"responseformat\";s:1:\"1\";}"
     }
   ],
   "lesson_pages": [
     {
-      "contents": "lesson_question_page_contents",
       "id": 1,
       "lessonid": 1,
+      "contents": "lesson_question_page_contents",
       "qtype": 10,
       "title": "lesson_question_page_title"
     }

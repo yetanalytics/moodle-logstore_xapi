@@ -2,8 +2,8 @@
   "choice": [
     {
       "id": 1,
-      "intro": "<p>That is the question.</p>",
-      "name": "To be or not to be?"
+      "name": "To be or not to be?",
+      "intro": "<p>That is the question.</p>"
     }
   ],
   "choice_answers": [

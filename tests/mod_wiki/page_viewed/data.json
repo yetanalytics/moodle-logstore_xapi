@@ -8,15 +8,15 @@
   "wiki": [
     {
       "id": 1,
-      "intro": "<p>test_intro</p>",
-      "name": "test_name"
+      "name": "test_name",
+      "intro": "<p>test_intro</p>"
     }
   ],
   "wiki_pages": [
     {
-      "cachedcontent": "<p>test_content</p>",
       "id": 1,
       "subwikiid": 1,
+      "cachedcontent": "<p>test_content</p>",
       "title": "test_page_title"
     }
   ],

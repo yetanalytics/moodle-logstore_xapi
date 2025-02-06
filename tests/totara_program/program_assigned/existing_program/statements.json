@@ -7,18 +7,34 @@
       },
       "name": "test_fullname"
     },
+    "verb": {
+      "id": "http://activitystrea.ms/schema/1.0/assign",
+      "display": {
+        "en": "assigned"
+      }
+    },
+    "object": {
+      "id": "http://www.example.org/totara/program/view.php?id=1",
+      "definition": {
+        "name": {
+          "en": "test_name"
+        },
+        "type": "http://id.tincanapi.com/activitytype/lms/program"
+      },
+      "objectType": "Activity"
+    },
     "context": {
       "contextActivities": {
         "category": [
           {
             "id": "http://www.example.org",
-            "objectType": "Activity",
             "definition": {
               "name": {
                 "en": "test_site_fullname"
               },
               "type": "http://id.tincanapi.com/activitytype/lms"
-            }
+            },
+            "objectType": "Activity"
           }
         ]
       },
@@ -31,22 +47,6 @@
         }
       },
       "language": "en"
-    },
-    "object": {
-      "definition": {
-        "name": {
-          "en": "test_name"
-        },
-        "type": "http://id.tincanapi.com/activitytype/lms/program"
-      },
-      "id": "http://www.example.org/totara/program/view.php?id=1",
-      "objectType": "Activity"
-    },
-    "verb": {
-      "display": {
-        "en": "assigned"
-      },
-      "id": "http://activitystrea.ms/schema/1.0/assign"
     }
   }
 ]

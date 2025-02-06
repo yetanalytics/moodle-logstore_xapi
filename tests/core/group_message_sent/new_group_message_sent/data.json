@@ -21,8 +21,8 @@
   "messages": [
     {
       "conversationid": 1,
-      "fullmessage": "test_message_body",
       "id": 1,
+      "fullmessage": "test_message_body",
       "subject": "test_message_subject"
     }
   ]
