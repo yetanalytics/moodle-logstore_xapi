@@ -1,8 +1,8 @@
 {
-  "id": 1,
-  "userid": 1,
-  "courseid": 1,
-  "timecreated": 1433946701,
   "contextinstanceid": 1,
-  "eventname": "\\core_h5p\\event\\h5p_viewed"
+  "courseid": 2,
+  "eventname": "\\core_h5p\\event\\h5p_viewed",
+  "id": 1,
+  "timecreated": 1433946701,
+  "userid": 1
 }

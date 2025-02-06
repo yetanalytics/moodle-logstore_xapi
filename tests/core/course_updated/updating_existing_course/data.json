@@ -1,16 +1,9 @@
 {
-  "course": [
-    {
-      "id": 1,
-      "fullname": "test_name",
-      "lang": "en"
-    }
-  ],
   "user": [
     {
-      "id": 1,
+      "email": "test@test.com",
       "firstname": "test_fullname",
-      "email": "test@test.com"
+      "id": 1
     }
   ]
 }

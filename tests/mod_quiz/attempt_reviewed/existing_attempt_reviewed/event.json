@@ -1,11 +1,11 @@
 {
-  "id": 1,
-  "userid": 1,
-  "courseid": 1,
-  "timecreated": 1433946701,
-  "objecttable": "attempt",
-  "objectid": 1,
   "contextinstanceid": 1,
+  "courseid": 2,
   "eventname": "\\mod_quiz\\event\\attempt_reviewed",
-  "relateduserid": 2
+  "id": 1,
+  "objectid": 1,
+  "objecttable": "attempt",
+  "relateduserid": 2,
+  "timecreated": 1433946701,
+  "userid": 1
 }

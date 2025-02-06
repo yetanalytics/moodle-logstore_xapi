@@ -1,15 +1,15 @@
 {
+  "lesson": [
+    {
+      "id": 1,
+      "intro": "test_lesson_intro",
+      "name": "test_lesson"
+    }
+  ],
   "modules": [
     {
       "id": 1,
       "name": "lesson"
-    }
-  ],
-  "lesson": [
-    {
-      "id": 1,
-      "name": "test_lesson",
-      "intro": "test_lesson_intro"
     }
   ]
 }

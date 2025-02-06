@@ -1,29 +1,29 @@
 {
+  "badge": [
+    {
+      "courseid": null,
+      "description": "test badge description",
+      "id": 1,
+      "message": "you got the test badge!",
+      "name": "test_badgename",
+      "type": 1,
+      "version": "1.0"
+    }
+  ],
   "user": [
     {
-      "id": 1,
-      "firstname": "test_revoker_firstname",
-      "lastname": "test_revoker_lastname",
       "email": "revoker@test.com",
+      "firstname": "test_revoker_firstname",
+      "id": 1,
+      "lastname": "test_revoker_lastname",
       "username": "revoker"
     },
     {
-      "id": 2,
-      "firstname": "test_recipient_firstname",
-      "lastname": "test_recipient_lastname",
       "email": "recipient@test.com",
+      "firstname": "test_recipient_firstname",
+      "id": 2,
+      "lastname": "test_recipient_lastname",
       "username": "recipient"
-    }
-  ],
-  "badge": [
-    {
-      "id": 1,
-      "name": "test_badgename",
-      "description": "test badge description",
-      "type": 1,
-      "courseid": null,
-      "version": "1.0",
-      "message": "you got the test badge!"
     }
   ]
 }

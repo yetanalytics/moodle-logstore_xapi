@@ -1,74 +1,55 @@
 [
   {
     "actor": {
-      "name": "test_fullname",
       "account": {
         "homePage": "http://www.example.org",
         "name": "1"
-      }
-    },
-    "verb": {
-      "id": "http://activitystrea.ms/create",
-      "display": {
-        "en": "Created"
-      }
-    },
-    "object": {
-      "id": "http://www.example.org/mod/book/view.php?id=1&chapterid=1",
-      "definition": {
-        "type": "http://id.tincanapi.com/activitytype/chapter",
-        "name": {
-          "en": "test_book_chapter_title"
-        },
-        "description": {
-          "en": "test_book_chapter_content"
-        }
       },
-      "objectType": "Activity"
+      "name": "test_fullname"
     },
     "context": {
       "contextActivities": {
         "category": [
           {
+            "id": "http://www.example.org",
+            "objectType": "Activity",
             "definition": {
               "name": {
-                "en": "test_name"
+                "en": "test_site_fullname"
               },
               "type": "http://id.tincanapi.com/activitytype/lms"
-            },
-            "id": "http://www.example.org",
-            "objectType": "Activity"
+            }
           }
         ],
         "parent": [
           {
-            "id": "http://www.example.org/mod/book/view.php?id=1",
             "definition": {
-              "type": "http://id.tincanapi.com/activitytype/book",
               "name": {
                 "en": "test_name"
-              }
+              },
+              "type": "http://id.tincanapi.com/activitytype/book"
             },
+            "id": "http://www.example.org/mod/book/view.php?id=1",
             "objectType": "Activity"
           },
           {
-            "id": "http://www.example.org/course/section.php?id=1",
-            "objectType": "Activity",
             "definition": {
               "name": {
                 "en": "test_name Section 0"
               },
               "type": "http://id.tincanapi.com/activitytype/section"
-            }
+            },
+            "id": "http://www.example.org/course/section.php?id=1",
+            "objectType": "Activity"
           },
           {
-            "id": "http://www.example.org/course/view.php?id=1",
             "definition": {
-              "type": "https://w3id.org/xapi/cmi5/activitytype/course",
               "name": {
                 "en": "test_name"
-              }
+              },
+              "type": "https://w3id.org/xapi/cmi5/activitytype/course"
             },
+            "id": "http://www.example.org/course/view.php?id=2",
             "objectType": "Activity"
           }
         ]
@@ -82,6 +63,25 @@
         }
       },
       "language": "en"
+    },
+    "object": {
+      "definition": {
+        "description": {
+          "en": "test_book_chapter_content"
+        },
+        "name": {
+          "en": "test_book_chapter_title"
+        },
+        "type": "http://id.tincanapi.com/activitytype/chapter"
+      },
+      "id": "http://www.example.org/mod/book/view.php?id=1&chapterid=1",
+      "objectType": "Activity"
+    },
+    "verb": {
+      "display": {
+        "en": "Created"
+      },
+      "id": "http://activitystrea.ms/create"
     }
   }
 ]

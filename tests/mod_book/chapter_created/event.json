@@ -1,6 +1,6 @@
 {
-  "courseid": 1,
   "contextinstanceid": 1,
+  "courseid": 2,
   "eventname": "\\mod_book\\event\\chapter_created",
   "id": 1,
   "objectid": 1,

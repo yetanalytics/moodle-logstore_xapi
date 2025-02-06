@@ -7,46 +7,29 @@
       },
       "name": "test_fullname"
     },
-    "verb": {
-      "id": "http://activitystrea.ms/create",
-      "display": {
-        "en": "Created"
-      }
-    },
-    "object": {
-      "id": "http://www.example.org/calendar/subscription?id=1",
-      "definition": {
-        "name": {
-          "en": "example calendar subscription"
-        },
-        "type": "https://xapi.edlm/profiles/edlm-lms/concepts/activity-types/calendar-subscription"
-      },
-      "objectType": "Activity"
-    },
     "context": {
-      "language": "en",
       "contextActivities": {
-        "other": [
-          {
-            "id": "http://example-cal.com/HASH",
-            "definition": {
-              "type": "https://xapi.edlm/profiles/edlm-lms/concepts/activity-types/calendar",
-              "name": {
-                "en": "Web Calendar"
-              }
-            },
-            "objectType": "Activity"
-          }
-        ],
         "category": [
           {
+            "id": "http://www.example.org",
+            "objectType": "Activity",
             "definition": {
               "name": {
-                "en": "test_name"
+                "en": "test_site_fullname"
               },
               "type": "http://id.tincanapi.com/activitytype/lms"
+            }
+          }
+        ],
+        "other": [
+          {
+            "definition": {
+              "name": {
+                "en": "Web Calendar"
+              },
+              "type": "https://xapi.edlm/profiles/edlm-lms/concepts/activity-types/calendar"
             },
-            "id": "http://www.example.org",
+            "id": "http://example-cal.com/HASH",
             "objectType": "Activity"
           }
         ],
@@ -58,7 +41,7 @@
               },
               "type": "https://w3id.org/xapi/cmi5/activitytype/course"
             },
-            "id": "http://www.example.org/course/view.php?id=1",
+            "id": "http://www.example.org/course/view.php?id=2",
             "objectType": "Activity"
           }
         ]
@@ -70,7 +53,24 @@
           "http://moodle.org": "1.0.0",
           "https://github.com/xAPI-vle/moodle-logstore_xapi": "0.0.0-development"
         }
-      }
+      },
+      "language": "en"
+    },
+    "object": {
+      "definition": {
+        "name": {
+          "en": "example calendar subscription"
+        },
+        "type": "https://xapi.edlm/profiles/edlm-lms/concepts/activity-types/calendar-subscription"
+      },
+      "id": "http://www.example.org/calendar/subscription?id=1",
+      "objectType": "Activity"
+    },
+    "verb": {
+      "display": {
+        "en": "Created"
+      },
+      "id": "http://activitystrea.ms/create"
     }
   }
 ]

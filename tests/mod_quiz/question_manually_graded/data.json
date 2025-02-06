@@ -1,31 +1,24 @@
 {
-  "user": [
-    {
-      "id": 1,
-      "firstname": "test_instructor_fullname",
-      "email": "instructor@test.com"
-    },
-    {
-      "id": 2,
-      "firstname": "test_learner_fullname",
-      "email": "learner@test.com"
-    }
-  ],
   "modules": [
     {
       "id": 1,
       "name": "quiz"
     }
   ],
-  "quiz_attempts": [
+  "question_attempt_steps": [
+    {
+      "fraction": 0.5,
+      "id": 1,
+      "questionattemptid": 1,
+      "sequencenumber": 1
+    }
+  ],
+  "question_attempts": [
     {
       "id": 1,
-      "quiz": 1,
-      "sumgrades": 50,
-      "state": "finished",
-      "timefinish": 1,
-      "timestart": 0,
-      "userid": 2
+      "maxfraction": 1.0,
+      "minfraction": 0.0,
+      "questionusageid": 1
     }
   ],
   "quiz": [
@@ -34,20 +27,27 @@
       "name": "test_quiz_name"
     }
   ],
-  "question_attempts": [
+  "quiz_attempts": [
     {
       "id": 1,
-      "questionusageid": 1,
-      "minfraction": 0.0,
-      "maxfraction": 1.0
+      "quiz": 1,
+      "state": "finished",
+      "sumgrades": 50,
+      "timefinish": 1,
+      "timestart": 0,
+      "userid": 2
     }
   ],
-  "question_attempt_steps": [
+  "user": [
     {
-      "id": 1,
-      "questionattemptid": 1,
-      "fraction": 0.5,
-      "sequencenumber": 1
+      "email": "instructor@test.com",
+      "firstname": "test_instructor_fullname",
+      "id": 1
+    },
+    {
+      "email": "learner@test.com",
+      "firstname": "test_learner_fullname",
+      "id": 2
     }
   ]
 }

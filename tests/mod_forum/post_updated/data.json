@@ -1,10 +1,4 @@
 {
-  "modules": [
-    {
-      "id": 1,
-      "name": "forum"
-    }
-  ],
   "forum": [
     {
       "id": 1,
@@ -19,10 +13,16 @@
   ],
   "forum_posts": [
     {
+      "discussion": 1,
       "id": 1,
       "message": "<div class=\"text_to_html\">test_response_text</div>",
-      "discussion": 1,
       "subject": "Re: test_forum_discussion_name"
+    }
+  ],
+  "modules": [
+    {
+      "id": 1,
+      "name": "forum"
     }
   ]
 }

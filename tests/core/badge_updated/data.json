@@ -1,13 +1,13 @@
 {
   "badge": [
     {
-      "id": 1,
-      "name": "test_badgename",
+      "courseid": 2,
       "description": "test badge description",
+      "id": 1,
+      "message": "you got the test badge!",
+      "name": "test_badgename",
       "type": 2,
-      "courseid": 1,
-      "version": "1.0",
-      "message": "you got the test badge!"
+      "version": "1.0"
     }
   ],
   "badge_manual_award": [

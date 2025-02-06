@@ -1,10 +1,15 @@
 {
   "course": [
     {
-      "fullname": "test_course_name",
+      "fullname": "test_site_fullname",
       "id": 1,
+      "lang": "en"
+    },
+    {
+      "fullname": "test_name",
+      "id": 2,
       "lang": "en",
-      "summary": "test_course_summary"
+      "summary": "test_summary"
     }
   ],
   "event": [],

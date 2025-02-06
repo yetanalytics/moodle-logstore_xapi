@@ -1,17 +1,22 @@
 {
-  "user": [
-    {
-      "id": 1,
-      "firstname": "test_fullname",
-      "email": "test@test.com"
-    }
-  ],
   "course": [
     {
+      "fullname": "test_site_fullname",
       "id": 1,
+      "lang": "en"
+    },
+    {
       "fullname": "test_name",
+      "id": 2,
       "lang": "en",
       "shortname": "test_course_short_name"
+    }
+  ],
+  "user": [
+    {
+      "email": "test@test.com",
+      "firstname": "test_fullname",
+      "id": 1
     }
   ]
 }

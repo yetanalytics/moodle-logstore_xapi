@@ -1,9 +1,9 @@
 {
   "post": [
     {
+      "content": "contents of a note",
       "id": 1,
-      "subject": "a note title",
-      "content": "contents of a note"
+      "subject": "a note title"
     }
   ],
   "user": [

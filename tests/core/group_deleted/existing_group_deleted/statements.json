@@ -7,42 +7,29 @@
       },
       "name": "test_fullname"
     },
-    "verb": {
-      "id": "http://activitystrea.ms/delete",
-      "display": {
-        "en": "Deleted"
-      }
-    },
-    "object": {
-      "id": "http://www.example.org/group/index.php?id=1",
-      "objectType": "Activity",
-      "definition": {
-        "type": "https://xapi.edlm/profiles/edlm-lms/concepts/activity-types/group"
-      }
-    },
     "context": {
       "contextActivities": {
-        "parent": [
-          {
-            "id": "http://www.example.org/course/view.php?id=1",
-            "definition": {
-              "type": "https://w3id.org/xapi/cmi5/activitytype/course",
-              "name": {
-                "en": "test_name"
-              }
-            },
-            "objectType": "Activity"
-          }
-        ],
         "category": [
           {
             "id": "http://www.example.org",
+            "objectType": "Activity",
             "definition": {
-              "type": "http://id.tincanapi.com/activitytype/lms",
+              "name": {
+                "en": "test_site_fullname"
+              },
+              "type": "http://id.tincanapi.com/activitytype/lms"
+            }
+          }
+        ],
+        "parent": [
+          {
+            "definition": {
               "name": {
                 "en": "test_name"
-              }
+              },
+              "type": "https://w3id.org/xapi/cmi5/activitytype/course"
             },
+            "id": "http://www.example.org/course/view.php?id=2",
             "objectType": "Activity"
           }
         ]
@@ -55,6 +42,19 @@
           "https://github.com/xAPI-vle/moodle-logstore_xapi": "0.0.0-development"
         }
       }
+    },
+    "object": {
+      "definition": {
+        "type": "https://xapi.edlm/profiles/edlm-lms/concepts/activity-types/group"
+      },
+      "id": "http://www.example.org/group/index.php?id=1",
+      "objectType": "Activity"
+    },
+    "verb": {
+      "display": {
+        "en": "Deleted"
+      },
+      "id": "http://activitystrea.ms/delete"
     }
   }
 ]

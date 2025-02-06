@@ -1,22 +1,4 @@
 {
-  "user": [
-    {
-      "id": 1,
-      "firstname": "test_instructor_name",
-      "email": "instructor@test.com"
-    },
-    {
-      "id": 2,
-      "firstname": "test_attendee_name",
-      "email": "attendee@test.com"
-    }
-  ],
-  "modules": [
-    {
-      "id": 1,
-      "name": "facetoface"
-    }
-  ],
   "facetoface": [
     {
       "id": 1,
@@ -25,8 +7,16 @@
   ],
   "facetoface_sessions": [
     {
+      "facetoface": 1,
+      "id": 1
+    }
+  ],
+  "facetoface_sessions_dates": [
+    {
       "id": 1,
-      "facetoface": 1
+      "sessionid": 1,
+      "timefinish": 123123123,
+      "timestart": 123123123
     }
   ],
   "facetoface_signups": [
@@ -36,20 +26,30 @@
       "userid": 2
     }
   ],
-  "facetoface_sessions_dates": [
-    {
-      "id": 1,
-      "sessionid": 1,
-      "timestart": 123123123,
-      "timefinish": 123123123
-    }
-  ],
   "facetoface_signups_status": [
     {
       "id": 1,
       "signupid": 1,
-      "timecreated": 123123123,
-      "statuscode": 100
+      "statuscode": 100,
+      "timecreated": 123123123
+    }
+  ],
+  "modules": [
+    {
+      "id": 1,
+      "name": "facetoface"
+    }
+  ],
+  "user": [
+    {
+      "email": "instructor@test.com",
+      "firstname": "test_instructor_name",
+      "id": 1
+    },
+    {
+      "email": "attendee@test.com",
+      "firstname": "test_attendee_name",
+      "id": 2
     }
   ]
 }

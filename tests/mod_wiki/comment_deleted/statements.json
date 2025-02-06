@@ -1,110 +1,110 @@
 [
   {
     "actor": {
-      "name": "test_fullname",
       "account": {
         "homePage": "http://www.example.org",
         "name": "1"
-      }
-    },
-    "verb": {
-      "id": "http://activitystrea.ms/delete",
-      "display": {
-        "en": "Deleted"
-      }
-    },
-    "object": {
-      "id": "http://www.example.org/mod/wiki/instancecomments.php?commentid=1&pageid=1",
-      "objectType": "Activity",
-      "definition": {
-        "type": "http://activitystrea.ms/comment",
-        "name": {
-          "en": "Comment"
-        }
-      }
+      },
+      "name": "test_fullname"
     },
     "context": {
-      "language": "en",
-      "extensions": {
-        "http://lrs.learninglocker.net/define/extensions/info": {
-          "http://moodle.org": "1.0.0",
-          "https://github.com/xAPI-vle/moodle-logstore_xapi": "0.0.0-development",
-          "event_name": "\\mod_wiki\\event\\comment_deleted",
-          "event_function": "\\src\\transformer\\events\\mod_wiki\\comment_deleted"
-        }
-      },
       "contextActivities": {
+        "category": [
+          {
+            "id": "http://www.example.org",
+            "objectType": "Activity",
+            "definition": {
+              "name": {
+                "en": "test_site_fullname"
+              },
+              "type": "http://id.tincanapi.com/activitytype/lms"
+            }
+          }
+        ],
         "parent": [
           {
-            "id": "http://www.example.org/mod/wiki/comments.php?pageid=1",
             "definition": {
-              "type": "http://id.tincanapi.com/activitytype/discussion",
               "name": {
                 "en": "test_page_title Discussion"
-              }
+              },
+              "type": "http://id.tincanapi.com/activitytype/discussion"
             },
+            "id": "http://www.example.org/mod/wiki/comments.php?pageid=1",
             "objectType": "Activity"
           },
           {
-            "id": "http://www.example.org/mod/wiki/view.php?pageid=1",
             "definition": {
-              "type": "https://xapi.edlm/profiles/edlm-lms/concepts/activity-types/wiki-page",
+              "description": {
+                "en": "test_content"
+              },
               "name": {
                 "en": "test_page_title"
               },
-              "description": {
-                "en": "test_content"
-              }
+              "type": "https://xapi.edlm/profiles/edlm-lms/concepts/activity-types/wiki-page"
             },
+            "id": "http://www.example.org/mod/wiki/view.php?pageid=1",
             "objectType": "Activity"
           },
           {
-            "id": "http://www.example.org/mod/wiki/view.php?id=1",
             "definition": {
-              "type": "https://xapi.edlm/profiles/edlm-lms/concepts/activity-types/wiki",
+              "description": {
+                "en": "test_intro"
+              },
               "name": {
                 "en": "test_name"
               },
-              "description": {
-                "en": "test_intro"
-              }
+              "type": "https://xapi.edlm/profiles/edlm-lms/concepts/activity-types/wiki"
             },
+            "id": "http://www.example.org/mod/wiki/view.php?id=1",
             "objectType": "Activity"
           },
           {
-            "id": "http://www.example.org/course/section.php?id=1",
-            "objectType": "Activity",
             "definition": {
               "name": {
                 "en": "test_name Section 0"
               },
               "type": "http://id.tincanapi.com/activitytype/section"
-            }
+            },
+            "id": "http://www.example.org/course/section.php?id=1",
+            "objectType": "Activity"
           },
           {
-            "id": "http://www.example.org/course/view.php?id=1",
             "definition": {
-              "type": "https://w3id.org/xapi/cmi5/activitytype/course",
               "name": {
                 "en": "test_name"
-              }
+              },
+              "type": "https://w3id.org/xapi/cmi5/activitytype/course"
             },
-            "objectType": "Activity"
-          }
-        ],
-        "category": [
-          {
-            "id": "http://www.example.org",
-            "definition": {
-              "type": "http://id.tincanapi.com/activitytype/lms",
-              "name": {
-                "en": "test_name"
-              }
-            },
+            "id": "http://www.example.org/course/view.php?id=2",
             "objectType": "Activity"
           }
         ]
-      }
+      },
+      "extensions": {
+        "http://lrs.learninglocker.net/define/extensions/info": {
+          "event_function": "\\src\\transformer\\events\\mod_wiki\\comment_deleted",
+          "event_name": "\\mod_wiki\\event\\comment_deleted",
+          "http://moodle.org": "1.0.0",
+          "https://github.com/xAPI-vle/moodle-logstore_xapi": "0.0.0-development"
+        }
+      },
+      "language": "en"
+    },
+    "object": {
+      "definition": {
+        "name": {
+          "en": "Comment"
+        },
+        "type": "http://activitystrea.ms/comment"
+      },
+      "id": "http://www.example.org/mod/wiki/instancecomments.php?commentid=1&pageid=1",
+      "objectType": "Activity"
+    },
+    "verb": {
+      "display": {
+        "en": "Deleted"
+      },
+      "id": "http://activitystrea.ms/delete"
     }
   }
 ]

@@ -1,14 +1,14 @@
 {
-  "assign_submission": [
-    {
-      "id": 1,
-      "assignment": 1
-    }
-  ],
   "assign": [
     {
       "id": 1,
       "name": "test_name"
+    }
+  ],
+  "assign_submission": [
+    {
+      "assignment": 1,
+      "id": 1
     }
   ],
   "modules": [
@@ -19,14 +19,14 @@
   ],
   "user": [
     {
-      "id": 1,
+      "email": "test1@test.com",
       "firstname": "test_fullname1",
-      "email": "test1@test.com"
+      "id": 1
     },
     {
-      "id": 2,
+      "email": "test2@test.com",
       "firstname": "test_fullname2",
-      "email": "test2@test.com"
+      "id": 2
     }
   ]
 }

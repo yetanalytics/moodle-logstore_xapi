@@ -4,7 +4,7 @@
   "id": 1,
   "objectid": null,
   "objecttable": null,
+  "other": "a:7:{s:1:\"q\";s:5:\"query\";s:4:\"page\";i:0;s:5:\"title\";s:0:\"\";s:7:\"areaids\";a:0:{}s:9:\"courseids\";a:0:{}s:9:\"timestart\";i:0;s:7:\"timeend\";i:0;}",
   "timecreated": 1433946701,
-  "userid": 1,
-  "other": "a:7:{s:1:\"q\";s:5:\"query\";s:4:\"page\";i:0;s:5:\"title\";s:0:\"\";s:7:\"areaids\";a:0:{}s:9:\"courseids\";a:0:{}s:9:\"timestart\";i:0;s:7:\"timeend\";i:0;}"
+  "userid": 1
 }

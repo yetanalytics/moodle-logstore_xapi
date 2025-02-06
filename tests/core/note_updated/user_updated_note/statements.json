@@ -7,47 +7,18 @@
       },
       "name": "note_editor_firstname note_editor_lastname"
     },
-    "verb": {
-      "id": "http://activitystrea.ms/update",
-      "display": {
-        "en": "Updated"
-      }
-    },
-    "object": {
-      "id": "http://www.example.org/notes/view.php?id=1",
-      "definition": {
-        "name": {
-          "en": "a note title"
-        },
-        "type": "http://activitystrea.ms/note",
-        "description": {
-          "en": "contents of a note"
-        },
-        "extensions": {
-          "https://xapi.edlm/profiles/edlm-lms/concepts/activity-extensions/note-type": "course",
-          "https://xapi.edlm/profiles/edlm-lms/concepts/activity-extensions/note-subject": {
-            "account": {
-              "homePage": "http://www.example.org",
-              "name": "2"
-            },
-            "name": "note_subject_firstname note_subject_lastname"
-          }
-        }
-      },
-      "objectType": "Activity"
-    },
     "context": {
       "contextActivities": {
         "category": [
           {
+            "id": "http://www.example.org",
+            "objectType": "Activity",
             "definition": {
               "name": {
-                "en": "test_name"
+                "en": "test_site_fullname"
               },
               "type": "http://id.tincanapi.com/activitytype/lms"
-            },
-            "id": "http://www.example.org",
-            "objectType": "Activity"
+            }
           }
         ],
         "parent": [
@@ -58,7 +29,7 @@
               },
               "type": "https://w3id.org/xapi/cmi5/activitytype/course"
             },
-            "id": "http://www.example.org/course/view.php?id=1",
+            "id": "http://www.example.org/course/view.php?id=2",
             "objectType": "Activity"
           }
         ]
@@ -72,6 +43,35 @@
         }
       },
       "language": "en"
+    },
+    "object": {
+      "definition": {
+        "description": {
+          "en": "contents of a note"
+        },
+        "extensions": {
+          "https://xapi.edlm/profiles/edlm-lms/concepts/activity-extensions/note-subject": {
+            "account": {
+              "homePage": "http://www.example.org",
+              "name": "2"
+            },
+            "name": "note_subject_firstname note_subject_lastname"
+          },
+          "https://xapi.edlm/profiles/edlm-lms/concepts/activity-extensions/note-type": "course"
+        },
+        "name": {
+          "en": "a note title"
+        },
+        "type": "http://activitystrea.ms/note"
+      },
+      "id": "http://www.example.org/notes/view.php?id=1",
+      "objectType": "Activity"
+    },
+    "verb": {
+      "display": {
+        "en": "Updated"
+      },
+      "id": "http://activitystrea.ms/update"
     }
   }
 ]

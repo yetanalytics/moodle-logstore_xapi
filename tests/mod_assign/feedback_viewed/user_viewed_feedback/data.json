@@ -1,20 +1,14 @@
 {
-  "assign_grades": [
+  "assign": [
     {
       "id": 1,
-      "grader": 2
+      "name": "test_name"
     }
   ],
-  "user": [
+  "assign_grades": [
     {
-      "id": 1,
-      "firstname": "test_fullname1",
-      "email": "test1@test.com"
-    },
-    {
-      "id": 2,
-      "firstname": "test_fullname2",
-      "email": "test2@test.com"
+      "grader": 2,
+      "id": 1
     }
   ],
   "modules": [
@@ -23,10 +17,16 @@
       "name": "assign"
     }
   ],
-  "assign": [
+  "user": [
     {
-      "id": 1,
-      "name": "test_name"
+      "email": "test1@test.com",
+      "firstname": "test_fullname1",
+      "id": 1
+    },
+    {
+      "email": "test2@test.com",
+      "firstname": "test_fullname2",
+      "id": 2
     }
   ]
 }

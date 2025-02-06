@@ -1,43 +1,48 @@
 {
-  "user": [
-    {
-      "id": 1,
-      "firstname": "test_recipient_firstname",
-      "lastname": "test_recipient_lastname",
-      "email": "recipient@test.com",
-      "username": "recipient"
-    },
-    {
-      "id": 2,
-      "firstname": "test_awarder_firstname",
-      "lastname": "test_awarder_lastname",
-      "email": "awarder@test.com",
-      "username": "awarder"
-    }
-  ],
-  "course": [
-    {
-      "id": 1,
-      "fullname": "test_course_name",
-      "lang": "en",
-      "summary": "test_course_summary"
-    }
-  ],
   "badge": [
     {
-      "id": 1,
-      "name": "test_badgename",
+      "courseid": 2,
       "description": "test badge description",
+      "id": 1,
+      "message": "you got the test badge!",
+      "name": "test_badgename",
       "type": 2,
-      "courseid": 1,
-      "version": "1.0",
-      "message": "you got the test badge!"
+      "version": "1.0"
     }
   ],
   "badge_manual_award": [
     {
       "id": 2,
       "issuerid": 2
+    }
+  ],
+  "course": [
+    {
+      "fullname": "test_site_fullname",
+      "id": 1,
+      "lang": "en"
+    },
+    {
+      "fullname": "test_name",
+      "id": 2,
+      "lang": "en",
+      "summary": "test_summary"
+    }
+  ],
+  "user": [
+    {
+      "email": "recipient@test.com",
+      "firstname": "test_recipient_firstname",
+      "id": 1,
+      "lastname": "test_recipient_lastname",
+      "username": "recipient"
+    },
+    {
+      "email": "awarder@test.com",
+      "firstname": "test_awarder_firstname",
+      "id": 2,
+      "lastname": "test_awarder_lastname",
+      "username": "awarder"
     }
   ]
 }

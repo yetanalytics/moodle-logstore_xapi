@@ -7,41 +7,18 @@
       },
       "name": "test_fullname"
     },
-    "verb": {
-      "id": "http://id.tincanapi.com/verb/viewed",
-      "display": {
-        "en": "Viewed"
-      }
-    },
-    "object": {
-      "id": "http://www.example.org/badges/overview.php?id=1",
-      "definition": {
-        "name": {
-          "en": "testbadge"
-        },
-        "description": {
-          "en": "badge description"
-        },
-        "type": "https://xapi.edlm/profiles/edlm-lms/concepts/activity-types/badge",
-        "extensions": {
-          "https://xapi.edlm/profiles/edlm-lms/v1/concepts/activity-extensions/badge-type": "Global",
-          "https://xapi.edlm/profiles/edlm-lms/v1/concepts/activity-extensions/badge-version": "1.0"
-        }
-      },
-      "objectType": "Activity"
-    },
     "context": {
       "contextActivities": {
         "category": [
           {
+            "id": "http://www.example.org",
+            "objectType": "Activity",
             "definition": {
               "name": {
-                "en": "test_name"
+                "en": "test_site_fullname"
               },
               "type": "http://id.tincanapi.com/activitytype/lms"
-            },
-            "id": "http://www.example.org",
-            "objectType": "Activity"
+            }
           }
         ],
         "parent": [
@@ -52,7 +29,7 @@
               },
               "type": "https://w3id.org/xapi/cmi5/activitytype/course"
             },
-            "id": "http://www.example.org/course/view.php?id=1",
+            "id": "http://www.example.org/course/view.php?id=2",
             "objectType": "Activity"
           }
         ]
@@ -66,6 +43,29 @@
         }
       },
       "language": "en"
+    },
+    "object": {
+      "definition": {
+        "description": {
+          "en": "badge description"
+        },
+        "extensions": {
+          "https://xapi.edlm/profiles/edlm-lms/v1/concepts/activity-extensions/badge-type": "Global",
+          "https://xapi.edlm/profiles/edlm-lms/v1/concepts/activity-extensions/badge-version": "1.0"
+        },
+        "name": {
+          "en": "testbadge"
+        },
+        "type": "https://xapi.edlm/profiles/edlm-lms/concepts/activity-types/badge"
+      },
+      "id": "http://www.example.org/badges/overview.php?id=1",
+      "objectType": "Activity"
+    },
+    "verb": {
+      "display": {
+        "en": "Viewed"
+      },
+      "id": "http://id.tincanapi.com/verb/viewed"
     }
   }
 ]

@@ -13,7 +13,7 @@
           {
             "definition": {
               "name": {
-                "en": "test_course_name"
+                "en": "test_site_fullname"
               },
               "type": "http://id.tincanapi.com/activitytype/lms"
             },
@@ -25,11 +25,11 @@
           {
             "definition": {
               "name": {
-                "en": "test_course_name"
+                "en": "test_name"
               },
               "type": "https://w3id.org/xapi/cmi5/activitytype/course"
             },
-            "id": "http://www.example.org/course/view.php?id=1",
+            "id": "http://www.example.org/course/view.php?id=2",
             "objectType": "Activity"
           }
         ]

@@ -1,38 +1,38 @@
 [
   {
     "actor": {
-      "name": "test_fullname",
       "account": {
         "homePage": "http://www.example.org",
         "name": "1"
-      }
+      },
+      "name": "test_fullname"
     },
-    "verb": {
-      "id": "https://xapi.edlm/profiles/edlm-lms/concepts/verbs/logout",
-      "display": {
-        "en": "Logged Out"
-      }
+    "context": {
+      "extensions": {
+        "http://lrs.learninglocker.net/define/extensions/info": {
+          "event_function": "\\src\\transformer\\events\\core\\user_loggedout",
+          "event_name": "\\core\\event\\user_loggedout",
+          "http://moodle.org": "1.0.0",
+          "https://github.com/xAPI-vle/moodle-logstore_xapi": "0.0.0-development"
+        }
+      },
+      "language": "en"
     },
     "object": {
       "id": "http://www.example.org",
+      "objectType": "Activity",
       "definition": {
-        "type": "http://id.tincanapi.com/activitytype/lms",
         "name": {
-          "en": "test_name"
-        }
-      },
-      "objectType": "Activity"
-    },
-    "context": {
-      "language": "en",
-      "extensions": {
-        "http://lrs.learninglocker.net/define/extensions/info": {
-          "http://moodle.org": "1.0.0",
-          "https://github.com/xAPI-vle/moodle-logstore_xapi": "0.0.0-development",
-          "event_name": "\\core\\event\\user_loggedout",
-          "event_function": "\\src\\transformer\\events\\core\\user_loggedout"
-        }
+          "en": "test_site_fullname"
+        },
+        "type": "http://id.tincanapi.com/activitytype/lms"
       }
+    },
+    "verb": {
+      "display": {
+        "en": "Logged Out"
+      },
+      "id": "https://xapi.edlm/profiles/edlm-lms/concepts/verbs/logout"
     }
   }
 ]
