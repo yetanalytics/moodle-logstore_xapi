@@ -36,7 +36,7 @@ class existing_module_test extends \logstore_xapi\xapi_test_case {
   /**
    * Initialize, skipping if mod_survey is not present.
    *
-   * @return string
+   * @return void
    */
   public function setUp(): void {
     global $CFG;
