@@ -31,7 +31,7 @@ require_once($CFG->dirroot . '/admin/tool/log/store/xapi/tests/xapi_test_case.ph
  */
 class essay_assessed_test extends \logstore_xapi\xapi_test_case {
 
-  protected function setUp(): void {
+  public function setUp(): void {
     parent::setUp();
 
     if (!defined('LESSON_PAGE_SHORTANSWER')) {
