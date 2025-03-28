@@ -37,6 +37,7 @@ class response_submitted_test extends \logstore_xapi\xapi_test_case {
    * @return string
    */
   public function setUp(): void {
+    global $CFG;
     parent::setUp();
 
     // Skip tests if mod_survey is not present (i.e., Moodle 5.0+).
