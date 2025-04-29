@@ -31,40 +31,55 @@ require_once($CFG->dirroot . '/admin/tool/log/store/xapi/tests/xapi_test_case.ph
  */
 class report_viewed_test extends \logstore_xapi\xapi_test_case {
 
-    /**
-     * Retrieve the directory of the unit test.
-     *
-     * @return string
-     */
-    protected function get_test_dir() {
-        return __DIR__;
-    }
+  /**
+   * Initialize, skipping if mod_survey is not present.
+   *
+   * @return void
+   */
+  public function setUp(): void {
+    global $CFG;
+    parent::setUp();
 
-    /**
-     * Retrieve the plugin type being tested.
-     *
-     * @return string
-     */
-    protected function get_plugin_type() {
-        return "core";
+    // Skip tests if mod_survey is not present (i.e., Moodle 5.0+).
+    if (!is_dir($CFG->dirroot . '/mod/survey')) {
+      $this->markTestSkipped('mod_survey is not available in Moodle 5.0 and above.');
     }
+  }
 
-    /**
-     * Retrieve the plugin name being tested.
-     *
-     * @return string
-     */
-    protected function get_plugin_name() {
-        return "mod_survey";
-    }
+  /**
+   * Retrieve the directory of the unit test.
+   *
+   * @return string
+   */
+  protected function get_test_dir() {
+    return __DIR__;
+  }
 
-    /**
-     * Appease auto-detecting of test cases. xapi_test_case has default test cases.
-     *
-     * @covers ::report_viewed
-     * @return void
-     */
-    public function test_init() {
+  /**
+   * Retrieve the plugin type being tested.
+   *
+   * @return string
+   */
+  protected function get_plugin_type() {
+    return "core";
+  }
 
-    }
+  /**
+   * Retrieve the plugin name being tested.
+   *
+   * @return string
+   */
+  protected function get_plugin_name() {
+    return "mod_survey";
+  }
+
+  /**
+   * Appease auto-detecting of test cases. xapi_test_case has default test cases.
+   *
+   * @covers ::report_viewed
+   * @return void
+   */
+  public function test_init() {
+
+  }
 }

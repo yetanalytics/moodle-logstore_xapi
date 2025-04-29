@@ -31,47 +31,60 @@ require_once($CFG->dirroot . '/admin/tool/log/store/xapi/tests/xapi_test_case.ph
  */
 class essay_assessed_test extends \logstore_xapi\xapi_test_case {
 
-    /**
-     * Retrieve the directory of the unit test.
-     *
-     * @return string
-     */
-    protected function get_test_dir() {
-        return __DIR__;
-    }
+  public function setUp(): void {
+    parent::setUp();
 
-    /**
-     * Retrieve the plugin type being tested.
-     *
-     * @return string
-     */
-    protected function get_plugin_type() {
-        return "mod";
+    if (!defined('LESSON_PAGE_SHORTANSWER')) {
+      define('LESSON_PAGE_SHORTANSWER', 1);
+      define('LESSON_PAGE_ESSAY', 10);
+      define('LESSON_PAGE_TRUEFALSE', 2);
+      define('LESSON_PAGE_MULTICHOICE', 3);
+      define('LESSON_PAGE_MATCHING', 5);
+      define('LESSON_PAGE_NUMERICAL', 8);
     }
+  }
 
-    /**
-     * Retrieve the plugin name being tested.
-     *
-     * @return string
-     */
-    protected function get_plugin_name() {
-        return "glossary";
-    }
+  /**
+   * Retrieve the directory of the unit test.
+   *
+   * @return string
+   */
+  protected function get_test_dir() {
+    return __DIR__;
+  }
 
-    /**
-     * Appease auto-detecting of test cases. xapi_test_case has default test cases.
-     *
-     * @covers ::essay_assessed
-     * @return void
-     */
-    public function test_init() {
-        if (!defined('LESSON_PAGE_SHORTANSWER')) {
-            define('LESSON_PAGE_SHORTANSWER', 1);
-            define('LESSON_PAGE_ESSAY', 10);
-            define('LESSON_PAGE_TRUEFALSE', 2);
-            define('LESSON_PAGE_MULTICHOICE', 3);
-            define('LESSON_PAGE_MATCHING', 5);
-            define('LESSON_PAGE_NUMERICAL', 8);
-        }
+  /**
+   * Retrieve the plugin type being tested.
+   *
+   * @return string
+   */
+  protected function get_plugin_type() {
+    return "mod";
+  }
+
+  /**
+   * Retrieve the plugin name being tested.
+   *
+   * @return string
+   */
+  protected function get_plugin_name() {
+    return "glossary";
+  }
+
+  /**
+   * Appease auto-detecting of test cases. xapi_test_case has default test cases.
+   *
+   * @covers ::essay_assessed
+   * @return void
+   */
+  public function test_init() {
+    if (!defined('LESSON_PAGE_SHORTANSWER')) {
+      define('LESSON_PAGE_SHORTANSWER', 1);
+      define('LESSON_PAGE_ESSAY', 10);
+      define('LESSON_PAGE_TRUEFALSE', 2);
+      define('LESSON_PAGE_MULTICHOICE', 3);
+      define('LESSON_PAGE_MATCHING', 5);
+      define('LESSON_PAGE_NUMERICAL', 8);
     }
+  }
 }
